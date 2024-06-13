@@ -1,0 +1,122 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif; /* Consistent font-family */
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px; /* previously 0 and 20px */
+    background-color: #f4f4f4;
+}
+
+/* Navbar Brand Styles */
+nav .navbar-brand {
+    font-size: xx-large;
+}
+nav .navbar-brand .blue { color: #537fbe; }
+nav .navbar-brand .red { color: #ea433b; }
+nav .navbar-brand .yellow { color: #f5b82e; }
+nav .navbar-brand .green { color: #2e944b; }
+
+/* Headings */
+h2, h3, h4, h5 {
+    margin-bottom: 1.5em;
+    text-align: center; /* Center align all headings */
+}
+h3 { font-size: 1.75em; }
+h4 { font-size: 1.5em; }
+h5 { font-size: 1.25em; }
+
+/* Text Elements */
+p, li, a {
+    font-size: 1em;
+    text-align: left;
+    margin-bottom: 0.75em;
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Lists */
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 1em;
+}
+
+/* Sections and Forms */
+.section {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px; /* previously 1em */
+    margin: 20px auto; /* previously margin bottom was 1em no margin specified */
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.section.profile-page h5,
+.container.profile-page h2
+{
+    margin-bottom: 1.5em;
+}
+.section.profile-page .form-group button {
+    margin-top: 1em;
+}
+.section.profile-page label {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.section.profile-page .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section.profile-page .form-group select,
+.section.profile-page .form-group input {
+    width: 75%;
+    max-width: 85%; /* Ensure it doesn't exceed the container */
+}
+
+/* Adjust the width of .section.profile-page */
+.section.profile-page {
+    width: 500px;
+    max-width: 75%; /* Adjust the value as needed */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Ensure there's enough padding inside */
+}
+
+
+input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+select:hover { background-color: #45a049; }
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover { background-color: #45a049; }
+
+.text-center { text-align: center; }
+
+#trends p {
+    text-align: center;
+}

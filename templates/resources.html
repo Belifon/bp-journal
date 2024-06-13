@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ data.title }}
+{% endblock %}
+
+{% block main %}
+    <div>
+        <h2>{{ data.header }}</h2>
+        <br>
+    </div>
+
+    {% for section in data.sections %}
+        <div class="section" id="{{ section.id }}">
+            <h4>{{ section.header }}</h4>
+            <p>{{ section.content }}</p>
+ 
+            {% if section.displayType == "ul" %}
+                <ul>
+                    {% for item in section.list %}
+                        <li><strong>{{ item.label }}</strong>: {{ item.text }}
+                        {% if item.link %}
+                            <a href="{{ item.link.url }}">{{ item.link.text }}</a>
+                        {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% elif section.displayType == "ol" %}
+                <ol>
+                    {% for item in section.list %}
+                        <li><strong>{{ item.label }}</strong>: {{ item.text }}
+                        {% if item.link %}
+                        <a href="{{ item.link.url }}">{{ item.link.text }}</a>
+                        {% endif %}
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% elif section.displayType == "paragraph" %}
+                {% for item in section.list %}
+                    <p><strong>{{ item.label }}</strong>: {{ item.text }}
+                    {% if item.link %}
+                    <a href="{{ item.link.url }}">{{ item.link.text }}</a>
+                    {% endif %}
+                    </p>
+                {% endfor %}
+            {% endif %}
+
+            {% if section.additionalLink %}
+                <p><a href="{{ section.additionalLink.url }}">{{ section.additionalLink.text }}</a></p>
+            {% endif %}
+        </div>
+    {% endfor %}
+    
+{% endblock %}
+
+
+
+

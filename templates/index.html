@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ data.title }}
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+        <h2>{{ data.welcomeHeading }}, {{ formatted_uname }}</h2>
+        <br>
+        <h3>{{ data.empoweringTagline }}</h3>
+        <p>{{ data.welcomeMessage }}</p>
+
+        <br>
+        <h3>{{ data.keyFeatures }}</h3>
+        <ul>
+        {% for feature in data.features %}
+            <li><strong>{{ feature.featureName }}: </strong>{{ feature.featureDescription }}</li>
+        {% endfor %}
+        </ul>
+
+    </div>
+
+    <div class="section">
+        <h2>{{ data.aboutMe.Heading }}</h2>
+        <p>{{ data.aboutMe.Message}}</p>
+    </div>
+
+{% endblock %}

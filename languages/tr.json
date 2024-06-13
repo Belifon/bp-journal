@@ -1,0 +1,319 @@
+{
+    "dashboard": {
+        "title": "Kontrol Paneli",
+        "heading": "Kan Basıncı Kontrol Paneliniz",
+        "description": "(son beş ölçümününüzün ortalaması)",
+        "avgSystolic": "Ortalama Sistolik",
+        "avgDiastolic": "Ortalama Diyastolik",
+        "avgPulse": "Ortalama Nabız",
+        "last5heading": "Son Beş Kan Basıncı Ölçümü",
+        "systolic": "Sistolik",
+        "diastolic": "Diyastolik",
+        "pulse": "Nabız",
+        "notes": "Notlar",
+        "dateRecorded": "Kayıt Tarihi",
+        "readingClassification": "Sınıflandırma",
+        "classificationLink": {"text": "Kan basıncı sınıflandırmaları hakkında daha fazla bilgi için", "textUrl":"tıklayınız"},
+        "alertsHeading": "Bilgilendirmeler",
+        "comment": "Tansiyonunuzu düzenli olarak kaydetmek, sağlığınızı korumanın ve olası sorunları önceden tespit etmenin en etkili yollarından biridir. Kendi sağlığınızı izleyerek, daha bilinçli ve sağlıklı bir yaşam sürdürmek mümkündür."
+    },
+
+    "classes": {
+        "Normal": "Normal", 
+        "Elevated": "Yüskelmiş",
+        "High1": "Hipertansiyon Evre 1", 
+        "High2": "Hipertansiyon Evre 2", 
+        "Crisis": "Hipertansif Kriz"
+    },
+    
+    "history":{
+        "title": "Geçmiş",
+        "heading": "Tansiyon Ölçümleriniz",
+        "systolic": "Sistolik",
+        "diastolic": "Diyastolik",
+        "pulse": "Nabız",
+        "notes": "Notlar",
+        "dateRecorded": "Kayıt Tarihi"
+    },
+
+    "index":{
+        "title": "Tansiyon Takibim",
+        "welcomeHeading": "Tansiyon Takibim'e Hoş Geldiniz",
+        "empoweringTagline": "Sağlıklı Tansiyon İçin Güvenilir Yol Arkadaşınız",
+        "welcomeMessage": "Kan basıncınızı anlamak ve yönetmek hiç bu kadar kolay olmamıştı! Tansiyon Takibim, günlük kan basıncı takibinizi kolaylaştıran ve ölçüm bilgilerinizi her an elinizin altında tutmanıza yardımcı olan kişisel sağlık uygulamanızdır. Bu platform, sağlık bilgilerinizi kaydederek, analiz ederek ve size özel sağlık önerileri sunarak sağlık yolculuğunuzda size eşlik eder.",
+        "keyFeatures": "Uygulama Özellikleri",
+        "features": [
+            {
+            "featureName": "Kolay Tansiyon Takibi",
+            "featureDescription": "Sistolik, diyastolik kan basıncınızı, nabız hızınızı ve ölçümlerle ilgili notlarınızı kolayca kaydedin."
+            },
+            {
+            "featureName": "Detaylı Sağlık Analizi",
+            "featureDescription": "Sağlık verileriniz üzerinden zaman içinde oluşturulan analizlerle kan basıncı trendlerinizi izleyin ve sağlık durumunuz hakkında daha derinlemesine bilgi edinin."
+            },
+            {
+            "featureName": "Size Özel ve Gizli",
+            "featureDescription": "Sağlık verileriniz yalnızca sizin erişiminize açıktır ve hiçbir zaman üçüncü partilerle paylaşılmaz."
+            },
+            {
+            "featureName": "Uzman Rehberleri ve İpuçları",
+            "featureDescription": "Kan basıncı yönetimi ve sağlıklı yaşam üzerine uzmanlar tarafından hazırlanan güncel içeriklere, önerilere ve rehberlere erişin."
+            }
+        ],
+        "aboutMe": {
+            "Heading": "Hakkımda", 
+            "Message": "Merhaba, ben Yelissa. Bilgisayar bilimlerine ilgi duyan bir iş yeri hekimiyim. Bu web sitesi, Harvard Üniversitesi'nin CS50x kursu için hazırladığım final projem. Hem iş yeri sağlık uygulamaları hem de teknolojinin sağlığa katkıları konusundaki bilgi birikimimi bir araya getirerek, kullanıcıların sağlıklı bir yaşam sürmelerine yardımcı olmayı amaçlıyorum."
+        }
+    },
+
+    "layout": {
+        "title": "Tansiyon Takibim",
+        "navbarBrand": {"First": "C", "Second": "S", "Rest": "Tansiyon Takibim"},
+        "navbarBrandFirst": "C",
+        "navbarBrandSecond": "S",
+        "navbarBrandRest": "Tansiyon Takibim",
+        "dashboard": "Kontrol Paneli",
+        "recordReading": "Ölçüm Kaydet",
+        "history": "Geçmiş",
+        "resources": "Tansiyon Hakkında Her Şey",
+        "profile": "Profilim",
+        "logOut": "Çıkış",
+        "register": "Üye Ol",
+        "logIn": "Giriş Yap",
+        "footerTextA": "Bugünkü tansiyon ölçümünüzü kaydetmeyi unutmayın!",
+        "footerTextB": "Ölçüm kaydet",
+        "footerTextC": "Yorum, istek ve önerileriniz için",
+        "footerTextD": "bana ulaşın"
+    },
+
+    "login": {
+        "title": "Giriş Sayfası",
+        "heading": "Hesabınıza Giriş Yapın",
+        "usernamePlaceholder": "Kullanıcı Adı",
+        "passwordPlaceholder": "Parola",
+        "loginButton": "Giriş Yap"       
+    },
+
+    "profile": {
+        "title": "Profilim",
+        "heading": "Profil Bilgilerini Güncelle",
+        "usernameTag": "Kullanıcı Adı",
+        "nameHeading": "İsim Güncelle",
+        "nameTag": "İsim",
+        "namePlaceholder": "İsminizi Yazın",
+        "newPasswordOptTag": "Yeni Parola",
+        "newPasswordConfTag": "Yeni Parolayı Onayla",
+        "changeNameTag": "İsim Güncelle",
+        "changePasswordTag": "Parolayı Değiştir (İsteğe Bağlı)",
+        "updateButton":"Güncelle",
+        "saveButton": "Kaydet (NOT USED)",
+        "tzHeading": "Saat Dilimini Güncelle",
+        "timezoneTag": "Mevcut Saat Diliminiz",
+        "timezoneUpdateTag": "Saat Dilimi Güncelle (NOT USED)"
+    },
+
+
+    "record": {
+        "title": "Ölçüm Ekle",
+        "heading": "Kan Basıncı Ölçümü Kaydet",
+        "systolicPlaceholder": "Sistolik Değer",
+        "diastolicPlaceholder": "Diyastolik Değer",
+        "pulseRatePlaceholder": "Nabız Sayısı",
+        "notesPlaceholder": "Ek Notlar",
+        "recordButton": "Kaydet",
+        "FAQLink": {"text": "Doğru tansiyon ölçümünün nasıl yapılacağından emin değil misiniz? Ölçümle ilgili sık sorulan sorular için", "textUrl":"tıklayın"}
+    },
+
+    "register": {
+        "title": "Hesap Ol",
+        "heading": "Yeni Hesap Oluştur",
+        "usernamePlaceholder": "Kullanıcı Adı",
+        "passwordPlaceholder": "Parola",
+        "passwordConfirmationPlaceholder": "Parola (tekrar)",
+        "registerButton": "Üye Ol"
+    },
+
+    "resources": {
+        "title": "Kaynaklar",
+        "header": "Tansiyon Hakkında Her Şey",
+        "sections": [
+            {
+                "header": "Tansiyon Nedir?",
+                "id": "what-is-bp-section",
+                "content": "Tansiyon arteriyel (kan basıncı), atardamarların içindeki kanın basıncıdır. Bu basınç milimetre cıva cinsinden ifade edilir, önce kasılma basıncı sonra gevşeme basıncı olarak kaydedilir.",
+                "displayType": "paragraph",
+                "list": [
+                    {
+                        "label": "Sistolik Kan Basıncı",
+                        "text": "Kalbin kasılması sırasında atardamar duvarında oluşan basınç değeri"
+                    },
+                    {
+                        "label": "Diyastolik Kan Basıncı",
+                        "text": "Kalbin gevşemesi sırasında atardamar duvarında oluşan basınç değeri."
+                    }
+                ],
+                "additionalLink": {
+                    "url": "https://tr.wikipedia.org/wiki/Kan_basıncı",
+                    "text": "Kan basıncı hakkında daha detaylı bilgi edinin (Kaynak: Vikipedi)."
+                }
+            },
+            {
+                "header": "Kan Basıncı Kategorileri",
+                "id": "bp-categories-section",
+                "content": "American Heart Association, sağlık risklerini tanımlamaya yardımcı olmak için birkaç tansiyon kategorisi belirlemiştir:",
+                "displayType": "ol",
+                "list": [
+                    {
+                        "label": "Normal",
+                        "text": "120/80 mm Hg'nın altında."
+                    },
+                    {
+                        "label": "Yükselmiş",
+                        "text": "Sistolik 120 ile 129 mm Hg arasında ve diyastolik 80 mm Hg'nın altında."
+                    },
+                    {
+                        "label": "Yüksek Tansiyon (Hipertansiyon) Evre 1",
+                        "text": "Sistolik 130 ile 139 mm Hg arasında veya diyastolik 80 ile 89 mm Hg arasında."
+                    },
+                    {
+                        "label": "Yüksek Tansiyon (Hipertansiyon) Evre 2",
+                        "text": "Sistolik 140 mm Hg'nın üzerinde veya diyastolik 90 mm Hg'nın üzerinde."
+                    },
+                    {
+                        "label": "Hipertansif Kriz",
+                        "text": "Sistolik 180 mm Hg'nın üzerinde veya diyastolik 120 mm Hg'nın üzerinde, acil tıbbi müdahale gerektirir."
+                    }
+                ],
+                "additionalLink": {
+                    "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings",
+                    "text": "Kan basıncı ölçümlerini ve bunların sonuçlarını anlamak (Kaynak: American Heart Association, İngilizce)."
+                }
+            },
+            {
+                "header": "Sağlıklı Tansiyon İçin Yaşam Tarzı Değişiklikleri",
+                "id": "lifestyle-changes-section",
+                "content": "Daha sağlıklı yaşam tarzı alışkanlıkları benimsemek, yüksek tansiyonu önemli ölçüde düşürebilir ve genel sağlığınıza katkıda bulunur.",
+                "displayType": "paragraph",
+                "list": [
+                    {
+                        "label": "Diyet",
+                        "text": "Tuz ve doymuş yağlar açısından düşük yiyeceklerle beslenin, işlenmiş gıdaları tercih etmeyin, dengeli bir diyeti benimseyin."
+                    },
+                    {
+                        "label": "Fiziksel Aktivite",
+                        "text": "Sağlıklı bir kiloda kalmak ve kan basıncını kontrol altında tutmak için düzenli egzersiz yapın."
+                    },
+                    {
+                        "label": "Alkol Tüketimi",
+                        "text": "Fazla alkol tüketimi ve kırmızı şarap dışındaki alkol grupları kalp sağlığını olumsuz etkiler. Alkol tüketimini azaltarak tansiyon değerinizi olumlu yönde etkileyin. "
+                    },
+                    {
+                        "label": "Sigarayı Bırakma",
+                        "text": "Kalp sağlığınızı iyileştirmek ve tansiyonunuzu düzenlemek için sigarayı bırakın."
+                    }
+                ],
+                "additionalLink": {
+                    "url": "https://www.cdc.gov/bloodpressure/manage.htm",
+                    "text": "Yaşam tarzı değişiklikleri ile yüksek tansiyonu yönetmek hakkında bilgi edinin (Kaynak: CDC, İngilizce)."
+                }
+            },
+            {
+                "header": "Daha Fazla Bilgi İçin Kaynaklar",
+                "id": "more-info-section",
+                "content": "Kan basıncı yönetimi hakkında bilginizi arttırmak için bu kaynakları keşfedin:",
+                "displayType": "paragraph",
+                "list": [
+                    {
+                        "label": "DASH Diyeti",
+                        "text": "Yüksek kan basıncıyla mücadele etmek için kanıtlanmış bir diyet planı olan Dietary Approaches to Stop Hypertension (DASH) diyeti hakkında daha fazla bilgi edinin.",
+                        "link": {
+                            "url": "https://www.nhlbi.nih.gov/health-topics/dash-eating-plan",
+                            "text": "(Kaynak: NHLBI, İngilizce)"
+                        }
+                    },
+                    {
+                        "label": "Kan Basıncı Bilgi Broşürleri",
+                        "text": "American Heart Association, kan basıncı sağlığınızı derinlemesine anlamanıza yardımcı olacak detaylı broşürleri inceleyin.",
+                        "link": {
+                            "url": "https://www.heart.org/en/health-topics/high-blood-pressure",
+                            "text": "(Kaynak: American Heart Association, İngilizce)"
+                        }
+                    },
+                    {
+                        "label": "Etkileşimli Araçlar ve Videolar",
+                        "text": "Kan basıncını daha iyi yönetmek ve anlamak için etkileşimli araçları kullanın ve bilgilendirici videoları izleyin.",
+                        "link": {
+                            "url": "https://www.nhlbi.nih.gov/health-topics/education-and-awareness",
+                            "text": "(Kaynak: NHBLI, İngilizce)"
+                        }
+                    }
+                ]
+            },
+            {
+                "header": "Tansiyon Hakkında SSS",
+                "id": "faq-section",
+                "content": "Tansiyon ve tansiyon ölçümü hakkında sıkça sorulan bazı sorular ve yanıtları:",
+                "displayType": "paragraph",
+                "list": [
+                    {
+                        "label": "Soru 1: Hipertansiyon iyileşir mi?",
+                        "text": "Yüksek tansiyon genellikle kronik bir durum olsa da, yaşam tarzı değişiklikleri ve ilaçlarla etkili bir şekilde yönetilebilir."
+                    },
+                    {
+                        "label": "Soru 2: Tansiyonumu ne sıklıkla kontrol etmeliyim?",
+                        "text": "Hipertansiyonu olmayan kişilerde için birkaç ayda bir kontrol etmek yeterlidir. Herhangi bir şüphe varsa veya Kardiyoloji randevusu öncesinde 7 gün boyunca günde iki kere ölçülmesi tavsiye edilir. Hipertansiyonu olanların daha sık izlemeleri gerekmektedir."
+                    },
+                    {
+                        "label": "Soru 3: Yüksek tansiyonun belirtileri nelerdir?",
+                        "text": "Baş ağrısı, baş dönmesi, bulanık görme, çarpıntı, burun kanaması gibi belirtiler yüksek tansiyona işaret edebilir ancak tansiyon yüksekliği çoğunlukla kritik seviyelere ulaşana kadar belirti vermez. Bu nedenle tansiyonunuzu düzenli olarak takip etmek kritik öneme sahiptir."
+                    },
+                    {
+                        "label": "Soru 4: Tansiyonumu nerede ölçmeliyim?",
+                        "text": "Doğru bir ölçüm için ölçümden önceki 30 dakika sigara içmekten, kahve içmekten, yemek yemekten ve egzersiz yapmaktan kaçınmak gerekir. Ölçüm; sessiz, uygun sıcaklıktaki bir odada, 3-5 dakika sakin bir şekilde oturduktan sonra yapılmalı ve ölçüm sırasında konuşulmamalıdır."
+                    },
+                    {
+                        "label": "Soru 5: Tansiyonum ölçülürken pozisyonumun önemi var mı?",
+                        "text": "Evet, tansiyonunuz ölçülürken sırtınız desteklenmiş, ayaklarınız yere düz basacak şekilde oturmalı, bacaklarınızı çaprazlamamalısınız. Ölçüm yapılan kol çıplak olmalı ve kalp seviyesinde desteklenmelidir."
+                    },
+                    {
+                        "label": "Soru 6: Tansiyonumu sadece bir kere ölçmem yeterli mi?",
+                        "text": "Bir dakika arayla iki ölçüm yapın. İki ölçüm de normalse ortalamayı not edin. Eğer normal değilse bir dakika sonra üçüncü bir ölçüm yapın ve son iki ölçümün ortalamasını not edin. Tansiyonu ilk kez ölçerken her iki koldan da ölçün, sonraki ölçümlerde ölçüm sonucu daha yüksek olan kolu kullanın. İki koldan yapılan ölçümler arasındaki fark 20 mmHg'dan fazlaysa doktorunuza danışın."
+                    },
+                    {
+                        "label": "Soru 7: Doktorum bana tansiyon ilacı yazdı ama benim bir şikayetim yok, ilaç kullanmazsam ne olur?",
+                        "text": "Hipertansiyon genellikle belirti göstermeden ilerler, bu yüzden ‘sessiz katil’ olarak bilinir. Tansiyon ilacı; kalp krizi, felç ve diğer ciddi sağlık sorunlarını önlemek için tansiyonu güvenli seviyelerde tutmayı amaçlar. Kendinizi iyi hissediyor olsanız bile ilaçları kullanmamak ciddi sağlık risklerine yol açabilir. İlaçlarınızı doktorunuzun önerdiği şekilde ve düzenli olarak kullanmak sağlığınız için kritik önem taşır. Yaşam tarzı değişiklikleri tansiyonu kontrol etmeye yardımcı olabilir, ancak etkilerini görmek zaman alır. Bu süreçte tansiyon ilacını kullanmaya devam etmek ve yaşam tarzı değişikliklerinden olumlu sonuçlar aldıktan sonra doktorunuzun kontrolüyle ilacı düzenlemek en güvenli yoldur."
+                    }
+                ]
+            },
+            {
+                "header": "Önemli Linkler ve Referanslar",
+                "id": "more-links-section",
+                "content": "Kan basıncını yönetmek ve anlamak hakkında daha fazla bilgi için bu temel kaynakları keşfedin:",
+                "displayType": "ul",
+                "list": [
+                    {
+                        "label": "American Heart Association - Yüksek Kan Basıncı (İngilizce)",
+                        "link": {
+                            "url": "https://www.heart.org/en/health-topics/high-blood-pressure",
+                            "text": "Daha fazla bilgi için AHA sitesini ziyaret edin."
+                        }
+                    },
+                    {
+                        "label": "CDC - Yüksek Kan Basıncı (İngilizce)",
+                        "link": {
+                            "url": "https://www.cdc.gov/bloodpressure/index.htm",
+                            "text": "CDC sitesini ziyaret edin."
+                        }
+                    },
+                    {
+                        "label": "NHLBI - Yüksek Kan Basıncı (İngilizce)",
+                        "link": {
+                            "url": "https://www.nhlbi.nih.gov/health-topics/high-blood-pressure",
+                            "text": "NHLBI sitesini ziyaret edin."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

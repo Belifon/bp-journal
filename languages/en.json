@@ -1,0 +1,314 @@
+{
+    "dashboard": {
+        "title": "Dashboard",
+        "heading": "Your Blood Pressure Dashboard",
+        "description": "(average of your last five measurements)",
+        "avgSystolic": "Average Systolic",
+        "avgDiastolic": "Average Diastolic",
+        "avgPulse": "Average Pulse",
+        "last5heading": "Recent Blood Pressure Readings",
+        "systolic": "Systolic",
+        "diastolic": "Diastolic",
+        "pulse": "Pulse",
+        "notes": "Notes",
+        "dateRecorded": "Date Recorded",
+        "readingClassification": "Classification",
+        "classificationLink": {"text": "To learn more about blood pressure classifications", "textUrl":"Click here"},
+        "alertsHeading": "For You",
+        "comment": "Recording your blood pressure regularly is beneficial for your health as it allows you to monitor trends, detect potential health issues early, and manage existing conditions more effectively. By keeping track of your readings, you can provide valuable information to your healthcare provider, helping them make informed decisions about your treatment plan. Regular monitoring can also motivate you to maintain a healthy lifestyle, such as following a balanced diet, exercising regularly, and managing stress."
+    },
+
+    "classes": {
+        "Normal": "Normal", 
+        "Elevated": "Elevated",
+        "High1": "Hypertension Stage 1", 
+        "High2": "Hypertension Stage 2", 
+        "Crisis": "Hypertensive Crisis"
+    },
+
+    "history":{
+        "title": "History",
+        "heading": "Blood Pressure Recording History",
+        "systolic": "Systolic",
+        "diastolic": "Diastolic",
+        "pulse": "Pulse",
+        "notes": "Notes",
+        "dateRecorded": "Date Recorded"
+    },
+
+    "index":{
+        "title": "Main Page",
+        "welcomeHeading": "Welcome to Your Blood Pressure Tracker",
+        "empoweringTagline": "Empowering You in Your Health Journey",
+        "welcomeMessage": "Your personal companion in managing and understanding your blood pressure. Designed with your health in mind, a platform provides an easy-to-use interface for recording and tracking your blood pressure readings, ensuring you stay informed about your health status.",
+        "keyFeatures": "Key Features",
+        "features": [
+            {
+            "featureName": "Track Your Progress",
+            "featureDescription": "Seamlessly record your systolic and diastolic blood pressure, along with your pulse rate, any notes, and the time of recording."
+            },
+            {
+            "featureName": "Insightful Analytics",
+            "featureDescription": "Visualize your health trends over time and gain valuable insights into your blood pressure patterns."
+            },
+            {
+            "featureName": "Private and Confidential",
+            "featureDescription": "Your health data is accessible only to you and is not shared with any third parties."
+            },
+            {
+            "featureName": "Educational Resources",
+            "featureDescription": "Explore essential information on blood pressure management, including key tips, articles, and guidelines to effectively manage your health."
+            }
+        ],
+        "aboutMe": {"Heading": "About Me", "Message": "Hi, I'm Yelissa. As an occupational physician, I am exploring new territories in computer science. This website is my final project for Harvard University's CS50x course, and I am passionate about innovating at the intersection of health and technology."}
+    },
+
+    "layout": {
+        "title": "BP Tracker",
+        "navbarBrand": {"First": "C", "Second": "S", "Rest": "BP Tracker"},
+        "dashboard": "Dashboard",
+        "recordReading": "Record Reading",
+        "history": "History",
+        "resources": "Resources",
+        "profile": "Profile",
+        "logOut": "Log Out",
+        "register": "Register",
+        "logIn": "Log in",
+        "footerTextA": "Don't forget to record your blood pressure today!",
+        "footerTextB": "Record BP",
+        "footerTextC": "For comments, requests, and suggestions, ",
+        "footerTextD": "contact me"
+
+    },
+
+    "login": {
+        "title": "Log in",
+        "heading": "Log in",
+        "usernamePlaceholder": "Username",
+        "passwordPlaceholder": "Password",
+        "loginButton": "Log In"       
+    },
+
+    "profile": {
+        "title": "Profile",
+        "heading": "Update Profile",
+        "usernameTag": "Username",
+        "nameHeading": "Update Name",
+        "nameTag": "Name",
+        "namePlaceholder": "Enter Your Name",
+        "newPasswordOptTag": "New Password",
+        "newPasswordConfTag": "Confirm New Password",
+        "changeNameTag": "Change Name",
+        "changePasswordTag": "Change Password (optional)",
+        "updateButton":"Update",
+        "saveButton": "Save (NOT USED)",
+        "tzHeading": "Update Your Timezone",
+        "timezoneTag": "Your Timezone",
+        "timezoneUpdateTag": "Update Your Timezone (NOT USED)"
+    },
+
+
+    "record": {
+        "title": "Record Blood Pressure Reading",
+        "heading": "Record Blood Pressure Reading",
+        "systolicPlaceholder": "Systolic",
+        "diastolicPlaceholder": "Diastolic",
+        "pulseRatePlaceholder": "Pulse Rate",
+        "notesPlaceholder": "Notes",
+        "recordButton": "Record Reading",
+        "FAQLink": {"text": "Not sure how to correctly measure your blood pressure? For FAQs on measuring", "textUrl":"click here"}
+    },
+
+    "register": {
+        "title": "Register",
+        "heading": "Register",
+        "usernamePlaceholder": "Username",
+        "passwordPlaceholder": "Password",
+        "passwordConfirmationPlaceholder": "Password (again)",
+        "registerButton": "Register"
+    },
+
+    "resources": {
+        "title": "Resources",
+        "header": "Understanding Blood Pressure",
+        "sections": [
+            {
+                "header": "What Is Blood Pressure?",
+                "id": "what-is-bp-section",
+                "content": "Blood pressure measures the force that circulating blood exerts against the walls of the arteries. It is quantified in millimeters of mercury (mm Hg) and recorded with two figures: systolic pressure, which occurs during heartbeats, and diastolic pressure, which is measured between beats.",
+                "displayType": "paragraph",
+                "list": [
+                    {
+                        "label": "Systolic Blood Pressure",
+                        "text": "Indicates the pressure in your arteries during heartbeats."
+                    },
+                    {
+                        "label": "Diastolic Blood Pressure",
+                        "text": "Measures the pressure in your arteries when the heart is at rest."
+                    }
+                ],
+                "additionalLink": {
+                    "url": "https://www.heart.org/en/health-topics/high-blood-pressure/the-facts-about-high-blood-pressure/what-is-high-blood-pressure",
+                    "text": "Learn more about blood pressure dynamics (Source: American Heart Association)."
+                }
+            },
+            {
+                "header": "Blood Pressure Categories",
+                "id": "bp-categories-section",
+                "content": "The American Heart Association defines several categories of blood pressure to help identify health risks:",
+                "displayType": "ol",
+                "list": [
+                    {
+                        "label": "Normal",
+                        "text": "Below 120/80 mm Hg."
+                    },
+                    {
+                        "label": "Elevated",
+                        "text": "Systolic from 120 to 129 mm Hg and diastolic less than 80 mm Hg."
+                    },
+                    {
+                        "label": "High Blood Pressure (Hypertension) Stage 1",
+                        "text": "Systolic from 130 to 139 mm Hg or diastolic from 80 to 89 mm Hg."
+                    },
+                    {
+                        "label": "High Blood Pressure (Hypertension) Stage 2",
+                        "text": "Systolic at least 140 mm Hg or diastolic at least 90 mm Hg."
+                    },
+                    {
+                        "label": "Hypertensive Crisis",
+                        "text": "Systolic over 180 mm Hg or diastolic over 120 mm Hg, requiring immediate medical attention."
+                    }
+                ],
+                "additionalLink": {
+                    "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings",
+                    "text": "Understanding blood pressure readings and their implications (Source: American Heart Association)."
+                }
+            },
+            {
+                "header": "Lifestyle Changes for a Healthy Blood Pressure",
+                "id": "lifestyle-changes-section",
+                "content": "Adopting healthier lifestyle habits can significantly lower your blood pressure and enhance overall well-being:",
+                "displayType": "paragraph",
+                "list": [
+                    {
+                        "label": "Diet",
+                        "text": "Consume a balanced diet low in salt and saturated fats."
+                    },
+                    {
+                        "label": "Physical Activity",
+                        "text": "Engage in regular exercise to maintain a healthy weight and reduce blood pressure."
+                    },
+                    {
+                        "label": "Moderating Alcohol Intake",
+                        "text": "Reduce alcohol consumption to positively influence blood pressure levels."
+                    },
+                    {
+                        "label": "Quitting Smoking",
+                        "text": "Stop smoking to improve heart health and lower blood pressure."
+                    }
+                ],
+                "additionalLink": {
+                    "url": "https://www.cdc.gov/bloodpressure/manage.htm",
+                    "text": "Learn about managing high blood pressure with lifestyle changes (Source: CDC)."
+                }
+            },
+            {
+                "header": "Resources for Further Education",
+                "id": "more-info-section",
+                "content": "Expand your knowledge and understanding of blood pressure management with these educational resources:",
+                "displayType": "paragraph",
+                "list": [
+                    {
+                        "label": "The DASH Diet",
+                        "text": "Explore the Dietary Approaches to Stop Hypertension (DASH) diet, a proven dietary plan to combat high blood pressure.",
+                        "link": {
+                            "url": "https://www.nhlbi.nih.gov/health-topics/dash-eating-plan",
+                            "text": "(Source: NHLBI)"
+                        }
+                    },
+                    {
+                        "label": "Blood Pressure Fact Sheets",
+                        "text": "The American Heart Association provides detailed fact sheets to deepen your understanding of blood pressure health.",
+                        "link": {
+                            "url": "https://www.heart.org/en/health-topics/high-blood-pressure",
+                            "text": "(Source: American Heart Association)"
+                        }
+                    },
+                    {
+                        "label": "Interactive Tools and Videos",
+                        "text": "Utilize interactive tools and watch informative videos to better manage and understand blood pressure.",
+                        "link": {
+                            "url": "https://www.nhlbi.nih.gov/health-topics/education-and-awareness",
+                            "text": "(Source: NHBLI)"
+                        }
+                    }
+                ]
+            },
+            {
+                "header": "FAQs on Blood Pressure",
+                "id": "faq-section",
+                "content": "Address common questions and concerns about blood pressure with these FAQs:",
+                "displayType": "paragraph",
+                "list": [
+                    {
+                        "label": "Q1: Can hypertension be cured?",
+                        "text": "Although high blood pressure is typically a chronic condition, it can be effectively managed with lifestyle changes and medications."
+                    },
+                    {
+                        "label": "Q2: How often should I check my blood pressure?",
+                        "text": "For people without hypertension, checking it every few months is sufficient. If there is any doubt or before a cardiology appointment, it is advisable to measure it twice a day for 7 days. Those with hypertension need to monitor it more frequently."
+                    },
+                    {
+                        "label": "Q3: What are the symptoms of high blood pressure?",
+                        "text": "Headaches, dizziness, blurred vision, palpitations, and nosebleeds can indicate high blood pressure, but it usually doesn't show symptoms until it reaches critical levels. Therefore, regular monitoring is crucial."
+                    },
+                    {
+                        "label": "Q4: In what environment should I take my blood pressure measurement?",
+                        "text": "For an accurate measurement, avoid smoking, drinking coffee, eating, and exercising for 30 minutes before measuring. The measurement should be done in a quiet, appropriately heated room and after sitting calmly for 3-5 minutes, without talking during the measurement."
+                    },
+                    {
+                        "label": "Q5: What should my position be when measuring my blood pressure?",
+                        "text": "When measuring blood pressure, you should sit with your back supported, feet flat on the floor without crossing your legs, the arm being measured should be bare and supported at heart level."
+                    },
+                    {
+                        "label": "Q6: Is it enough to measure my blood pressure only once?",
+                        "text": "Take two measurements one minute apart. If both readings are normal, note the average. If not, take a third measurement one minute later and note the average of the last two readings. When measuring blood pressure for the first time, measure both arms; for subsequent measurements, use the arm with the higher reading. If the difference between arms is more than 20 mmHg, consult a doctor."
+                    },
+                    {
+                        "label": "Q7: My doctor prescribed blood pressure medication, but I have no symptoms. What happens if I don't take it?",
+                        "text": "Hypertension often progresses without symptoms, which is why it's known as the 'silent killer.' Blood pressure medication keeps it at safe levels to prevent heart attacks, strokes, and other serious health issues. Even if you feel fine, taking the medication as prescribed is crucial for your health. Lifestyle changes can help control blood pressure, but they take time to show effects. It's safest to continue the medication and consult your doctor about any adjustments after seeing positive results from lifestyle changes."
+                    }
+                ]
+            },
+            {
+                "header": "Important Links and References",
+                "id": "more-links-section",
+                "content": "Explore these essential links and resources for more information on managing and understanding blood pressure:",
+                "displayType": "ul",
+                "list": [
+                    {
+                        "label": "American Heart Association - High Blood Pressure",
+                        "link": {
+                            "url": "https://www.heart.org/en/health-topics/high-blood-pressure",
+                            "text": "Visit the AHA site for more info."
+                        }
+                    },
+                    {
+                        "label": "CDC - High Blood Pressure",
+                        "link": {
+                            "url": "https://www.cdc.gov/bloodpressure/index.htm",
+                            "text": "Learn more at the CDC."
+                        }
+                    },
+                    {
+                        "label": "NHLBI - High Blood Pressure",
+                        "link": {
+                            "url": "https://www.nhlbi.nih.gov/health-topics/high-blood-pressure",
+                            "text": "Visit the NHLBI resource page."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

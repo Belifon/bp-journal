@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ data.title }}
+{% endblock %}
+
+{% block main %}
+    <h2>{{ data.heading }}</h2>
+    <br>
+    <form action="/record" method="post">
+        <div class="mb-3">
+            <!-- ilk inputtan şunu çıkardım autocomplete="off" -->
+            <input autofocus class="form-control mx-auto w-auto" id="systolic" name="systolic" placeholder="{{ data.systolicPlaceholder }}" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="diastolic" name="diastolic" placeholder="{{ data.diastolicPlaceholder }}" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="pulse" name="pulse" placeholder="{{ data.pulseRatePlaceholder }}" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="notes" name="notes" placeholder="{{ data.notesPlaceholder }}" type="text">
+        </div>
+        <button class="btn btn-primary" id="recordbutton" type="submit">{{ data.recordButton }}</button>
+    </form>
+    <br>
+    <p>{{ data.FAQLink.text }} <a href="/resources#faq-section">{{ data.FAQLink.textUrl }}</a>.</p>
+
+{% endblock %}
