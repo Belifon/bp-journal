@@ -26,7 +26,7 @@ db = SQL("sqlite:///bloodpressure.db")
 
 @app.route("/toggle_language")
 def toggle_language():
-    current_lang = session.get('language', 'en')  # Default is English
+    current_lang = session.get('language', 'tr')  # Default is Turkish
     new_lang = 'tr' if current_lang == 'en' else 'en'  # If language is Turkish changes to English, if it's English changes to Turkish 
     session['language'] = new_lang
     return redirect(request.referrer or '/')
@@ -35,7 +35,7 @@ def toggle_language():
 
 @app.before_request
 def load_language_data():
-    user_lang = session.get('language', 'en')  # Default is English
+    user_lang = session.get('language', 'tr')  # Default is Turkish
     with open(f'languages/{user_lang}.json', 'r') as file:
         g.language_data = json.load(file)
     g.language_data['current_lang'] = user_lang
