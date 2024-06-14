@@ -1,6 +1,6 @@
 {
     "dashboard": {
-        "title": "Dashboard",
+        "title": "Your Dashboard",
         "heading": "Your Blood Pressure Dashboard",
         "description": "(average of your last five measurements)",
         "avgSystolic": "Average Systolic",
