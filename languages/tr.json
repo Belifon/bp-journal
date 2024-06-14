@@ -12,7 +12,7 @@
         "pulse": "Nabız",
         "notes": "Notlar",
         "dateRecorded": "Kayıt Tarihi",
-        "readingClassification": "Sınıflandırma",
+        "readingClassification": "Sınıf",
         "classificationLink": {"text": "Kan basıncı sınıflandırmaları hakkında daha fazla bilgi için", "textUrl":"tıklayınız"},
         "alertsHeading": "Bilgilendirmeler",
         "comment": "Tansiyonunuzu düzenli olarak kaydetmek, sağlığınızı korumanın ve olası sorunları önceden tespit etmenin en etkili yollarından biridir. Kendi sağlığınızı izleyerek, daha bilinçli ve sağlıklı bir yaşam sürdürmek mümkündür."
