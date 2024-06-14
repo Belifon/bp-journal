@@ -2,7 +2,7 @@
     "dashboard": {
         "title": "Your Dashboard",
         "heading": "Your Blood Pressure Dashboard",
-        "description": "(average of your last five measurements baby)",
+        "description": "(average of your last five measurements baby yes)",
         "avgSystolic": "Average Systolic",
         "avgDiastolic": "Average Diastolic",
         "avgPulse": "Average Pulse",
