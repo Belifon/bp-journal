@@ -13,7 +13,7 @@
         "notes": "Notes",
         "dateRecorded": "Date Recorded",
         "readingClassification": "Classification",
-        "classificationLink": {"text": "To learn more about blood pressure classifications", "textUrl":"Click here"},
+        "classificationLink": {"text": "To learn more about blood pressure classifications", "textUrl":"click here"},
         "alertsHeading": "For You",
         "comment": "Recording your blood pressure regularly is beneficial for your health as it allows you to monitor trends, detect potential health issues early, and manage existing conditions more effectively. By keeping track of your readings, you can provide valuable information to your healthcare provider, helping them make informed decisions about your treatment plan. Regular monitoring can also motivate you to maintain a healthy lifestyle, such as following a balanced diet, exercising regularly, and managing stress."
     },
@@ -60,7 +60,7 @@
             "featureDescription": "Explore essential information on blood pressure management, including key tips, articles, and guidelines to effectively manage your health."
             }
         ],
-        "aboutMe": {"Heading": "About Me", "Message": "Hi, I'm Yelissa. As an occupational physician, I am exploring new territories in computer science. This website is my final project for Harvard University's CS50x course, and I am passionate about innovating at the intersection of health and technology."}
+        "aboutMe": {"Heading": "About Me", "Message": "Hi, I'm Yelissa. I am an occupational physician with an interest in computer science. This website is my final project for Harvard University's CS50x course. Combining my knowledge in workplace health practices and the contributions of technology to health, I aim to help users lead a healthy lifestyle."}
     },
 
     "layout": {
@@ -138,16 +138,16 @@
             {
                 "header": "What Is Blood Pressure?",
                 "id": "what-is-bp-section",
-                "content": "Blood pressure measures the force that circulating blood exerts against the walls of the arteries. It is quantified in millimeters of mercury (mm Hg) and recorded with two figures: systolic pressure, which occurs during heartbeats, and diastolic pressure, which is measured between beats.",
+                "content": "Blood pressure (arterial pressure) is the pressure of the blood within the arteries. This pressure is expressed in millimeters of mercury, recorded first as systolic pressure and then as diastolic pressure.",
                 "displayType": "paragraph",
                 "list": [
                     {
                         "label": "Systolic Blood Pressure",
-                        "text": "Indicates the pressure in your arteries during heartbeats."
+                        "text": "The pressure in the artery walls during the contraction of the heart."
                     },
                     {
                         "label": "Diastolic Blood Pressure",
-                        "text": "Measures the pressure in your arteries when the heart is at rest."
+                        "text": "The pressure in the artery walls during the relaxation of the heart."
                     }
                 ],
                 "additionalLink": {
@@ -175,7 +175,7 @@
                     },
                     {
                         "label": "High Blood Pressure (Hypertension) Stage 2",
-                        "text": "Systolic at least 140 mm Hg or diastolic at least 90 mm Hg."
+                        "text": "Systolic over 140 mm Hg or diastolic over 90 mm Hg."
                     },
                     {
                         "label": "Hypertensive Crisis",
@@ -250,7 +250,7 @@
             {
                 "header": "FAQs on Blood Pressure",
                 "id": "faq-section",
-                "content": "Address common questions and concerns about blood pressure with these FAQs:",
+                "content": "Frequently asked questions and concerns about blood pressure:",
                 "displayType": "paragraph",
                 "list": [
                     {
@@ -286,7 +286,7 @@
             {
                 "header": "Important Links and References",
                 "id": "more-links-section",
-                "content": "Explore these essential links and resources for more information on managing and understanding blood pressure:",
+                "content": "Explore these links and resources for more information on managing and understanding blood pressure:",
                 "displayType": "ul",
                 "list": [
                     {

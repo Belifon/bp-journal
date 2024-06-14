@@ -15,7 +15,7 @@
         "readingClassification": "Sınıf",
         "classificationLink": {"text": "Kan basıncı sınıflandırmaları hakkında daha fazla bilgi için", "textUrl":"tıklayınız"},
         "alertsHeading": "Bilgilendirmeler",
-        "comment": "Tansiyonunuzu düzenli olarak kaydetmek, sağlığınızı korumanın ve olası sorunları önceden tespit etmenin en etkili yollarından biridir. Kendi sağlığınızı izleyerek, daha bilinçli ve sağlıklı bir yaşam sürdürmek mümkündür."
+        "comment": "Tansiyonunuzu düzenli olarak kaydetmek, sağlığınızı korumanın, olası sorunları erken tespit etmenin ve mevcut durumları daha başarılı bir şekilde yönetmenin en etkili yollarından biridir. Tansiyonunuzu takip ederek dengeli beslenme, düzenli egzersiz yapma ve stresi yönetme gibi sağlıklı bir yaşam tarzını sürdürmek için sizi motive eder. Kendi sağlığınızı izleyerek, daha bilinçli ve sağlıklı bir yaşam sürdürmek mümkündür."
     },
 
     "classes": {
@@ -145,11 +145,11 @@
                 "list": [
                     {
                         "label": "Sistolik Kan Basıncı",
-                        "text": "Kalbin kasılması sırasında atardamar duvarında oluşan basınç değeri"
+                        "text": "Kalbin kasılması sırasında atardamar duvarında oluşan basınç değeridir."
                     },
                     {
                         "label": "Diyastolik Kan Basıncı",
-                        "text": "Kalbin gevşemesi sırasında atardamar duvarında oluşan basınç değeri."
+                        "text": "Kalbin gevşemesi sırasında atardamar duvarında oluşan basınç değeridir."
                     }
                 ],
                 "additionalLink": {
@@ -268,7 +268,7 @@
                         "text": "Baş ağrısı, baş dönmesi, bulanık görme, çarpıntı, burun kanaması gibi belirtiler yüksek tansiyona işaret edebilir ancak tansiyon yüksekliği çoğunlukla kritik seviyelere ulaşana kadar belirti vermez. Bu nedenle tansiyonunuzu düzenli olarak takip etmek kritik öneme sahiptir."
                     },
                     {
-                        "label": "Soru 4: Tansiyonumu nerede ölçmeliyim?",
+                        "label": "Soru 4: Tansiyonumu hangi koşullarda ölçmeliyim?",
                         "text": "Doğru bir ölçüm için ölçümden önceki 30 dakika sigara içmekten, kahve içmekten, yemek yemekten ve egzersiz yapmaktan kaçınmak gerekir. Ölçüm; sessiz, uygun sıcaklıktaki bir odada, 3-5 dakika sakin bir şekilde oturduktan sonra yapılmalı ve ölçüm sırasında konuşulmamalıdır."
                     },
                     {
