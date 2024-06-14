@@ -53,7 +53,7 @@
             },
             {
             "featureName": "Private and Confidential",
-            "featureDescription": "Your health data is accessible only to you and is not shared with any third parties. The platform is under development, and as of June 14, 2024, user registrations are stored on Heroku's own servers."
+            "featureDescription": "Your health data is accessible only to you and is not shared with any third parties. (The platform is under development, and as of June 14, 2024, user registrations are stored on Heroku's own servers)"
             },
             {
             "featureName": "Educational Resources",
