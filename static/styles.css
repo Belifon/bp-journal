@@ -54,6 +54,9 @@ ul, ol {
     margin-left: auto;
 }
 
+#recordFooter  {
+    text-align: center;
+}
 
 .section.profile-page h5,
 .container.profile-page h2
