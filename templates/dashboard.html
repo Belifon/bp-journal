@@ -38,7 +38,7 @@
                 <th class="text-start">{{ data.diastolic }}</th>
                 <th class="text-start">{{ data.pulse }}</th>
                 <th class="text-start">{{ data.readingClassification }}</th>
-                <th class="text-end">{{ data.dateRecorded }}</th>
+                <th class="text-center">{{ data.dateRecorded }}</th>
                 <th class="text-start">{{ data.notes }}</th>
             </tr>
         </thead>
@@ -50,7 +50,7 @@
                 <td class="text-start">{{ row.diastolic }} mm Hg</td>
                 <td class="text-start">{{ row.pulse }} bpm</td>
                 <td class="text-start">{{ classes[row.classification] }}</td>
-                <td class="text-end">{{ row.reading_date }}</td>
+                <td class="text-center">{{ row.reading_date }}</td>
                 <td class="text-start">{{ row.notes }}</td>
             </tr>
             {% endfor %}
