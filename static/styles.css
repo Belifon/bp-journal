@@ -22,6 +22,8 @@ h2, h3, h4, h5 {
     margin-bottom: 1.5em;
     text-align: center; /* Center align all headings */
 }
+
+h2 { font-size: 2em; }
 h3 { font-size: 1.75em; }
 h4 { font-size: 1.5em; }
 h5 { font-size: 1.25em; }
