@@ -65,7 +65,10 @@
 
     "layout": {
         "title": "BP Tracker",
-        "navbarBrand": {"First": "C", "Second": "S", "Rest": "BP Tracker"},
+        "navbarBrand": "BP Tracker",
+        "navbarBrandFirst": "C",
+        "navbarBrandSecond": "S",
+        "navbarBrandRest": "BP Tracker",
         "dashboard": "Dashboard",
         "recordReading": "Record Reading",
         "history": "History",

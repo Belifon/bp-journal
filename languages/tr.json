@@ -68,7 +68,7 @@
 
     "layout": {
         "title": "Tansiyon Takibim",
-        "navbarBrand": {"First": "C", "Second": "S", "Rest": "Tansiyon Takibim"},
+        "navbarBrand": "Tansiyon Takibim",
         "navbarBrandFirst": "C",
         "navbarBrandSecond": "S",
         "navbarBrandRest": "Tansiyon Takibim",
