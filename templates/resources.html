@@ -36,7 +36,7 @@
                 </ol>
             {% elif section.displayType == "paragraph" %}
                 {% for item in section.list %}
-                    <p><strong>{{ item.label }}</strong>: {{ item.text }}
+                    <p><strong>{{ item.label }}</strong> {{ item.text }}
                     {% if item.link %}
                     <a href="{{ item.link.url }}">{{ item.link.text }}</a>
                     {% endif %}
