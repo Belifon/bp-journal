@@ -7,13 +7,15 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
+
+# Import custom helper functions from helpers.py
 from helpers import apology, classify_bp, login_required
 
 # Configure application
 app = Flask(__name__)
 
 
-# Configure session to use filesystem (instead of signed cookies)
+# Configure and initialize session
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
@@ -22,32 +24,29 @@ Session(app)
 db = SQL("sqlite:///bloodpressure.db")
 
 
-
-
 @app.route("/toggle_language")
 def toggle_language():
-    current_lang = session.get('language', 'tr')  # Default is Turkish
-    new_lang = 'tr' if current_lang == 'en' else 'en'  # If language is Turkish changes to English, if it's English changes to Turkish 
-    session['language'] = new_lang
-    return redirect(request.referrer or '/')
+    current_lang = session.get('language', 'tr')  # Get current language from session, default to Turkish
+    new_lang = 'tr' if current_lang == 'en' else 'en'  # Toggle language between Turkish and English 
+    session['language'] = new_lang # Save new language to session
+    return redirect(request.referrer or '/') # Redirect back to the previous page
 
 
 
 @app.before_request
 def load_language_data():
-    user_lang = session.get('language', 'tr')  # Default is Turkish
-    with open(f'languages/{user_lang}.json', 'r') as file:
+    user_lang = session.get('language', 'tr')  # Load language data before each request, default to Turkish
+    with open(f'languages/{user_lang}.json', 'r') as file: # Open and read the appropriate language file
         g.language_data = json.load(file)
-    g.language_data['current_lang'] = user_lang
+    g.language_data['current_lang'] = user_lang # Store the current language in the global variable
 
-
-
-# Fetch all time zones
+# Fetch all time zones, get a list of all time zones
 timezones = pytz.all_timezones
 
 @app.after_request
 def after_request(response):
-    """Ensure responses aren't cached"""
+
+    # Ensure responses aren't cached
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
@@ -55,50 +54,66 @@ def after_request(response):
 
 @app.context_processor
 def inject_layout_data():
+
+    # Provide layout data to all templates
     return dict(layout_data=g.language_data['layout'])
 
 
+# Inject username into templates
 @app.context_processor
 def inject_user_details():
-    if 'user_id' in session:
+    
+    # Check if the user is logged in, if logged in query user info from database using ID
+    if 'user_id' in session: 
         user_id = session['user_id']
-        user_info = db.execute("SELECT username FROM users WHERE id = ?", user_id)
-        if user_info:
+        user_info = db.execute("SELECT username FROM users WHERE id = ?", user_id) 
+    
+        # If user info found, get username
+        if user_info: 
             username = user_info[0]['username']
+    
+        # If user info not found, set username to None
         else:
             username = None
+    
+    # If not logged in, set username to None
     else:
         username = None
+    
+    # Return username
     return {'username': username}
 
 
-
+# Get the user ID from session, query the database for user's name. If found, capitalize, if not, use username as name and capitalize
 @app.route("/")
 @login_required
 def index():
 
-    # Get the current user's username
+    # Get the user ID from session, query the database for user's name
     user_id = session["user_id"]
     resultname= db.execute ("SELECT name FROM users WHERE id =?;", user_id)
     uname = resultname[0]['name']
-    # Extract the username from the query result
+    
+    # Extract the user's name from the query result and capitalize the first letter
     if uname:
         formatted_uname = uname[0].upper() + uname[1:]
+    
+    # If the name is not available, capitalize and use the username instead
     else:
         resultusername= db.execute ("SELECT username FROM users WHERE id =?;", user_id)
         uname = resultusername[0]['username']
         formatted_uname = uname[0].upper() + uname[1:]
-
+    # Render the index page with the user's name and formatted name
     return render_template("index.html",uname=uname, formatted_uname=formatted_uname, data=g.language_data['index'])
 
 
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    # get the user id and timezone
+    # Get the user ID and timezone, convert timezone to pytz timezone
     user_id = session["user_id"]
     user_timezone = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]['timezone']
-    user_tz = pytz.timezone(user_timezone)
+    user_tz = pytz.timezone(user_timezone) 
 
     # Get the last 5 blood pressure readings
     recording_rows = db.execute("SELECT * FROM blood_pressure_readings WHERE user_id = ? ORDER BY reading_date DESC LIMIT 5;", user_id)
@@ -106,13 +121,13 @@ def dashboard():
     # Add classification to each recording and convert time to user's timezone
     for row in recording_rows:
         row["classification"] = classify_bp(row["systolic"], row["diastolic"])
-        utc_time = row["reading_date"]
+        utc_time = row["reading_date"] # Get the reading date from the database
         try:
-            local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
-            row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
+            local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz) # Convert to local time
+            row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S') # Format date
         except Exception as e:
-            print(f"Error converting time: {e}")
-            row["reading_date"] = utc_time
+            print(f"Error converting time: {e}") """ TRY REMOVING """ # Print error if conversion fails, I had some trouble with this during development
+            row["reading_date"] = utc_time # Use original time if conversion fails
 
     # Calculate the average of just the last 5 readings
     user_avg_recording = db.execute("""
@@ -127,7 +142,7 @@ def dashboard():
     """, user_id)
     
 
-    # Check if there are any averages calculated and handle potential None values
+    # Check if averaging was successful, round the values for simplicity and handle potential None values
     if user_avg_recording:
         avg_data = {
             'avg_systolic': round(user_avg_recording[0]['avg_systolic'], 1) if user_avg_recording[0]['avg_systolic'] else '',
@@ -137,18 +152,19 @@ def dashboard():
     else:
         avg_data = {'avg_systolic': 'N/A', 'avg_diastolic': 'N/A', 'avg_pulse': 'N/A'}
 
+    # Render dashboard with user data
     return render_template("dashboard.html", classes=g.language_data['classes'], data=g.language_data['dashboard'], last5reading=recording_rows, user_id=user_id, user_avg_recording=[avg_data])
 
 
 @app.route("/history")
 @login_required
 def history():
-    # Get user id and timezone information
+    # Get user id and timezone information, convert to pytz timezone
     user_id = session["user_id"]
     user_timezone = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]['timezone']
     user_tz = pytz.timezone(user_timezone)
 
-    #Show history of blood pressure recordings
+    # Get all blood pressure recordings for the user
     recording_rows = db.execute("SELECT * FROM blood_pressure_readings WHERE user_id = ? ORDER BY reading_date DESC;", user_id)
 
     # Convert time to user's timezone
@@ -158,7 +174,7 @@ def history():
             local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
             row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
         except Exception as e:
-            print(f"Error converting time for row {row}: {e}")
+            print(f"Error converting time for row {row}: {e}") """ TRY REMOVING """ # Print error if conversion fails 
             row["reading_date"] = utc_time # fallback to the original time if conversion fails
             
 
@@ -215,28 +231,35 @@ def logout():
 @app.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
+    # Get user info and timezone
     user_id = session["user_id"]
     user_time = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]
 
+    # User reached route via POST
     if request.method == "POST":
-        if "update_name" in request.form:  # Check if the name update button was clicked
+        
+        # If the update name button was clicked, get new name from form, update name in database
+        if "update_name" in request.form:  
             name = request.form.get("name")
             db.execute("UPDATE users SET name = ? WHERE id = ?", name, user_id)
 
-        elif "update_timezone" in request.form:  # Check if the timezone update button was clicked
+        # If the update timezone button was clicked, get new timezone from form, update timezone in database
+        elif "update_timezone" in request.form:
             timezone = request.form.get("timezone")
             db.execute("UPDATE users SET timezone = ? WHERE id = ?", timezone, user_id)
 
-        elif "update_password" in request.form:  # Check if the password update button was clicked
+        # If the update password button was clicked, get new password and password confirmation from form, ensure passwords match, hash new password and update password in database
+        elif "update_password" in request.form: 
             password = request.form.get("password")
             confirmation = request.form.get("confirmation")
             if password != confirmation:
-                return apology("passwords should match", 400)
+                return apology("passwords should match", 400) # If password and confirmation don't match, inform user and don't update database
             hashed_password = generate_password_hash(password)
             db.execute("UPDATE users SET hash = ? WHERE id = ?", hashed_password, user_id)
 
-        return redirect("/profile")
+        return redirect("/profile") # Return user to profile page
 
+    # User reached route via GET get user data from database and render profile page
     else:
         user_data = db.execute("SELECT * FROM users WHERE id = ?", user_id)[0]
         return render_template("profile.html", user_data=user_data, data=g.language_data['profile'], timezones=timezones, user_time=user_time)
@@ -246,8 +269,8 @@ def profile():
 @app.route("/record", methods=["GET", "POST"])
 @login_required
 def record():
-    # Record blood pressure reading
-
+    
+    # User reached route via POST
     if request.method == "POST":
         # Get the systolic blood pressure recording and check its validity
         systolic = request.form.get("systolic")
@@ -273,18 +296,19 @@ def record():
         # Get the note for the recording
         notes = request.form.get("notes")
 
-        # Get user info log blood pressure reading to blood_pressure_recordings table
+        # Get user info and timezone
         user_id = session["user_id"] 
         user_timezone = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]['timezone']
         user_tz = pytz.timezone(user_timezone)
 
-        # Get the current time in the user's timezone
+        # Get the current time in the user's timezone, convert to UTC
         user_time = datetime.now(user_tz)
-        user_time_gmt = user_time.astimezone(pytz.utc) # Convert to UTC
+        user_time_gmt = user_time.astimezone(pytz.utc)
 
+        # Insert reading into database
         db.execute("INSERT INTO blood_pressure_readings (user_id, systolic, diastolic, pulse, notes, reading_date) VALUES (?, ?, ?, ?, ?, ?)", user_id, systolic, diastolic, pulse, notes, user_time_gmt);
 
-        """ Redirect user to their dashboard"""
+        # Redirect user to their dashboard
         return redirect("/dashboard")
 
     # User reached route via GET
@@ -339,5 +363,7 @@ def register():
 @app.route("/resources")
 @login_required
 def resources():
+
+    # Get user ID and render resources page
     user_id = session["user_id"]
     return render_template("resources.html", user_id=user_id, data=g.language_data['resources'])
