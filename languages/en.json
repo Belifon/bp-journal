@@ -1,4 +1,12 @@
 {
+    "classes": {
+        "Normal": "Normal", 
+        "Elevated": "Elevated",
+        "High1": "Hypertension Stage 1", 
+        "High2": "Hypertension Stage 2", 
+        "Crisis": "Hypertensive Crisis"
+    },
+
     "dashboard": {
         "title": "Your Dashboard",
         "heading": "Your Blood Pressure Dashboard",
@@ -16,14 +24,6 @@
         "classificationLink": {"text": "To learn more about blood pressure classifications", "textUrl":"click here"},
         "alertsHeading": "For You",
         "comment": "Recording your blood pressure regularly is beneficial for your health as it allows you to monitor trends, detect potential health issues early, and manage existing conditions more effectively. By keeping track of your readings, you can provide valuable information to your healthcare provider, helping them make informed decisions about your treatment plan. Regular monitoring can also motivate you to maintain a healthy lifestyle, such as following a balanced diet, exercising regularly, and managing stress."
-    },
-
-    "classes": {
-        "Normal": "Normal", 
-        "Elevated": "Elevated",
-        "High1": "Hypertension Stage 1", 
-        "High2": "Hypertension Stage 2", 
-        "Crisis": "Hypertensive Crisis"
     },
 
     "history":{

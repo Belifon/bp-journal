@@ -1,4 +1,12 @@
 {
+    "classes": {
+        "Normal": "Normal", 
+        "Elevated": "Yüskelmiş",
+        "High1": "Hipertansiyon Evre 1", 
+        "High2": "Hipertansiyon Evre 2", 
+        "Crisis": "Hipertansif Kriz"
+    },
+
     "dashboard": {
         "title": "Kontrol Paneli",
         "heading": "Kan Basıncı Kontrol Paneliniz",
@@ -16,14 +24,6 @@
         "classificationLink": {"text": "Kan basıncı sınıflandırmaları hakkında daha fazla bilgi için", "textUrl":"tıklayınız"},
         "alertsHeading": "Bilgilendirmeler",
         "comment": "Tansiyonunuzu düzenli olarak kaydetmek, sağlığınızı korumanın, olası sorunları erken tespit etmenin ve mevcut durumları daha başarılı bir şekilde yönetmenin en etkili yollarından biridir. Tansiyonunuzu takip etmek; dengeli beslenme, düzenli egzersiz yapma ve stresi yönetme gibi sağlıklı yaşam tarzını tercihlerini sürdürmek için sizi motive eder. Kendi sağlığınızı izleyerek, daha bilinçli ve sağlıklı bir yaşam sürdürmek mümkündür."
-    },
-
-    "classes": {
-        "Normal": "Normal", 
-        "Elevated": "Yüskelmiş",
-        "High1": "Hipertansiyon Evre 1", 
-        "High2": "Hipertansiyon Evre 2", 
-        "Crisis": "Hipertansif Kriz"
     },
     
     "history":{
