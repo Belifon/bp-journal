@@ -126,7 +126,7 @@ def dashboard():
             local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz) # Convert to local time
             row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S') # Format date
         except Exception as e:
-            print(f"Error converting time: {e}") """ TRY REMOVING """ # Print error if conversion fails, I had some trouble with this during development
+            print(f"Error converting time: {e}") # Print error if conversion fails, I had some trouble with this during development
             row["reading_date"] = utc_time # Use original time if conversion fails
 
     # Calculate the average of just the last 5 readings
@@ -174,7 +174,7 @@ def history():
             local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
             row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
         except Exception as e:
-            print(f"Error converting time for row {row}: {e}") """ TRY REMOVING """ # Print error if conversion fails 
+            print(f"Error converting time for row {row}: {e}") # Print error if conversion fails 
             row["reading_date"] = utc_time # fallback to the original time if conversion fails
             
 
