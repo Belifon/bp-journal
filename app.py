@@ -35,7 +35,9 @@ def toggle_language():
 
 @app.before_request
 def load_language_data():
-    user_lang = session.get('language', 'tr')  # Load language data before each request, default to Turkish
+    if 'language' not in session:
+        session['language'] = 'tr' # Default to Turkish if not set
+    user_lang = session['language'] # Load language data before each request
     with open(f'languages/{user_lang}.json', 'r') as file: # Open and read the appropriate language file
         g.language_data = json.load(file)
     g.language_data['current_lang'] = user_lang # Store the current language in the global variable
@@ -110,6 +112,7 @@ def index():
 @app.route("/dashboard")
 @login_required
 def dashboard():
+
     # Get the user ID and timezone, convert timezone to pytz timezone
     user_id = session["user_id"]
     user_timezone = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]['timezone']
@@ -140,7 +143,6 @@ def dashboard():
         )
     """, user_id)
     
-
     # Check if averaging was successful, round the values for simplicity and handle potential None values
     if user_avg_recording:
         avg_data = {
@@ -158,6 +160,7 @@ def dashboard():
 @app.route("/history")
 @login_required
 def history():
+    
     # Get user id and timezone information, convert to pytz timezone
     user_id = session["user_id"]
     user_timezone = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]['timezone']
@@ -181,10 +184,13 @@ def history():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """Log user in"""
 
-    # Forget any user_id
+    # Preserve language preference before clearing session
+    current_lang = session.get('language', 'tr')
+
+    # Forget any user_id but keep the language preference
     session.clear()
+    session['language'] = current_lang
 
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
@@ -217,7 +223,6 @@ def login():
 
 @app.route("/logout")
 def logout():
-    """Log user out"""
 
     # Forget any user_id
     session.clear()
