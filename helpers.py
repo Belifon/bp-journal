@@ -12,10 +12,6 @@ from functools import wraps
 
 def apology(message_key, code=400):
     
-    # Print message and code to check if the function is called correctly TO BE DELETED
-    print(f"Apology called with message: {message_key} and code: {code}")
-
-    
     def escape(s):
 
         # Escape special characters. https://github.com/jacebrowning/memegen#special-characters
