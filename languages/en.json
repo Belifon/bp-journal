@@ -44,7 +44,8 @@
         "diastolic": "Diastolic",
         "pulse": "Pulse",
         "notes": "Notes",
-        "dateRecorded": "Date Recorded"
+        "dateRecorded": "Date Recorded",
+        "readingClassification": "Classification"
     },
 
     "index":{

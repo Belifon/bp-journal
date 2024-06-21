@@ -39,12 +39,13 @@
 
     "history":{
         "title": "Geçmiş",
-        "heading": "Tansiyon Ölçümleriniz",
+        "heading": "Tansiyon Ölçüm Geçmişiniz",
         "systolic": "Sistolik",
         "diastolic": "Diyastolik",
         "pulse": "Nabız",
         "notes": "Notlar",
-        "dateRecorded": "Kayıt Tarihi"
+        "dateRecorded": "Kayıt Tarihi",
+        "readingClassification": "Sınıf"
     },
 
     "index":{

@@ -176,8 +176,11 @@ def history():
     # Get all blood pressure recordings for the user
     recording_rows = db.execute("SELECT * FROM blood_pressure_readings WHERE user_id = ? ORDER BY reading_date DESC;", user_id)
 
-    # Convert each readings time to user's timezone
+    # Add classification to each recording and convert time to user's timezone
     for row in recording_rows:
+
+        # Add classification to each recording
+        row["classification"] = classify_bp(row["systolic"], row["diastolic"])
 
         # Get the reading date from the database
         utc_time = row["reading_date"]
@@ -186,13 +189,13 @@ def history():
         try:
             local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
             row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
-
+        
         # Fallback to the original time if conversion fails
         except Exception:
             row["reading_date"] = utc_time
 
     # Render history with user data
-    return render_template("history.html", history=recording_rows, data=g.language_data['history'])
+    return render_template("history.html", classes=g.language_data['classes'], history=recording_rows, data=g.language_data['history'])
 
 
 @app.route("/login", methods=["GET", "POST"])
