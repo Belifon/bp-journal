@@ -120,13 +120,21 @@ def dashboard():
     
     # Add classification to each recording and convert time to user's timezone
     for row in recording_rows:
+
+        # Add classification to each recording
         row["classification"] = classify_bp(row["systolic"], row["diastolic"])
-        utc_time = row["reading_date"] # Get the reading date from the database
+
+        # Get the reading date from the database
+        utc_time = row["reading_date"]
+
+        # Convert reading date to local time and format date
         try:
-            local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz) # Convert to local time
-            row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S') # Format date
+            local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
+            row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
+        
+        # Fallback to the original time if conversion fails
         except Exception:
-            row["reading_date"] = utc_time # Use original time if conversion fails
+            row["reading_date"] = utc_time
 
     # Calculate the average of just the last 5 readings
     user_avg_recording = db.execute("""
@@ -168,14 +176,22 @@ def history():
     # Get all blood pressure recordings for the user
     recording_rows = db.execute("SELECT * FROM blood_pressure_readings WHERE user_id = ? ORDER BY reading_date DESC;", user_id)
 
-    # Convert time to user's timezone
+    # Convert each readings time to user's timezone
     for row in recording_rows:
+
+        # Get the reading date from the database
         utc_time = row["reading_date"]
+
+        # Convert reading date to local time and format date
         try:
             local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
             row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
+
+        # Fallback to the original time if conversion fails
         except Exception:
-            row["reading_date"] = utc_time # fallback to the original time if conversion fails
+            row["reading_date"] = utc_time
+
+    # Render history with user data
     return render_template("history.html", history=recording_rows, data=g.language_data['history'])
 
 
@@ -185,7 +201,7 @@ def login():
     # Preserve language preference before clearing session
     current_lang = session.get('language', 'tr')
 
-    # Forget any user_id but keep the language preference
+    # Forget any session (user_id) info but keep the language preference
     session.clear()
     session['language'] = current_lang
 
@@ -224,7 +240,7 @@ def logout():
     # Preserve language preference before clearing session
     current_lang = session.get('language', 'tr')
 
-    # Forget any user_id but keep the language preference
+    # Forget any session (user_id) info but keep the language preference
     session.clear()
     session['language'] = current_lang
 
@@ -235,6 +251,7 @@ def logout():
 @app.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
+
     # Get user info and timezone
     user_id = session["user_id"]
     user_time = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]
@@ -252,16 +269,23 @@ def profile():
             timezone = request.form.get("timezone")
             db.execute("UPDATE users SET timezone = ? WHERE id = ?", timezone, user_id)
 
-        # If the update password button was clicked, get new password and password confirmation from form, ensure passwords match, hash new password and update password in database
+        # If the update password button was clicked, get new password and password confirmation from form
         elif "update_password" in request.form: 
             password = request.form.get("password")
             confirmation = request.form.get("confirmation")
+
+            # If password and confirmation don't match, inform user and don't update database
             if password != confirmation:
-                return apology("passwords_should_match", 400) # If password and confirmation don't match, inform user and don't update database
+                return apology("passwords_should_match", 400)
+
+            # Hash new password
             hashed_password = generate_password_hash(password)
+
+            # Update password in database
             db.execute("UPDATE users SET hash = ? WHERE id = ?", hashed_password, user_id)
 
-        return redirect("/profile") # Return user to profile page
+        # Return user to profile page
+        return redirect("/profile")
 
     # User reached route via GET get user data from database and render profile page
     else:
@@ -276,21 +300,22 @@ def record():
     
     # User reached route via POST
     if request.method == "POST":
-        # Get the systolic blood pressure recording and check its validity
+
+        # Get the systolic blood pressure recording, check its validity and inform user if not valid
         systolic = request.form.get("systolic")
         try:
             systolic = int(systolic)
         except ValueError:
             return apology("systolic_bp_should_be_a_number", 400)
 
-        # Get the diastolic blood pressure recording and check its validity
+        # Get the diastolic blood pressure recording and check its validity and inform user if not valid
         diastolic = request.form.get("diastolic")
         try:
             diastolic = int(diastolic)
         except ValueError:
             return apology("diastolic_bp_should_be_a_number", 400)
 
-        # Get the pulse recording and check its validity
+        # Get the pulse recording and check its validity and inform user if not valid
         pulse = request.form.get("pulse")
         try:
             pulse = int(pulse)
@@ -370,7 +395,7 @@ def resources():
 
     # Get user ID and render resources page
     user_id = session["user_id"]
-
+    return render_template("resources.html", user_id=user_id, data=g.language_data['resources'])
 
 @app.route("/toggle_language")
 def toggle_language():
@@ -378,5 +403,3 @@ def toggle_language():
     new_lang = 'tr' if current_lang == 'en' else 'en'  # Toggle language between Turkish and English 
     session['language'] = new_lang # Save new language to session
     return redirect(request.referrer or '/') # Redirect back to the previous page
-
-    return render_template("resources.html", user_id=user_id, data=g.language_data['resources'])
