@@ -1,7 +1,7 @@
 {
     "classes": {
         "Normal": "Normal", 
-        "Elevated": "Yüskelmiş",
+        "Elevated": "Yüskelmiş Tansiyon",
         "High1": "Hipertansiyon Evre 1", 
         "High2": "Hipertansiyon Evre 2", 
         "Crisis": "Hipertansif Kriz"
