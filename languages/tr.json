@@ -64,7 +64,7 @@
             },
             {
             "featureName": "Size Özel ve Gizli",
-            "featureDescription": "Sağlık verileriniz yalnızca sizin erişiminize açıktır ve hiçbir zaman üçüncü partilerle paylaşılmaz. (Platform geliştirilme aşamasındadır, 14 Haziran 2024 itibariyle kullanıcı kayıtları Heroku'nun kendi sunucularında saklanmaktadır.)"
+            "featureDescription": "Sağlık verileriniz yalnızca sizin erişiminize açıktır ve hiçbir zaman üçüncü partilerle paylaşılmaz. (Platform geliştirilme aşamasındadır, 14 Haziran 2024 itibariyle kullanıcı kayıtları Heroku sunucularında saklanmaktadır.)"
             },
             {
             "featureName": "Uzman Rehberleri ve İpuçları",
