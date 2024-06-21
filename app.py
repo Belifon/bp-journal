@@ -7,13 +7,11 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
-
 # Import custom helper functions from helpers.py
 from helpers import apology, classify_bp, login_required
 
 # Configure application
 app = Flask(__name__)
-
 
 # Configure and initialize session
 app.config["SESSION_PERMANENT"] = False
@@ -23,27 +21,25 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///bloodpressure.db")
 
-
-@app.route("/toggle_language")
-def toggle_language():
-    current_lang = session.get('language', 'tr')  # Get current language from session, default to Turkish
-    new_lang = 'tr' if current_lang == 'en' else 'en'  # Toggle language between Turkish and English 
-    session['language'] = new_lang # Save new language to session
-    return redirect(request.referrer or '/') # Redirect back to the previous page
-
+# Fetch all time zones, get a list of all time zones
+timezones = pytz.all_timezones
 
 
 @app.before_request
 def load_language_data():
-    if 'language' not in session:
-        session['language'] = 'tr' # Default to Turkish if not set
-    user_lang = session['language'] # Load language data before each request
-    with open(f'languages/{user_lang}.json', 'r') as file: # Open and read the appropriate language file
-        g.language_data = json.load(file)
-    g.language_data['current_lang'] = user_lang # Store the current language in the global variable
 
-# Fetch all time zones, get a list of all time zones
-timezones = pytz.all_timezones
+    # Default language to Turkish if not set
+    if 'language' not in session:
+        session['language'] = 'tr'
+
+    # Load language data before each request, open and read the appropriate language file
+    user_lang = session['language']
+    with open(f'languages/{user_lang}.json', 'r') as file:
+        g.language_data = json.load(file)
+
+    # Store current language in global variable
+    g.language_data['current_lang'] = user_lang 
+
 
 @app.after_request
 def after_request(response):
@@ -53,6 +49,7 @@ def after_request(response):
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
     return response
+
 
 @app.context_processor
 def inject_layout_data():
@@ -86,7 +83,6 @@ def inject_user_details():
     return {'username': username}
 
 
-# Get the user ID from session, query the database for user's name. If found, capitalize, if not, use username as name and capitalize
 @app.route("/")
 @login_required
 def index():
@@ -96,7 +92,7 @@ def index():
     resultname= db.execute ("SELECT name FROM users WHERE id =?;", user_id)
     uname = resultname[0]['name']
     
-    # Extract the user's name from the query result and capitalize the first letter
+    # If found extract the user's name from the query result and capitalize the first letter
     if uname:
         formatted_uname = uname[0].upper() + uname[1:]
     
@@ -105,6 +101,7 @@ def index():
         resultusername= db.execute ("SELECT username FROM users WHERE id =?;", user_id)
         uname = resultusername[0]['username']
         formatted_uname = uname[0].upper() + uname[1:]
+    
     # Render the index page with the user's name and formatted name
     return render_template("index.html",uname=uname, formatted_uname=formatted_uname, data=g.language_data['index'])
 
@@ -143,13 +140,15 @@ def dashboard():
         )
     """, user_id)
     
-    # Check if averaging was successful, round the values for simplicity and handle potential None values
+    # If averaging was successful, round the values for simplicity
     if user_avg_recording:
         avg_data = {
             'avg_systolic': round(user_avg_recording[0]['avg_systolic'], 1) if user_avg_recording[0]['avg_systolic'] else '',
             'avg_diastolic': round(user_avg_recording[0]['avg_diastolic'], 1) if user_avg_recording[0]['avg_diastolic'] else '',
             'avg_pulse': round(user_avg_recording[0]['avg_pulse'], 1) if user_avg_recording[0]['avg_pulse'] else ''
         }
+
+    # If averaging was not successful set average values to 'N/A'
     else:
         avg_data = {'avg_systolic': 'N/A', 'avg_diastolic': 'N/A', 'avg_pulse': 'N/A'}
 
@@ -177,8 +176,6 @@ def history():
             row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
         except Exception:
             row["reading_date"] = utc_time # fallback to the original time if conversion fails
-            
-
     return render_template("history.html", history=recording_rows, data=g.language_data['history'])
 
 
@@ -213,7 +210,7 @@ def login():
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
 
-        # Redirect user to home page
+        # Redirect user to index page
         return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
@@ -223,9 +220,13 @@ def login():
 
 @app.route("/logout")
 def logout():
+    
+    # Preserve language preference before clearing session
+    current_lang = session.get('language', 'tr')
 
-    # Forget any user_id
+    # Forget any user_id but keep the language preference
     session.clear()
+    session['language'] = current_lang
 
     # Redirect user to login form
     return redirect("/")
@@ -369,4 +370,13 @@ def resources():
 
     # Get user ID and render resources page
     user_id = session["user_id"]
+
+
+@app.route("/toggle_language")
+def toggle_language():
+    current_lang = session.get('language', 'tr')  # Get current language from session, default to Turkish
+    new_lang = 'tr' if current_lang == 'en' else 'en'  # Toggle language between Turkish and English 
+    session['language'] = new_lang # Save new language to session
+    return redirect(request.referrer or '/') # Redirect back to the previous page
+
     return render_template("resources.html", user_id=user_id, data=g.language_data['resources'])
