@@ -6,17 +6,16 @@ import subprocess
 import urllib
 import uuid
 
-from flask import redirect, render_template, session
+from flask import g, redirect, render_template, session
 from functools import wraps
 
 
-def apology(message, code=400):
-
-
+def apology(message_key, code=400):
+    
     # Print message and code to check if the function is called correctly TO BE DELETED
-    print(f"Apology called with message: {message} and code: {code}")
+    print(f"Apology called with message: {message_key} and code: {code}")
 
-    # Render message as an apology to user, imported from CS50x Finance
+    
     def escape(s):
 
         # Escape special characters. https://github.com/jacebrowning/memegen#special-characters
@@ -24,8 +23,15 @@ def apology(message, code=400):
             s = s.replace(old, new)
         return s
     
+    # Retrieve the translated message using the message_key
+    message = g.language_data['errors'].get(message_key, message_key)
+    top_message = escape(message)
+    bottom_message = str(code)
+    img_src = f"http://memegen.link/custom/{urllib.parse.quote(top_message)}/{urllib.parse.quote(bottom_message)}.jpeg?alt=https://i.imgur.com/Z6WSXng.jpeg&width=400"
     
-    return render_template("apology.html", top=code, bottom=escape(message)), code
+
+    return render_template("apology.html", top=top_message, bottom=bottom_message, img_src=img_src), code
+    # return render_template("apology.html", top=code, bottom=escape(message)), code
 
 
 # Classify blood pressure based on systolic and diastolic values. Source: https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings

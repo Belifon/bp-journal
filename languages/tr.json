@@ -26,6 +26,17 @@
         "comment": "Tansiyonunuzu düzenli olarak kaydetmek, sağlığınızı korumanın, olası sorunları erken tespit etmenin ve mevcut durumları daha başarılı bir şekilde yönetmenin en etkili yollarından biridir. Tansiyonunuzu takip etmek; dengeli beslenme, düzenli egzersiz yapma ve stresi yönetme gibi sağlıklı yaşam tarzını tercihlerini sürdürmek için sizi motive eder. Kendi sağlığınızı izleyerek, daha bilinçli ve sağlıklı bir yaşam sürdürmek mümkündür."
     },
     
+    "errors": {
+        "invalid_username_password": "Geçersiz kullanıcı adı ve/veya parola",
+        "must_provide_username": "Kullanıcı adı girilmeli",
+        "must_provide_password": "Parola girilmeli",
+        "passwords_should_match": "Parolalar eşleşmeli",
+        "systolic_bp_should_be_a_number": "Sistolik kan basıncı sayısal bir değer olmalı",
+        "diastolic_bp_should_be_a_number": "Diastolik kan basıncı sayısal bir değer olmalı",
+        "pulse_rate_should_be_a_number": "Nabız sayısı sayısal bir değer olmalı",
+        "username_not_available": "Kullanıcı adı alınmış"
+    },
+
     "history":{
         "title": "Geçmiş",
         "heading": "Tansiyon Ölçümleriniz",

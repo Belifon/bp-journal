@@ -191,18 +191,18 @@ def login():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must_provide_username", 403)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must_provide_password", 403)
 
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return apology("invalid username and/or password", 403)
+            return apology("invalid_username_password", 403)
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
@@ -251,7 +251,7 @@ def profile():
             password = request.form.get("password")
             confirmation = request.form.get("confirmation")
             if password != confirmation:
-                return apology("passwords should match", 400) # If password and confirmation don't match, inform user and don't update database
+                return apology("passwords_should_match", 400) # If password and confirmation don't match, inform user and don't update database
             hashed_password = generate_password_hash(password)
             db.execute("UPDATE users SET hash = ? WHERE id = ?", hashed_password, user_id)
 
@@ -275,21 +275,21 @@ def record():
         try:
             systolic = int(systolic)
         except ValueError:
-            return apology("systolic blood pressure should be a number", 400)
+            return apology("systolic_bp_should_be_a_number", 400)
 
         # Get the diastolic blood pressure recording and check its validity
         diastolic = request.form.get("diastolic")
         try:
             diastolic = int(diastolic)
         except ValueError:
-            return apology("diastolic blood pressure should be a number", 400)
+            return apology("diastolic_bp_should_be_a_number", 400)
 
         # Get the pulse recording and check its validity
         pulse = request.form.get("pulse")
         try:
             pulse = int(pulse)
         except ValueError:
-            return apology("pulse rate should be a number", 400)
+            return apology("pulse_rate_should_be_a_number", 400)
 
         # Get the note for the recording
         notes = request.form.get("notes")
@@ -327,18 +327,18 @@ def register():
 
         # Ensure username, password and confirmation were submitted and both passwords match
         if not username:
-            return apology("must provide username", 400)
+            return apology("must_provide_username", 400)
         elif not password:
-            return apology("must provide password", 400)
+            return apology("must_provide_password", 400)
         elif not confirmation:
-            return apology("must provide password", 400)
+            return apology("must_provide_password", 400)
         elif password != confirmation:
-            return apology("passwords should match", 400)
+            return apology("passwords_should_match", 400)
 
         # Ensure username does not already exist in the database
         username_exists = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
         if username_exists:
-            return apology("username is not available", 400)
+            return apology("username_not_available", 400)
 
         # Register user info to database
         hashed_password = generate_password_hash(password)
