@@ -45,7 +45,9 @@
         "pulse": "Pulse",
         "notes": "Notes",
         "dateRecorded": "Date Recorded",
-        "readingClassification": "Classification"
+        "readingClassification": "Classification",
+        "editRecording": "Edit",
+        "removeRecording": "Remove"
     },
 
     "index":{

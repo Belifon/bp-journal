@@ -45,7 +45,9 @@
         "pulse": "Nabız",
         "notes": "Notlar",
         "dateRecorded": "Kayıt Tarihi",
-        "readingClassification": "Sınıf"
+        "readingClassification": "Sınıf",
+        "editRecording": "Düzenle",
+        "removeRecording": "Kaldır"
     },
 
     "index":{
