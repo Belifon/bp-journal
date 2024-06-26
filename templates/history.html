@@ -17,6 +17,8 @@
                     <th class="text-start">{{ data.readingClassification }}</th>
                     <th class="text-center">{{ data.dateRecorded }}</th>
                     <th class="text-start">{{ data.notes }}</th>
+                    <th class="text-start">{{ data.editRecording }}</th>
+                    <th class="text-start">{{ data.removeRecording }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,7 +30,8 @@
                     <td class="text-start">{{ row.pulse }} bpm</td>
                     <td class="text-start">{{ classes[row.classification] }}</td>
                     <td class="text-center">{{ row.reading_date }}</td>
-                    <td class="text-start">{{ row.notes }}</td>
+                    <td class="text-start">Edit</td>
+                    <td class="text-start">Remove</td>
                 </tr>
                 {% endfor %}
             </tbody>
