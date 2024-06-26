@@ -30,8 +30,19 @@
                     <td class="text-start">{{ row.pulse }} bpm</td>
                     <td class="text-start">{{ classes[row.classification] }}</td>
                     <td class="text-center">{{ row.reading_date }}</td>
-                    <td class="text-start">Edit</td>
-                    <td class="text-start">Remove</td>
+                    <td class="text-start">{{ row.notes }}</td>
+                    <td>
+                    <form action="/history" method="POST" style="display:inline;">
+                        <input type="hidden" name="record_id" value="{{ row.id }}">
+                        <button type="submit" name="edit_record" class="btn btn-primary">{{ data.editRecording }}</button>
+                    </form>
+                    </td>
+                    <td>
+                    <form action="/history" method="POST" style="display:inline;">
+                        <input type="hidden" name="record_id" value="{{ row.id }}">
+                        <button type="submit" name="remove_record" class="btn btn-danger">{{ data.removeRecording }}</button>
+                    </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

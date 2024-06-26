@@ -26,6 +26,19 @@
         "comment": "Recording your blood pressure regularly is beneficial for your health as it allows you to monitor trends, detect potential health issues early, and manage existing conditions more effectively. By keeping track of your readings, you can provide valuable information to your healthcare provider, helping them make informed decisions about your treatment plan. Regular monitoring can also motivate you to maintain a healthy lifestyle, such as following a balanced diet, exercising regularly, and managing stress."
     },
 
+    "edit":{
+        "title": "History",
+        "heading": "Blood Pressure Recording History",
+        "systolic": "Systolic",
+        "diastolic": "Diastolic",
+        "pulse": "Pulse",
+        "notes": "Notes",
+        "dateRecorded": "Date Recorded",
+        "readingClassification": "Classification",
+        "editRecording": "Edit",
+        "removeRecording": "Remove"
+    },
+
     "errors": {
         "invalid_username_password": "Invalid username and/or password",
         "must_provide_username": "Must provide username",
