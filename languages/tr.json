@@ -27,16 +27,18 @@
     },
 
     "edit":{
-        "title": "History",
-        "heading": "Blood Pressure Recording History",
-        "systolic": "Systolic",
-        "diastolic": "Diastolic",
-        "pulse": "Pulse",
-        "notes": "Notes",
-        "dateRecorded": "Date Recorded",
-        "readingClassification": "Classification",
-        "editRecording": "Edit",
-        "removeRecording": "Remove"
+        "title": "Kayıt Düzenle",
+        "heading": "Kan Basıncı Kaydı Düzenle",
+        "systolic": "Sistolik",
+        "diastolic": "Diyastolik",
+        "pulse": "Nabız",
+        "notes": "Not",
+        "dateRecorded": "Kayıt Tarihi",
+        "readingClassification": "Sınıf",
+        "editRecording": "Düzenle",
+        "removeRecording": "Kaldır",
+        "editSuccess": "Kayıt başarıyla güncellendi!",
+        "editFail": "Kayıt güncellemede hata oluştu:"
     },
     
     "errors": {
@@ -136,7 +138,11 @@
         "saveButton": "Kaydet (NOT USED)",
         "tzHeading": "Saat Dilimini Güncelle",
         "timezoneTag": "Mevcut Saat Diliminiz",
-        "timezoneUpdateTag": "Saat Dilimi Güncelle (NOT USED)"
+        "timezoneUpdateTag": "Saat Dilimi Güncelle (NOT USED)",
+        "editNameSuccess": "İsim başarıyla güncellendi!",
+        "editTimezoneSuccess": "Saat dilimi başarıyla güncellendi!",
+        "editPasswordSuccess": "Parola başarıyla güncellendi!",
+        "editFail": "Profil güncellemede hata oluştu:"
     },
 
 

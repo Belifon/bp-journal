@@ -184,6 +184,7 @@ def datetimeformat(value, format='%Y-%m-%dT%H:%M:%S'):
 @login_required
 def edit(id):
     record = db.execute("SELECT * FROM blood_pressure_readings WHERE id = ?", id)[0]
+    data=g.language_data['edit']
 
     if request.method == "POST":
         print("POST request received in edit route")  # Debugging statement
@@ -198,10 +199,10 @@ def edit(id):
             timestamp = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M').strftime('%Y-%m-%d %H:%M:%S')
 
             db.execute("UPDATE blood_pressure_readings SET systolic = ?, diastolic = ?, pulse = ?, reading_date = ?, notes = ? WHERE id = ?", systolic, diastolic, pulse, timestamp, notes, id)
-            flash('Record updated successfully!', 'success')
+            flash(data['editSuccess'], 'success')
             return redirect("/history")
         except Exception as e:
-            flash(f'Error updating record: {e}', 'danger')
+            flash(f"{data['editFail']} {e}", 'danger')
             return redirect(url_for('edit', id=id))
 
     # Render history with user data
@@ -212,26 +213,17 @@ def edit(id):
 @login_required
 def history():
 
-    print("History route reached")
-
     # User reached route via POST
     if request.method == "POST":
-        
-        print(f"POST worked: yes")  # Debugging print statement
-
 
         # If edit record button was clicked, redirect user to edit.html page
         if "edit_record" in request.form:  
-            print(f"Edit worked: yes")  # Debugging print statement
             record_id = request.form.get("record_id")
-            print(f"Edit record_id: {record_id}")  # Debugging print statement
             return redirect(url_for('edit', id=record_id))
         
         # If the remove record button was clicked, remove data from database
         elif "remove_record" in request.form:
-            print(f"Remove worked: yes")  # Debugging print statement
             record_id = request.form.get("record_id")
-            print(f"Remove record_id: {record_id}")  # Debugging print statement
             db.execute("DELETE FROM blood_pressure_readings WHERE id = ?", record_id)
             return redirect("/history")
 
@@ -329,34 +321,53 @@ def profile():
     user_id = session["user_id"]
     user_time = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]
 
+    # Get language data for flashing success and fail messages
+    data=g.language_data['profile']
+
     # User reached route via POST
     if request.method == "POST":
         
         # If the update name button was clicked, get new name from form, update name in database
         if "update_name" in request.form:  
             name = request.form.get("name")
-            db.execute("UPDATE users SET name = ? WHERE id = ?", name, user_id)
+            try:
+                db.execute("UPDATE users SET name = ? WHERE id = ?", name, user_id)
+                flash(data['editNameSuccess'], 'success')
+            except Exception as e:
+                flash(f"{data['editFail']} {e}", 'danger')
+                return redirect("/profile")
+            
 
         # If the update timezone button was clicked, get new timezone from form, update timezone in database
         elif "update_timezone" in request.form:
-            timezone = request.form.get("timezone")
-            db.execute("UPDATE users SET timezone = ? WHERE id = ?", timezone, user_id)
+            try:
+                timezone = request.form.get("timezone")
+                db.execute("UPDATE users SET timezone = ? WHERE id = ?", timezone, user_id)
+                flash(data['editTimezoneSuccess'], 'success')
+            except Exception as e:
+                flash(f"{data['editFail']} {e}", 'danger')
+                return redirect("/profile")
 
         # If the update password button was clicked, get new password and password confirmation from form
         elif "update_password" in request.form: 
-            password = request.form.get("password")
-            confirmation = request.form.get("confirmation")
+            try:
+                password = request.form.get("password")
+                confirmation = request.form.get("confirmation")
 
-            # If password and confirmation don't match, inform user and don't update database
-            if password != confirmation:
-                return apology("passwords_should_match", 400)
+                # If password and confirmation don't match, inform user and don't update database
+                if password != confirmation:
+                    return apology("passwords_should_match", 400)
 
-            # Hash new password
-            hashed_password = generate_password_hash(password)
+                # Hash new password
+                hashed_password = generate_password_hash(password)
 
-            # Update password in database
-            db.execute("UPDATE users SET hash = ? WHERE id = ?", hashed_password, user_id)
-
+                # Update password in database
+                db.execute("UPDATE users SET hash = ? WHERE id = ?", hashed_password, user_id)
+                flash(data['editPasswordSuccess'], 'success')
+            except Exception as e:
+                flash(f"{data['editFail']} {e}", 'danger')
+                return redirect("/profile")
+            
         # Return user to profile page
         return redirect("/profile")
 

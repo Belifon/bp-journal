@@ -7,18 +7,8 @@
 {% block main %}
 
 
-<th class="text-start"></th>
-<th class="text-start">{</th>
-<th class="text-start">{{ data.pulse }}</th>
-<th class="text-start">{{ data.readingClassification }}</th>
-<th class="text-center">{{ data.dateRecorded }}</th>
-<th class="text-start"></th>
-<th class="text-start">{{ data.editRecording }}</th>
-<th class="text-start">{{ data.removeRecording }}</th>
-
-
 <div class="container">
-    <h2>Edit BP Record</h2>
+    <h2>{{ data.heading }}</h2>
     <form action="{{ url_for('edit', id=record.id)}}" method="POST">
         <div class="form-group">
             <label for="systolic">{{ data.systolic }}</label>

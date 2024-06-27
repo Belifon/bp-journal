@@ -27,8 +27,8 @@
     },
 
     "edit":{
-        "title": "History",
-        "heading": "Blood Pressure Recording History",
+        "title": "Edit Record",
+        "heading": "Edit BP Recording",
         "systolic": "Systolic",
         "diastolic": "Diastolic",
         "pulse": "Pulse",
@@ -36,7 +36,9 @@
         "dateRecorded": "Date Recorded",
         "readingClassification": "Classification",
         "editRecording": "Edit",
-        "removeRecording": "Remove"
+        "removeRecording": "Remove",
+        "editSuccess": "Record updated successfully!",
+        "editFail": "Error updating record:"
     },
 
     "errors": {
@@ -107,7 +109,7 @@
         "footerTextA": "Don't forget to record your blood pressure today!",
         "footerTextB": "Record BP",
         "footerTextC": "For comments, requests, and suggestions, ",
-        "footerTextD": "Contact Ce"
+        "footerTextD": "Contact Me"
 
     },
 
@@ -134,7 +136,11 @@
         "saveButton": "Save (NOT USED)",
         "tzHeading": "Update Your Timezone",
         "timezoneTag": "Your Timezone",
-        "timezoneUpdateTag": "Update Your Timezone (NOT USED)"
+        "timezoneUpdateTag": "Update Your Timezone (NOT USED)",
+        "editNameSuccess": "Name updated successfully!",
+        "editTimezoneSuccess": "Timezone updated successfully!",
+        "editPasswordSuccess": "Password updated successfully!",
+        "editFail": "Error updating profile:"
     },
 
 
