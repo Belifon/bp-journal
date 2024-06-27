@@ -67,7 +67,8 @@
 
     "index":{
         "title": "Tansiyon Takibim",
-        "welcomeHeading": "Tansiyon Takibime Hoş Geldiniz",
+        "welcomeHeading": "Tansiyon Takibim Uygulamasına Hoş Geldiniz",
+        "welcomePreHeading": "Merhaba Sevgili",
         "empoweringTagline": "Sağlıklı Tansiyon İçin Güvenilir Yol Arkadaşınız",
         "welcomeMessage": "Kan basıncınızı anlamak ve yönetmek hiç bu kadar kolay olmamıştı! Tansiyon Takibim, günlük kan basıncı takibinizi kolaylaştıran ve ölçüm bilgilerinizi her an elinizin altında tutmanıza yardımcı olan kişisel sağlık uygulamanızdır. Bu platform, sağlık bilgilerinizi kaydederek, analiz ederek ve size özel sağlık önerileri sunarak sağlık yolculuğunuzda size eşlik eder. Şimdi tansiyonunuzu kaydetmek için sayfanın üst kısmında kalan 'Ölçüm Kaydet' butonuna tıklayın ve sağlığınızı takip etmeye başlayın.",
         "keyFeatures": "Uygulama Özellikleri",
@@ -91,7 +92,7 @@
         ],
         "aboutMe": {
             "Heading": "Hakkımda", 
-            "Message": "Merhaba, ben Yelissa. Bilgisayar bilimlerine ilgi duyan bir iş yeri hekimiyim. Bu web sitesi, Harvard Üniversitesi'nin CS50x kursu için hazırladığım final projem. Hem iş yeri sağlık uygulamaları hem de teknolojinin sağlığa katkıları konusundaki bilgi birikimimi bir araya getirerek, kullanıcıların sağlıklı bir yaşam sürmelerine yardımcı olmayı amaçlıyorum."
+            "Message": "Merhaba, ben Yelissa. Bilgisayar ve yazılıma ilgi duyan bir iş yeri hekimiyim. Bu web sitesi, Harvard Üniversitesi'nin CS50x kursu için hazırladığım final projem. Hem iş yeri sağlık uygulamaları hem de teknolojinin sağlığa katkıları konularına olan ilgimi bir araya getirerek, kullanıcıların sağlıklı bir yaşam sürmelerine yardımcı olmayı amaçlıyorum."
         }
     },
 
@@ -100,6 +101,9 @@
         "navbarBrand": "Tansiyon Takibim",
         "navbarBrandFirst": "C",
         "navbarBrandSecond": "S",
+        "navbarBrandThird": "5",
+        "navbarBrandForth": "0",
+        "navbarBrandFifth": "x",
         "navbarBrandRest": "Tansiyon Takibim",
         "dashboard": "Kontrol Paneli",
         "recordReading": "Ölçüm Kaydet",
