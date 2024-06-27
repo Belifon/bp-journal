@@ -177,7 +177,7 @@ def datetimeformat(value, format='%Y-%m-%dT%H:%M:%S'):
             value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
     except ValueError:
         # Fallback to original format if the above fails
-        value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
+        value = datetime.strptime(value, '%Y-%m-%d %H:%M')
     return value.strftime(format)
 
 @app.route("/edit/<int:id>", methods=["GET", "POST"])

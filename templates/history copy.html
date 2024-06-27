@@ -11,6 +11,9 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th class="text-start">{{ data.systolic }}</th>
+                    <th class="text-start">{{ data.diastolic }}</th>
+                    <th class="text-start">{{ data.pulse }}</th>
                     <th class="text-start">{{ data.combined }}</th>
                     <th class="text-start">{{ data.readingClassification }}</th>
                     <th class="text-center">{{ data.dateRecorded }}</th>
@@ -23,6 +26,9 @@
                 <!-- Loop through the database entries to display them in this table-->
                 {% for row in history %}
                 <tr>
+                    <td class="text-start">{{ row.systolic }} mm Hg</td>
+                    <td class="text-start">{{ row.diastolic }} mm Hg</td>
+                    <td class="text-start">{{ row.pulse }} bpm</td>
                     <td class="text-start">{{ row.systolic }}/{{ row.diastolic }} mm Hg - {{ row.pulse }} bpm</td>
                     <td class="text-start">{{ classes[row.classification] }}</td>
                     <td class="text-center">{{ row.reading_date }}</td>
