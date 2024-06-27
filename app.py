@@ -177,7 +177,7 @@ def datetimeformat(value, format='%Y-%m-%dT%H:%M:%S'):
             value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
     except ValueError:
         # Fallback to original format if the above fails
-        value = datetime.strptime(value, '%Y-%m-%d %H:%M')
+        value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
     return value.strftime(format)
 
 @app.route("/edit/<int:id>", methods=["GET", "POST"])
@@ -226,7 +226,6 @@ def history():
             record_id = request.form.get("record_id")
             db.execute("DELETE FROM blood_pressure_readings WHERE id = ?", record_id)
             return redirect("/history")
-
         
     # User reached route via GET (as by clicking a link or via redirect)
     else:
