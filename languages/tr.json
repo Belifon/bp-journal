@@ -123,10 +123,10 @@
 
     "login": {
         "title": "Giriş Sayfası",
-        "heading": "Giriş",
+        "heading": "Giriş Yap",
         "usernamePlaceholder": "Kullanıcı Adı",
         "passwordPlaceholder": "Parola",
-        "loginButton": "Giriş"       
+        "loginButton": "Giriş Yap"       
     },
 
     "profile": {
