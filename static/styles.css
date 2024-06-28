@@ -32,7 +32,7 @@ h5 { font-size: 1.25em; }
 /* Text Elements */
 p, li, a {
     font-size: 1em;
-    text-align:justify ;
+    text-align: justify;
     margin-bottom: 0.75em;
 }
 a { color: #0066cc; text-decoration: none; }
