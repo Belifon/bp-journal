@@ -14,7 +14,6 @@
         <!-- icon & style sheet-->
         <link href="/static/iconn.png" rel="icon">
         <link href="/static/styles.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
         <title>{{ layout_data.navbarBrand }} {% block title %}{% endblock %}</title>
 
@@ -38,38 +37,30 @@
                         </ul>
                         <ul class="navbar-nav ms-auto mt-2" id="navProfileLogOutLinks">
                             <li class="nav-item">
-                                <a class="nav-link" href="/toggle_language" class="nav-link" title="{% if session.get('language', 'tr') == 'tr' %}English{% else %}Türkçe{% endif %}">
-                                    <i class="fas fa-globe"></i>
+                                <a class="nav-link" href="/toggle_language" class="nav-link">
+                                    {% if session.get('language', 'tr') == 'tr' %}
+                                    English
+                                    {% else %}
+                                    Türkçe
+                                    {% endif %}
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/profile" title="{{ username }}"> 
-                                    <i class="fas fa-user"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/logout" title="{{ layout_data.logOut }}">
-                                    <i class="fas fa-sign-out-alt"></i>
-                                </a>
-                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/profile">{{ username }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/logout">{{ layout_data.logOut }}</a></li>
                         </ul>
                         {% else %}
                         <ul class="navbar-nav ms-auto mt-2" id="navRegisterLogInLinks">
                             <li class="nav-item">
-                                <a class="nav-link" href="/toggle_language" class="nav-link" title="{% if session.get('language', 'tr') == 'tr' %}English{% else %}Türkçe{% endif %}">
-                                    <i class="fas fa-globe"></i>
+                                <a class="nav-link" href="/toggle_language" class="nav-link">
+                                    {% if session.get('language', 'tr') == 'tr' %}
+                                    English
+                                    {% else %}
+                                    Türkçe
+                                    {% endif %}
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/register" title="{{ layout_data.register }}">
-                                    <i class="fas fa-user-plus"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/login" title="{{ layout_data.logIn }}">
-                                    <i class="fas fa-sign-in-alt"></i>
-                                </a>
-                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/register">{{ layout_data.register }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/login">{{ layout_data.logIn }}</a></li>
                         </ul>
                     {% endif %}
                 </div>

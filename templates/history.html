@@ -34,13 +34,17 @@
                     <td>
                     <form action="/history" method="POST" style="display:inline;">
                         <input type="hidden" name="record_id" value="{{ row.id }}">
-                        <button type="submit" name="edit_record" class="icon-btn"><i class="fas fa-pen"></i></button>
+                        <button type="submit" name="edit_record" class="icon-btn" title="{{ data.editRecording }}">
+                            <i class="fas fa-pen"></i>
+                        </button>
                     </form>
                     </td>
                     <td>
                     <form action="/history" method="POST" style="display:inline;">
                         <input type="hidden" name="record_id" value="{{ row.id }}">
-                        <button type="submit" name="remove_record" class="icon-btn"><i class="fas fa-trash"></i></button>
+                        <button type="submit" name="remove_record" class="icon-btn" title="{{ data.removeRecording }}">
+                            <i class="fas fa-trash"></i>
+                        </button>
                     </form>
                     </td>
                 </tr>
