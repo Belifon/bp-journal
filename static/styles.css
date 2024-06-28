@@ -119,10 +119,31 @@ button {
     cursor: pointer;
     border-radius: 5px;
 }
-button:hover { background-color: #45a049; }
+/*button:hover { background-color: #45a049; }*/
 
 .text-center { text-align: center; }
 
 #trends p {
     text-align: center;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0;
+    color: #6c757d; 
+    font-size: 16px; 
+    transition: color 0.3s;
+}
+
+.icon-btn:hover {
+    color: #343a40; 
+    background:darkgray;
+    transition: color 0.3s;
+}
+
+.icon-btn:focus {
+    outline: none; /* Remove focus outline for a cleaner look */
 }

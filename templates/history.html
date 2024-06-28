@@ -9,6 +9,7 @@
         <h2>{{ data.heading }}</h2>
         <br>
         <i class="glyphicon glyphicon-remove"></i>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
         <table class="table table-striped">
             <thead>
@@ -17,8 +18,8 @@
                     <th class="text-start">{{ data.readingClassification }}</th>
                     <th class="text-center">{{ data.dateRecorded }}</th>
                     <th class="text-start">{{ data.notes }}</th>
-                    <th class="text-start">{{ data.editRecording }}</th>
-                    <th class="text-start">{{ data.removeRecording }}</th>
+                    <th class="text-start"></th>
+                    <th class="text-start"></th>
 
                 </tr>
             </thead>
@@ -33,13 +34,13 @@
                     <td>
                     <form action="/history" method="POST" style="display:inline;">
                         <input type="hidden" name="record_id" value="{{ row.id }}">
-                        <button type="submit" name="edit_record" class="btn btn-primary">{{ data.editRecording }}</button>
+                        <button type="submit" name="edit_record" class="icon-btn"><i class="fas fa-pen"></i></button>
                     </form>
                     </td>
                     <td>
                     <form action="/history" method="POST" style="display:inline;">
                         <input type="hidden" name="record_id" value="{{ row.id }}">
-                        <button type="submit" name="remove_record" class="btn btn-danger">{{ data.removeRecording }}</button>
+                        <button type="submit" name="remove_record" class="icon-btn"><i class="fas fa-trash"></i></button>
                     </form>
                     </td>
                 </tr>
