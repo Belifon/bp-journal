@@ -56,19 +56,23 @@
                         {% else %}
                         <ul class="navbar-nav ms-auto mt-2" id="navRegisterLogInLinks">
                             <li class="nav-item">
-                                <a class="nav-link" href="/toggle_language" class="nav-link" title="{% if session.get('language', 'tr') == 'tr' %}English{% else %}Türkçe{% endif %}">
-                                    <i class="fas fa-globe"></i>
+                                <a class="nav-link" href="/toggle_language" class="nav-link">
+                                    {% if session.get('language', 'tr') == 'tr' %}
+                                    English
+                                    {% else %}
+                                    Türkçe
+                                    {% endif %}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 {% if request.path == '/login' %}
-                                    <a class="nav-link" href="/register" title="{{ layout_data.register }}">
-                                    <i class="fas fa-sign-in-alt"></i>
-                                </a>
+                                    <a class="nav-link" href="/register">
+                                        {{ layout_data.register }}
+                                    </a>
                                 {% else %}
-                                    <a class="nav-link" href="/login" title="{{ layout_data.logIn }}">
-                                    <i class="fas fa-sign-in-alt"></i>
-                                </a>
+                                    <a class="nav-link" href="/login">
+                                        {{ layout_data.logIn }}
+                                    </a>
                                 {% endif %}
                             </li>
                         </ul>
@@ -90,8 +94,10 @@
         </main> 
 
         <footer class="mb-5 small text-center text-muted">
-            {{ layout_data.footerTextA }} <a href="/record">{{ layout_data.footerTextB }}</a> <br>
-            {{ layout_data.footerTextC }} <a href="mailto:drbelifon@gmail.com">{{ layout_data.footerTextD }}</a>
+            {% if session["user_id"] %}
+                {{ layout_data.footerTextA }} <a href="/record">{{ layout_data.footerTextB }}</a> <br>
+            {% endif %}
+                {{ layout_data.footerTextC }} <a href="mailto:drbelifon@gmail.com">{{ layout_data.footerTextD }}</a>
         </footer>
 
     </body>
