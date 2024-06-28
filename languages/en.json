@@ -62,7 +62,7 @@
         "combined": "Systolic/Diastolic - Pulse",
         "notes": "Notes",
         "dateRecorded": "Date Recorded",
-        "readingClassification": "Hypertension Classification",
+        "readingClassification": "Hypertension Class",
         "editRecording": "Edit",
         "removeRecording": "Remove"
     },
