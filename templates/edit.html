@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ data.title }}
+{% endblock %}
+
+{% block main %}
+
+
+<div class="container">
+    <h2>{{ data.heading }}</h2>
+    <form action="{{ url_for('edit', id=record.id)}}" method="POST">
+        <div class="form-group">
+            <label for="systolic">{{ data.systolic }}</label>
+            <input type="number" name="systolic" id="systolic" class="form-control" value="{{ record.systolic }}" required>
+        </div>
+        <div class="form-group">
+            <label for="diastolic">{{ data.diastolic }}</label>
+            <input type="number" name="diastolic" id="diastolic" class="form-control" value="{{ record.diastolic }}" required>
+        </div>
+        <div class="form-group">
+            <label for="pulse">{{ data.pulse }}</label>
+            <input type="number" name="pulse" id="pulse" class="form-control" value="{{ record.pulse }}" required>
+        </div>
+        <div class="form-group">
+            <label for="timestamp">{{ data.dateRecorded }}</label>
+            <input type="datetime-local" name="timestamp" id="timestamp" class="form-control" value="{{ record.reading_date | datetimeformat }}" required>
+        </div>        
+        <div class="form-group">
+            <label for="notes">{{ data.notes }}</label>
+            <input type="text" name="notes" id="notes" class="form-control" value="{{ record.notes }}" required>
+        </div>
+        <button type="submit" class="btn btn-success">{{ data.editRecording }}</button>
+    </form>
+</div>
+
+{% endblock %}

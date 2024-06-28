@@ -16,6 +16,7 @@ nav .navbar-brand .blue { color: #537fbe; }
 nav .navbar-brand .red { color: #ea433b; }
 nav .navbar-brand .yellow { color: #f5b82e; }
 nav .navbar-brand .green { color: #2e944b; }
+nav .navbar-brand .purple { color: #8a2be2; }
 
 /* Headings */
 h2, h3, h4, h5 {
@@ -31,7 +32,7 @@ h5 { font-size: 1.25em; }
 /* Text Elements */
 p, li, a {
     font-size: 1em;
-    text-align: left;
+    text-align:justify ;
     margin-bottom: 0.75em;
 }
 a { color: #0066cc; text-decoration: none; }

@@ -1,10 +1,10 @@
 {
     "classes": {
         "Normal": "Normal", 
-        "Elevated": "Yüskelmiş Tansiyon",
-        "High1": "Hipertansiyon Evre 1", 
-        "High2": "Hipertansiyon Evre 2", 
-        "Crisis": "Hipertansif Kriz"
+        "Elevated": "Yüskelmiş",
+        "High1": "Evre 1", 
+        "High2": "Evre 2", 
+        "Crisis": "HT Krizi"
     },
 
     "dashboard": {
@@ -22,8 +22,24 @@
         "dateRecorded": "Kayıt Tarihi",
         "readingClassification": "Sınıf",
         "classificationLink": {"text": "Kan basıncı sınıflandırmaları hakkında daha fazla bilgi için", "textUrl":"tıklayınız"},
+        "historyLink": {"text": "Ölçüm geçmişinin tamamını görüntülemek ve düzenlemek için", "textUrl":"tıklayınız"},
         "alertsHeading": "Bilgilendirmeler",
         "comment": "Tansiyonunuzu düzenli olarak kaydetmek, sağlığınızı korumanın, olası sorunları erken tespit etmenin ve mevcut durumları daha başarılı bir şekilde yönetmenin en etkili yollarından biridir. Tansiyonunuzu takip etmek; dengeli beslenme, düzenli egzersiz yapma ve stresi yönetme gibi sağlıklı yaşam tarzını tercihlerini sürdürmek için sizi motive eder. Kendi sağlığınızı izleyerek, daha bilinçli ve sağlıklı bir yaşam sürdürmek mümkündür."
+    },
+
+    "edit":{
+        "title": "Kayıt Düzenle",
+        "heading": "Kan Basıncı Kaydı Düzenle",
+        "systolic": "Sistolik",
+        "diastolic": "Diyastolik",
+        "pulse": "Nabız",
+        "notes": "Not",
+        "dateRecorded": "Kayıt Tarihi",
+        "readingClassification": "Sınıf",
+        "editRecording": "Düzenle",
+        "removeRecording": "Kaldır",
+        "editSuccess": "Kayıt başarıyla güncellendi!",
+        "editFail": "Kayıt güncellemede hata oluştu:"
     },
     
     "errors": {
@@ -39,21 +55,23 @@
 
     "history":{
         "title": "Geçmiş",
-        "heading": "Tansiyon Ölçüm Geçmişiniz",
+        "heading": "Tansiyon Ölçüm Geçmişi",
         "systolic": "Sistolik",
         "diastolic": "Diyastolik",
         "pulse": "Nabız",
+        "combined": "Sistol/Diyastol - Nabız",
         "notes": "Notlar",
         "dateRecorded": "Kayıt Tarihi",
-        "readingClassification": "Sınıf",
+        "readingClassification": "Hipertansiyon Sınıfı",
         "editRecording": "Düzenle",
         "removeRecording": "Kaldır"
     },
 
     "index":{
-        "title": "Tansiyon Takibim",
-        "welcomeHeading": "Tansiyon Takibime Hoş Geldiniz",
-        "empoweringTagline": "Sağlıklı Tansiyon İçin Güvenilir Yol Arkadaşınız",
+        "title": "Tansiyon Günlüğüm",
+        "welcomeHeading": "Tansiyon Günlüğüne Hoş Geldin",
+        "welcomePreHeading": "Sevgili",
+        "empoweringTagline": "Sağlıklı Tansiyon İçin Yol Arkadaşınız",
         "welcomeMessage": "Kan basıncınızı anlamak ve yönetmek hiç bu kadar kolay olmamıştı! Tansiyon Takibim, günlük kan basıncı takibinizi kolaylaştıran ve ölçüm bilgilerinizi her an elinizin altında tutmanıza yardımcı olan kişisel sağlık uygulamanızdır. Bu platform, sağlık bilgilerinizi kaydederek, analiz ederek ve size özel sağlık önerileri sunarak sağlık yolculuğunuzda size eşlik eder. Şimdi tansiyonunuzu kaydetmek için sayfanın üst kısmında kalan 'Ölçüm Kaydet' butonuna tıklayın ve sağlığınızı takip etmeye başlayın.",
         "keyFeatures": "Uygulama Özellikleri",
         "features": [
@@ -67,7 +85,7 @@
             },
             {
             "featureName": "Size Özel ve Gizli",
-            "featureDescription": "Sağlık verileriniz yalnızca sizin erişiminize açıktır ve hiçbir zaman üçüncü partilerle paylaşılmaz. (Platform geliştirilme aşamasındadır, 14 Haziran 2024 itibariyle kullanıcı kayıtları Heroku sunucularında saklanmaktadır.)"
+            "featureDescription": "Sağlık verileriniz yalnızca sizin erişiminize açıktır ve üçüncü partilerle paylaşılmaz. (Platform geliştirilme aşamasındadır ve 27 Haziran 2024 itibariyle kullanıcı kayıtları Heroku sunucularında saklanmaktadır.)"
             },
             {
             "featureName": "Uzman Rehberleri ve İpuçları",
@@ -76,20 +94,23 @@
         ],
         "aboutMe": {
             "Heading": "Hakkımda", 
-            "Message": "Merhaba, ben Yelissa. Bilgisayar bilimlerine ilgi duyan bir iş yeri hekimiyim. Bu web sitesi, Harvard Üniversitesi'nin CS50x kursu için hazırladığım final projem. Hem iş yeri sağlık uygulamaları hem de teknolojinin sağlığa katkıları konusundaki bilgi birikimimi bir araya getirerek, kullanıcıların sağlıklı bir yaşam sürmelerine yardımcı olmayı amaçlıyorum."
+            "Message": "Merhaba, ben Yelissa. Bilgisayar ve yazılıma ilgi duyan bir iş yeri hekimiyim. Bu web sitesi, Harvard Üniversitesi'nin CS50x kursu için hazırladığım final projem. Hem iş yeri sağlık uygulamaları hem de teknolojinin sağlığa katkıları konularına olan ilgimi bir araya getirerek, kullanıcıların sağlıklı bir yaşam sürmelerine yardımcı olmayı amaçlıyorum."
         }
     },
 
     "layout": {
-        "title": "Tansiyon Takibim",
-        "navbarBrand": "Tansiyon Takibim",
-        "navbarBrandFirst": "C",
-        "navbarBrandSecond": "S",
-        "navbarBrandRest": "Tansiyon Takibim",
+        "title": "Tansiyon Günlüğüm",
+        "navbarBrand": "Tansiyon Günlüğüm",
+        "navbarBrandFirst": "",
+        "navbarBrandSecond": "",
+        "navbarBrandThird": "",
+        "navbarBrandForth": "",
+        "navbarBrandFifth": "",
+        "navbarBrandRest": "Tansiyon Günlüğüm",
         "dashboard": "Kontrol Paneli",
         "recordReading": "Ölçüm Kaydet",
         "history": "Geçmiş",
-        "resources": "Tansiyon Hakkında Her Şey",
+        "resources": "Tansiyon Hakkında",
         "profile": "Profilim",
         "logOut": "Çıkış",
         "register": "Üye Ol",
@@ -123,7 +144,11 @@
         "saveButton": "Kaydet (NOT USED)",
         "tzHeading": "Saat Dilimini Güncelle",
         "timezoneTag": "Mevcut Saat Diliminiz",
-        "timezoneUpdateTag": "Saat Dilimi Güncelle (NOT USED)"
+        "timezoneUpdateTag": "Saat Dilimi Güncelle (NOT USED)",
+        "editNameSuccess": "İsim başarıyla güncellendi!",
+        "editTimezoneSuccess": "Saat dilimi başarıyla güncellendi!",
+        "editPasswordSuccess": "Parola başarıyla güncellendi!",
+        "editFail": "Profil güncellemede hata oluştu:"
     },
 
 

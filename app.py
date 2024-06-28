@@ -2,7 +2,7 @@ import json, os, pytz
 
 from cs50 import SQL
 from datetime import datetime
-from flask import Flask, flash, g, redirect, render_template, request, session
+from flask import Flask, flash, g, redirect, render_template, request, session, url_for
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -164,35 +164,96 @@ def dashboard():
     return render_template("dashboard.html", classes=g.language_data['classes'], data=g.language_data['dashboard'], last5reading=recording_rows, user_id=user_id, user_avg_recording=[avg_data])
 
 
-@app.route("/history")
+# Define the datetimeformat filter
+@app.template_filter('datetimeformat')
+def datetimeformat(value, format='%Y-%m-%dT%H:%M:%S'):
+    if value is None:
+        return ""
+    try:
+        if isinstance(value, str):
+            # Try ISO 8601 format first
+            value = datetime.strptime(value, '%Y-%m-%dT%H:%M')
+        else:
+            value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
+    except ValueError:
+        # Fallback to original format if the above fails
+        value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
+    return value.strftime(format)
+
+@app.route("/edit/<int:id>", methods=["GET", "POST"])
+@login_required
+def edit(id):
+    record = db.execute("SELECT * FROM blood_pressure_readings WHERE id = ?", id)[0]
+    data=g.language_data['edit']
+
+    if request.method == "POST":
+        print("POST request received in edit route")  # Debugging statement
+        try:
+            systolic = request.form['systolic']
+            diastolic = request.form['diastolic']
+            pulse = request.form['pulse']
+            timestamp = request.form['timestamp']
+            notes = request.form['notes']
+
+            # Ensure the timestamp is correctly formatted before storing it
+            timestamp = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M').strftime('%Y-%m-%d %H:%M:%S')
+
+            db.execute("UPDATE blood_pressure_readings SET systolic = ?, diastolic = ?, pulse = ?, reading_date = ?, notes = ? WHERE id = ?", systolic, diastolic, pulse, timestamp, notes, id)
+            flash(data['editSuccess'], 'success')
+            return redirect("/history")
+        except Exception as e:
+            flash(f"{data['editFail']} {e}", 'danger')
+            return redirect(url_for('edit', id=id))
+
+    # Render history with user data
+    return render_template("edit.html", record=record, data=g.language_data['edit'])
+
+
+@app.route("/history", methods=["GET", "POST"])
 @login_required
 def history():
-    
-    # Get user id and timezone information, convert to pytz timezone
-    user_id = session["user_id"]
-    user_timezone = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]['timezone']
-    user_tz = pytz.timezone(user_timezone)
 
-    # Get all blood pressure recordings for the user
-    recording_rows = db.execute("SELECT * FROM blood_pressure_readings WHERE user_id = ? ORDER BY reading_date DESC;", user_id)
+    # User reached route via POST
+    if request.method == "POST":
 
-    # Add classification to each recording and convert time to user's timezone
-    for row in recording_rows:
-
-        # Add classification to each recording
-        row["classification"] = classify_bp(row["systolic"], row["diastolic"])
-
-        # Get the reading date from the database
-        utc_time = row["reading_date"]
-
-        # Convert reading date to local time and format date
-        try:
-            local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
-            row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
+        # If edit record button was clicked, redirect user to edit.html page
+        if "edit_record" in request.form:  
+            record_id = request.form.get("record_id")
+            return redirect(url_for('edit', id=record_id))
         
-        # Fallback to the original time if conversion fails
-        except Exception:
-            row["reading_date"] = utc_time
+        # If the remove record button was clicked, remove data from database
+        elif "remove_record" in request.form:
+            record_id = request.form.get("record_id")
+            db.execute("DELETE FROM blood_pressure_readings WHERE id = ?", record_id)
+            return redirect("/history")
+        
+    # User reached route via GET (as by clicking a link or via redirect)
+    else:
+        # Get user id and timezone information, convert to pytz timezone
+        user_id = session["user_id"]
+        user_timezone = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]['timezone']
+        user_tz = pytz.timezone(user_timezone)
+
+        # Get all blood pressure recordings for the user
+        recording_rows = db.execute("SELECT * FROM blood_pressure_readings WHERE user_id = ? ORDER BY reading_date DESC;", user_id)
+
+        # Add classification to each recording and convert time to user's timezone
+        for row in recording_rows:
+
+            # Add classification to each recording
+            row["classification"] = classify_bp(row["systolic"], row["diastolic"])
+
+            # Get the reading date from the database
+            utc_time = row["reading_date"]
+
+            # Convert reading date to local time and format date
+            try:
+                local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
+                row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
+            
+            # Fallback to the original time if conversion fails
+            except Exception:
+                row["reading_date"] = utc_time
 
     # Render history with user data
     return render_template("history.html", classes=g.language_data['classes'], history=recording_rows, data=g.language_data['history'])
@@ -259,34 +320,53 @@ def profile():
     user_id = session["user_id"]
     user_time = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]
 
+    # Get language data for flashing success and fail messages
+    data=g.language_data['profile']
+
     # User reached route via POST
     if request.method == "POST":
         
         # If the update name button was clicked, get new name from form, update name in database
         if "update_name" in request.form:  
             name = request.form.get("name")
-            db.execute("UPDATE users SET name = ? WHERE id = ?", name, user_id)
+            try:
+                db.execute("UPDATE users SET name = ? WHERE id = ?", name, user_id)
+                flash(data['editNameSuccess'], 'success')
+            except Exception as e:
+                flash(f"{data['editFail']} {e}", 'danger')
+                return redirect("/profile")
+            
 
         # If the update timezone button was clicked, get new timezone from form, update timezone in database
         elif "update_timezone" in request.form:
-            timezone = request.form.get("timezone")
-            db.execute("UPDATE users SET timezone = ? WHERE id = ?", timezone, user_id)
+            try:
+                timezone = request.form.get("timezone")
+                db.execute("UPDATE users SET timezone = ? WHERE id = ?", timezone, user_id)
+                flash(data['editTimezoneSuccess'], 'success')
+            except Exception as e:
+                flash(f"{data['editFail']} {e}", 'danger')
+                return redirect("/profile")
 
         # If the update password button was clicked, get new password and password confirmation from form
         elif "update_password" in request.form: 
-            password = request.form.get("password")
-            confirmation = request.form.get("confirmation")
+            try:
+                password = request.form.get("password")
+                confirmation = request.form.get("confirmation")
 
-            # If password and confirmation don't match, inform user and don't update database
-            if password != confirmation:
-                return apology("passwords_should_match", 400)
+                # If password and confirmation don't match, inform user and don't update database
+                if password != confirmation:
+                    return apology("passwords_should_match", 400)
 
-            # Hash new password
-            hashed_password = generate_password_hash(password)
+                # Hash new password
+                hashed_password = generate_password_hash(password)
 
-            # Update password in database
-            db.execute("UPDATE users SET hash = ? WHERE id = ?", hashed_password, user_id)
-
+                # Update password in database
+                db.execute("UPDATE users SET hash = ? WHERE id = ?", hashed_password, user_id)
+                flash(data['editPasswordSuccess'], 'success')
+            except Exception as e:
+                flash(f"{data['editFail']} {e}", 'danger')
+                return redirect("/profile")
+            
         # Return user to profile page
         return redirect("/profile")
 

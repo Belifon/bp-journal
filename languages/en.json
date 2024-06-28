@@ -2,9 +2,9 @@
     "classes": {
         "Normal": "Normal", 
         "Elevated": "Elevated",
-        "High1": "Hypertension Stage 1", 
-        "High2": "Hypertension Stage 2", 
-        "Crisis": "Hypertensive Crisis"
+        "High1": "Stage 1", 
+        "High2": "Stage 2", 
+        "Crisis": "HT Crisis"
     },
 
     "dashboard": {
@@ -22,8 +22,24 @@
         "dateRecorded": "Date Recorded",
         "readingClassification": "Classification",
         "classificationLink": {"text": "To learn more about blood pressure classifications", "textUrl":"click here"},
+        "historyLink": {"text": "To view and edit the full history of recordings", "textUrl":"click here"},
         "alertsHeading": "For You",
         "comment": "Recording your blood pressure regularly is beneficial for your health as it allows you to monitor trends, detect potential health issues early, and manage existing conditions more effectively. By keeping track of your readings, you can provide valuable information to your healthcare provider, helping them make informed decisions about your treatment plan. Regular monitoring can also motivate you to maintain a healthy lifestyle, such as following a balanced diet, exercising regularly, and managing stress."
+    },
+
+    "edit":{
+        "title": "Edit Record",
+        "heading": "Edit BP Recording",
+        "systolic": "Systolic",
+        "diastolic": "Diastolic",
+        "pulse": "Pulse",
+        "notes": "Notes",
+        "dateRecorded": "Date Recorded",
+        "readingClassification": "Classification",
+        "editRecording": "Edit",
+        "removeRecording": "Remove",
+        "editSuccess": "Record updated successfully!",
+        "editFail": "Error updating record:"
     },
 
     "errors": {
@@ -43,9 +59,10 @@
         "systolic": "Systolic",
         "diastolic": "Diastolic",
         "pulse": "Pulse",
+        "combined": "Systolic/Diastolic - Pulse",
         "notes": "Notes",
         "dateRecorded": "Date Recorded",
-        "readingClassification": "Classification",
+        "readingClassification": "Hypertension Classification",
         "editRecording": "Edit",
         "removeRecording": "Remove"
     },
@@ -53,8 +70,9 @@
     "index":{
         "title": "Main Page",
         "welcomeHeading": "Welcome to Your Blood Pressure Tracker",
+        "welcomePreHeading": "Hi",
         "empoweringTagline": "Empowering You in Your Health Journey",
-        "welcomeMessage": "Your personal companion in managing and understanding your blood pressure. Designed with your health in mind, a platform provides an easy-to-use interface for recording and tracking your blood pressure readings, ensuring you stay informed about your health status. Click 'Record Reading' now to log your blood pressure and start tracking your health.",
+        "welcomeMessage": "Your personal companion in managing and understanding your blood pressure. Designed with your health in mind, a platform provides an easy-to-use interface for recording and tracking your blood pressure readings, ensuring you stay informed about your health status. Click 'Record BP' now to log your blood pressure and start tracking your health.",
         "keyFeatures": "Key Features",
         "features": [
             {
@@ -67,7 +85,7 @@
             },
             {
             "featureName": "Private and Confidential",
-            "featureDescription": "Your health data is accessible only to you and is not shared with any third parties. (The platform is under development, and as of June 14, 2024, user registrations are stored on Heroku's own servers.)"
+            "featureDescription": "Your health data is accessible only to you and is not shared with any third parties. (The platform is under development, and as of June 27, 2024, user registrations are stored on Heroku's own servers.)"
             },
             {
             "featureName": "Educational Resources",
@@ -80,11 +98,14 @@
     "layout": {
         "title": "BP Tracker",
         "navbarBrand": "BP Tracker",
-        "navbarBrandFirst": "C",
-        "navbarBrandSecond": "S",
+        "navbarBrandFirst": "",
+        "navbarBrandSecond": "",
+        "navbarBrandThird": "",
+        "navbarBrandForth": "",
+        "navbarBrandFifth": "",
         "navbarBrandRest": "BP Tracker",
         "dashboard": "Dashboard",
-        "recordReading": "Record Reading",
+        "recordReading": "Record BP",
         "history": "History",
         "resources": "Resources",
         "profile": "Profile",
@@ -94,7 +115,7 @@
         "footerTextA": "Don't forget to record your blood pressure today!",
         "footerTextB": "Record BP",
         "footerTextC": "For comments, requests, and suggestions, ",
-        "footerTextD": "Contact Ce"
+        "footerTextD": "Contact Me"
 
     },
 
@@ -121,7 +142,11 @@
         "saveButton": "Save (NOT USED)",
         "tzHeading": "Update Your Timezone",
         "timezoneTag": "Your Timezone",
-        "timezoneUpdateTag": "Update Your Timezone (NOT USED)"
+        "timezoneUpdateTag": "Update Your Timezone (NOT USED)",
+        "editNameSuccess": "Name updated successfully!",
+        "editTimezoneSuccess": "Timezone updated successfully!",
+        "editPasswordSuccess": "Password updated successfully!",
+        "editFail": "Error updating profile:"
     },
 
 
