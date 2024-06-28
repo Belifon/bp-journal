@@ -34,11 +34,19 @@
                         </li>
                     {% endfor %}
                 </ol>
-            {% elif section.displayType == "paragraph" %}
+            {% elif section.displayType == "paragraphQuestion" %}
                 {% for item in section.list %}
                     <p><strong>{{ item.label }}
                         <br>
                     </strong> {{ item.text }}
+                    {% if item.link %}
+                    <a href="{{ item.link.url }}">{{ item.link.text }}</a>
+                    {% endif %}
+                    </p>
+                {% endfor %}
+            {% elif section.displayType == "paragraph" %}
+                {% for item in section.list %}
+                    <p><strong>{{ item.label }}</strong> {{ item.text }}
                     {% if item.link %}
                     <a href="{{ item.link.url }}">{{ item.link.text }}</a>
                     {% endif %}
