@@ -113,8 +113,8 @@
         "resources": "Tansiyon Hakkında",
         "profile": "Profilim",
         "logOut": "Çıkış",
-        "register": "Üye Ol",
-        "logIn": "Giriş Yap",
+        "register": "Kayıt Ol",
+        "logIn": "Giriş",
         "footerTextA": "Bugünkü tansiyon ölçümünüzü kaydetmeyi unutmayın!",
         "footerTextB": "Ölçüm Kaydet",
         "footerTextC": "Yorum, istek ve önerileriniz için",
@@ -123,10 +123,10 @@
 
     "login": {
         "title": "Giriş Sayfası",
-        "heading": "Hesabınıza Giriş Yapın",
+        "heading": "Giriş",
         "usernamePlaceholder": "Kullanıcı Adı",
         "passwordPlaceholder": "Parola",
-        "loginButton": "Giriş Yap"       
+        "loginButton": "Giriş"       
     },
 
     "profile": {
@@ -164,12 +164,12 @@
     },
 
     "register": {
-        "title": "Hesap Ol",
-        "heading": "Yeni Hesap Oluştur",
+        "title": "Kayıt Ol",
+        "heading": "Kayıt Ol",
         "usernamePlaceholder": "Kullanıcı Adı",
         "passwordPlaceholder": "Parola",
         "passwordConfirmationPlaceholder": "Parola (tekrar)",
-        "registerButton": "Üye Ol"
+        "registerButton": "Kayıt Ol"
     },
 
     "resources": {
