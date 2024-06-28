@@ -50,12 +50,23 @@ ul, ol {
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 20px; /* previously 1em */
-    margin: 20px auto; /* previously margin bottom was 1em no margin specified */
+    padding: 20px;
+    margin: 20px auto;
     max-width: 800px;
     margin-right: auto;
     margin-left: auto;
 }
+
+#average-table {
+    max-width:max-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
 
 #recordFooter  {
     text-align: center;

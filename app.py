@@ -176,6 +176,7 @@ def datetimeformat(value, format='%Y-%m-%dT%H:%M:%S'):
         else:
             value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
     except ValueError:
+        
         # Fallback to original format if the above fails
         value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
     return value.strftime(format)
