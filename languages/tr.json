@@ -292,7 +292,7 @@
                 "header": "Tansiyon Hakkında SSS",
                 "id": "faq-section",
                 "content": "Tansiyon ve tansiyon ölçümü hakkında sıkça sorulan bazı sorular ve yanıtları:",
-                "displayType": "paragraph",
+                "displayType": "paragraphQuestion",
                 "list": [
                     {
                         "label": "Soru 1: Hipertansiyon iyileşir mi?",

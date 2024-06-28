@@ -290,7 +290,7 @@
                 "header": "FAQs on Blood Pressure",
                 "id": "faq-section",
                 "content": "Frequently asked questions and concerns about blood pressure:",
-                "displayType": "paragraph",
+                "displayType": "paragraphQuestion",
                 "list": [
                     {
                         "label": "Q1: Can hypertension be cured?",
