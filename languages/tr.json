@@ -68,11 +68,11 @@
     },
 
     "index":{
-        "title": "Tansiyon Günlüğüm",
+        "title": "BP Journal",
         "welcomeHeading": "Tansiyon Günlüğüne Hoş Geldin",
         "welcomePreHeading": "Sevgili",
         "empoweringTagline": "Sağlıklı Tansiyon İçin Yol Arkadaşınız",
-        "welcomeMessage": "Kan basıncınızı anlamak ve yönetmek hiç bu kadar kolay olmamıştı! Tansiyon Takibim, günlük kan basıncı takibinizi kolaylaştıran ve ölçüm bilgilerinizi her an elinizin altında tutmanıza yardımcı olan kişisel sağlık uygulamanızdır. Bu platform, sağlık bilgilerinizi kaydederek, analiz ederek ve size özel sağlık önerileri sunarak sağlık yolculuğunuzda size eşlik eder. Şimdi tansiyonunuzu kaydetmek için sayfanın üst kısmında kalan 'Ölçüm Kaydet' butonuna tıklayın ve sağlığınızı takip etmeye başlayın.",
+        "welcomeMessage": "Kan basıncınızı anlamak ve yönetmek hiç bu kadar kolay olmamıştı! BP Journal, günlük kan basıncı takibinizi kolaylaştıran ve ölçüm bilgilerinizi her an elinizin altında tutmanıza yardımcı olan kişisel sağlık uygulamanızdır. Bu platform, sağlık bilgilerinizi kaydederek, analiz ederek ve size özel sağlık önerileri sunarak sağlık yolculuğunuzda size eşlik eder. Şimdi tansiyonunuzu kaydetmek için sayfanın üst kısmında kalan 'Ölçüm Kaydet' butonuna tıklayın ve sağlığınızı takip etmeye başlayın.",
         "keyFeatures": "Uygulama Özellikleri",
         "features": [
             {
@@ -99,14 +99,14 @@
     },
 
     "layout": {
-        "title": "Tansiyon Günlüğüm",
-        "navbarBrand": "Tansiyon Günlüğüm",
+        "title": "BP Journal",
+        "navbarBrand": "BP Journal",
         "navbarBrandFirst": "",
         "navbarBrandSecond": "",
         "navbarBrandThird": "",
         "navbarBrandForth": "",
         "navbarBrandFifth": "",
-        "navbarBrandRest": "Tansiyon Günlüğüm",
+        "navbarBrandRest": "BP Journal",
         "dashboard": "Kontrol Paneli",
         "recordReading": "Ölçüm Kaydet",
         "history": "Geçmiş",

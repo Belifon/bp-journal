@@ -69,10 +69,10 @@
 
     "index":{
         "title": "Main Page",
-        "welcomeHeading": "Welcome to Your Blood Pressure Tracker",
+        "welcomeHeading": "Welcome to Your Blood Pressure Journal",
         "welcomePreHeading": "Hi",
         "empoweringTagline": "Empowering You in Your Health Journey",
-        "welcomeMessage": "Your personal companion in managing and understanding your blood pressure. Designed with your health in mind, a platform provides an easy-to-use interface for recording and tracking your blood pressure readings, ensuring you stay informed about your health status. Click 'Record BP' now to log your blood pressure and start tracking your health.",
+        "welcomeMessage": "Your personal companion in managing and understanding your blood pressure. Designed with your health in mind, BP Journal platform provides an easy-to-use interface for recording and tracking your blood pressure readings, ensuring you stay informed about your health status. Click 'Record BP' now to log your blood pressure and start tracking your health.",
         "keyFeatures": "Key Features",
         "features": [
             {
@@ -96,14 +96,14 @@
     },
 
     "layout": {
-        "title": "BP Tracker",
-        "navbarBrand": "BP Tracker",
+        "title": "BP Journal",
+        "navbarBrand": "BP Journal",
         "navbarBrandFirst": "",
         "navbarBrandSecond": "",
         "navbarBrandThird": "",
         "navbarBrandForth": "",
         "navbarBrandFifth": "",
-        "navbarBrandRest": "BP Tracker",
+        "navbarBrandRest": "BP Journal",
         "dashboard": "Dashboard",
         "recordReading": "Record BP",
         "history": "History",
