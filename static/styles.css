@@ -137,14 +137,18 @@ nav .navbar-brand .blue {
 
 /* Style for add record button on history.html */
 .add-record-button {
-    float: right;
-    background: none;
+    background: #06a8b760;
     border: none;
-    color: #6c757d; 
+    border-left: 5px;
+    border-radius: 5px;
+    color: #343a40; 
     cursor: pointer;
-    font-size: 16px; 
-    padding: 5px;
+    float: right;
+    font-size: 20px; 
     margin: 0;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 5px;
     transition: color 0.3s;
 }
 .add-record-button:hover {
@@ -152,10 +156,6 @@ nav .navbar-brand .blue {
     color: #343a40; 
     transition: color 0.3s;
 }
-.add-record-button .icon {
-    margin-right: 8px;
-}
-
 
 /* Trends Section */
 #trends p {

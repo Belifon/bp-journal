@@ -67,7 +67,7 @@
         "removeRecording": "Remove",
         "removeSuccess": "Record deleted successfully!",
         "removeFail": "Error deleting record:",
-        "recordReading": "Record BP"
+        "recordReading": "Add"
     },
 
     "index":{
