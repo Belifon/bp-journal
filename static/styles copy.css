@@ -8,11 +8,24 @@ body {
     padding: 20px;
 }
 
+/* Navbar Brand Styles */
+nav .navbar-brand {
+    font-size: xx-large;
+}
+
+/* NOT USED */
+nav .navbar-brand .blue { color: #537fbe; }
+nav .navbar-brand .red { color: #ea433b; }
+nav .navbar-brand .yellow { color: #f5b82e; }
+nav .navbar-brand .green { color: #2e944b; }
+nav .navbar-brand .purple { color: #8a2be2; }
+
 /* Headings */
 h2, h3, h4, h5 {
     margin-bottom: 1.5em;
-    text-align: center;
+    text-align: center; /* Center aligns all headings */
 }
+
 h2 { font-size: 2em; }
 h3 { font-size: 1.75em; }
 h4 { font-size: 1.5em; }
@@ -23,19 +36,20 @@ p, li, a {
     font-size: 1em;
     text-align: justify;
 }
+
 p, li {
     margin-bottom: 0.75em;
 }
+
 a { color: #0066cc; text-decoration: none; }
+
 a:hover { text-decoration: underline; }
 
 /* Lists */
 ul, ol {
-    margin-bottom: 1em;
     margin-left: 20px;
+    margin-bottom: 1em;
 }
-
-select:hover { background-color: #45a049; }
 
 /* Sections and Forms */
 .section {
@@ -45,155 +59,126 @@ select:hover { background-color: #45a049; }
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 20px;
     margin: 20px auto;
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#average-table {
+    max-width:max-content;
     margin-left: auto;
     margin-right: auto;
-    max-width: 800px;
+    text-align: center;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
 }
-.section.profile-page {
-    margin: 20px auto;
-    max-width: 75%;
-    padding: 20px;
-    width: 500px;
+
+#recordFooter  {
+    text-align: center;
 }
+
 .section.profile-page h5,
 .container.profile-page h2
 {
     margin-bottom: 1.5em;
 }
-.section.profile-page .form-group {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-}
+
 .section.profile-page .form-group button {
     margin-top: 1em;
 }
+
 .section.profile-page label {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
+
+.section.profile-page .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .section.profile-page .form-group select,
 .section.profile-page .form-group input {
-    max-width: 85%;
     width: 75%;
+    max-width: 85%;
+}
+
+.section.profile-page {
+    width: 500px;
+    max-width: 75%;
+    margin: 20px auto;
+    padding: 20px;
 }
 
 input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    margin-top: 5px;
-    width: 100%;
-    padding: 10px;
 }
 
-/* Table */
-#average-table {
-    border-collapse: collapse;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width:max-content;
-    overflow: hidden;
-    text-align: center;
-}    
+select:hover { background-color: #45a049; }
 
-/* Footer */
-#recordFooter  {
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
-}    
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-/* Centered Text */
+/*button:hover { background-color: #45a049; }*/
+
 .text-center { text-align: center; }
 
-/* Navbar */
-nav .navbar-brand {
-    font-size: xx-large;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-}
-nav .navbar-brand img {
-    height: 36px;
-    width: auto;
-    vertical-align: middle;
-}
-nav .navbar-brand .blue { 
-    color: #06a8b7;
-    margin-left: 8px;
-}
+
 .navbar-nav {
     display: flex;
     justify-content: space-between; /* Distribute items evenly */
-    align-items: center;
 }
+
 .navbar-nav .nav-item {
     width: max-content;
 }
+
+
 .navbar-nav .nav-link, .navbar-nav .nav-item {
     margin-bottom: 0 !important; /* Override any inherited styles */
-    align-items: center;
 }
 
-/* Style for add record button on history.html */
-.add-record-button {
-    float: right;
-    background: none;
-    border: none;
-    color: #6c757d; 
-    cursor: pointer;
-    font-size: 16px; 
-    padding: 5px;
-    margin: 0;
-    transition: color 0.3s;
-}
-.add-record-button:hover {
-    background:darkgray;
-    color: #343a40; 
-    transition: color 0.3s;
-}
-.add-record-button .icon {
-    margin-right: 8px;
-}
-
-
-/* Trends Section */
 #trends p {
     text-align: center;
 }
 
-/* Buttons */
-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    transition-duration: 0.4s;
-}
-
-/* Icon Button */
 .icon-btn {
     background: none;
     border: none;
-    color: #6c757d; 
     cursor: pointer;
-    font-size: 16px; 
     padding: 5px;
     margin: 0;
+    color: #6c757d; 
+    font-size: 16px; 
     transition: color 0.3s;
 }
+
 .icon-btn:hover {
-    background:darkgray;
     color: #343a40; 
+    background:darkgray;
     transition: color 0.3s;
 }
+
 .icon-btn:focus {
     outline: none; /* Remove focus outline for a cleaner look */
 }
+

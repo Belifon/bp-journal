@@ -59,14 +59,15 @@
         "systolic": "Sistolik",
         "diastolic": "Diyastolik",
         "pulse": "Nabız",
-        "combined": "Sistol/Diyastol - Nabız",
+        "combined": "Sistol / Diyastol - Nabız",
         "notes": "Notlar",
         "dateRecorded": "Kayıt Tarihi",
         "readingClassification": "Hipertansiyon Sınıfı",
         "editRecording": "Düzenle",
         "removeRecording": "Kaldır",
         "removeSuccess": "Kayıt başarıyla silindi!",
-        "removeFail": "Kayıt silinmesinde hata oluştu:"
+        "removeFail": "Kayıt silinmesinde hata oluştu:",
+        "recordReading": "Ölçüm Kaydet"
     },
 
     "index":{
@@ -103,12 +104,6 @@
     "layout": {
         "title": "BP Journal",
         "navbarBrand": "BP Journal",
-        "navbarBrandFirst": "",
-        "navbarBrandSecond": "",
-        "navbarBrandThird": "",
-        "navbarBrandForth": "",
-        "navbarBrandFifth": "",
-        "navbarBrandRest": "BP Journal",
         "dashboard": "Kontrol Paneli",
         "recordReading": "Ölçüm Kaydet",
         "history": "Geçmiş",
