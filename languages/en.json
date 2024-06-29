@@ -64,7 +64,9 @@
         "dateRecorded": "Date Recorded",
         "readingClassification": "Hypertension Class",
         "editRecording": "Edit",
-        "removeRecording": "Remove"
+        "removeRecording": "Remove",
+        "removeSuccess": "Record deleted successfully!",
+        "removeFail": "Error deleting record:"
     },
 
     "index":{

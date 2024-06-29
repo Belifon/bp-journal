@@ -64,7 +64,9 @@
         "dateRecorded": "Kayıt Tarihi",
         "readingClassification": "Hipertansiyon Sınıfı",
         "editRecording": "Düzenle",
-        "removeRecording": "Kaldır"
+        "removeRecording": "Kaldır",
+        "removeSuccess": "Kayıt başarıyla silindi!",
+        "removeFail": "Kayıt silinmesinde hata oluştu:"
     },
 
     "index":{
