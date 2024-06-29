@@ -199,7 +199,7 @@
                 "list": [
                     {
                         "label": "Normal",
-                        "text": "Below 120/80 mm Hg."
+                        "text": "Systolic BP below 120 mm Hg and diastolic BP below 80 mm Hg."
                     },
                     {
                         "label": "Elevated",
