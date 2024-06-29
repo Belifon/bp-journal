@@ -28,7 +28,7 @@
         </div>
         <div class="mb-3">
             <label for="timestamp">{{ data.dateRecorded }}</label>
-            <input type="datetime-local" name="timestamp" id="timestamp" class="form-control mx-auto w-auto" value="{{ record.reading_date }}" required>
+            <input type="datetime-local" name="timestamp" id="timestamp" class="form-control mx-auto w-auto" value="{{ record.reading_date | datetimeformat }}" required>
         </div>        
         <button type="submit" class="btn btn-success">{{ data.editRecording }}</button>
     </form>

@@ -130,7 +130,7 @@ def dashboard():
         # Convert reading date to local time and format date
         try:
             local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
-            row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M')
+            row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
         
         # Fallback to the original time if conversion fails
         except Exception:
@@ -166,34 +166,26 @@ def dashboard():
 
 # Define the datetimeformat filter
 @app.template_filter('datetimeformat')
-def datetimeformat(value, format='%Y/%m/%d %H:%M'):
+def datetimeformat(value, format='%Y-%m-%dT%H:%M:%S'):
     if value is None:
         return ""
     try:
-        # Try to parse the datetime
-        value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
-    except ValueError:
-        return value
-    return value.strftime(format)
-        #if isinstance(value, str):
+        if isinstance(value, str):
             # Try ISO 8601 format first
-            #value = datetime.strptime(value, '%Y-%m-%dT%H:%M')
-        #else:
-            #value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
-    #except ValueError:
+            value = datetime.strptime(value, '%Y-%m-%dT%H:%M')
+        else:
+            value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
+    except ValueError:
         
         # Fallback to original format if the above fails
-        #value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
-    #return value.strftime(format)
+        value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
+    return value.strftime(format)
 
 @app.route("/edit/<int:id>", methods=["GET", "POST"])
 @login_required
 def edit(id):
     record = db.execute("SELECT * FROM blood_pressure_readings WHERE id = ?", id)[0]
     data=g.language_data['edit']
-    user_id = session["user_id"]
-    user_timezone = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]['timezone']
-    user_tz = pytz.timezone(user_timezone)
 
     if request.method == "POST":
         print("POST request received in edit route")  # Debugging statement
@@ -204,38 +196,23 @@ def edit(id):
             timestamp = request.form['timestamp']
             notes = request.form['notes']
 
-            # Convert the timestamp back to UTC before storing it
-            local_time = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M')
-            utc_time = user_tz.localize(local_time).astimezone(pytz.utc)
-            utc_timestamp = utc_time.strftime('%Y-%m-%d %H:%M:%S')
-
-
             # Ensure the timestamp is correctly formatted before storing it
-            #timestamp = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M').strftime('%Y-%m-%d %H:%M:%S')
+            timestamp = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M').strftime('%Y-%m-%d %H:%M:%S')
 
-            db.execute("UPDATE blood_pressure_readings SET systolic = ?, diastolic = ?, pulse = ?, reading_date = ?, notes = ? WHERE id = ?", systolic, diastolic, pulse, utc_timestamp, notes, id)
+            db.execute("UPDATE blood_pressure_readings SET systolic = ?, diastolic = ?, pulse = ?, reading_date = ?, notes = ? WHERE id = ?", systolic, diastolic, pulse, timestamp, notes, id)
             flash(data['editSuccess'], 'success')
             return redirect("/history")
         except Exception as e:
             flash(f"{data['editFail']} {e}", 'danger')
             return redirect(url_for('edit', id=id))
-        
-    else:
-
-        # Convert the reading date to user's timezone for display
-        utc_time = record["reading_date"]
-        local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
-        record["reading_date"] = local_time.strftime('%Y-%m-%dT%H:%M')
 
     # Render history with user data
-    return render_template("edit.html", record=record, data=data)
+    return render_template("edit.html", record=record, data=g.language_data['edit'])
 
 
 @app.route("/history", methods=["GET", "POST"])
 @login_required
 def history():
-
-    data=g.language_data['history']
 
     # User reached route via POST
     if request.method == "POST":
@@ -248,13 +225,8 @@ def history():
         # If the remove record button was clicked, remove data from database
         elif "remove_record" in request.form:
             record_id = request.form.get("record_id")
-            try:
-                db.execute("DELETE FROM blood_pressure_readings WHERE id = ?", record_id)
-                flash(data['removeSuccess'], 'success')
-                return redirect("/history")
-            except Exception as e:
-                flash(f"{data['removeFail']} {e}", 'danger')
-                return redirect("/history")
+            db.execute("DELETE FROM blood_pressure_readings WHERE id = ?", record_id)
+            return redirect("/history")
         
     # User reached route via GET (as by clicking a link or via redirect)
     else:
@@ -278,14 +250,14 @@ def history():
             # Convert reading date to local time and format date
             try:
                 local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
-                row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M')
+                row["reading_date"] = local_time.strftime('%d/%m/%Y %H:%M:%S')
             
             # Fallback to the original time if conversion fails
             except Exception:
                 row["reading_date"] = utc_time
 
     # Render history with user data
-    return render_template("history.html", classes=g.language_data['classes'], history=recording_rows, data=data)
+    return render_template("history.html", classes=g.language_data['classes'], history=recording_rows, data=g.language_data['history'])
 
 
 @app.route("/login", methods=["GET", "POST"])
