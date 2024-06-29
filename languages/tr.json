@@ -8,7 +8,7 @@
     },
 
     "dashboard": {
-        "title": "Kontrol Paneli",
+        "title": "BP Journal Kontrol Paneli",
         "heading": "Kan Basıncı Kontrol Paneliniz",
         "description": "(son beş ölçümününüzün ortalaması)",
         "avgSystolic": "Ortalama Sistolik",
@@ -28,7 +28,7 @@
     },
 
     "edit":{
-        "title": "Kayıt Düzenle",
+        "title": "BP Journal - Kayıt Düzenle",
         "heading": "Kan Basıncı Kaydı Düzenle",
         "systolic": "Sistolik",
         "diastolic": "Diyastolik",
@@ -54,7 +54,7 @@
     },
 
     "history":{
-        "title": "Geçmiş",
+        "title": "BP Journal - Geçmiş",
         "heading": "Tansiyon Ölçüm Geçmişi",
         "systolic": "Sistolik",
         "diastolic": "Diyastolik",
@@ -70,7 +70,7 @@
     },
 
     "index":{
-        "title": "BP Journal",
+        "title": "BP Journal - Anasayfa",
         "welcomeHeading": "Tansiyon Günlüğüne Hoş Geldin",
         "welcomePreHeading": "Sevgili",
         "empoweringTagline": "Sağlıklı Tansiyon İçin Yol Arkadaşınız",
@@ -124,7 +124,7 @@
     },
 
     "login": {
-        "title": "Giriş Sayfası",
+        "title": "BP Journal - Giriş",
         "heading": "Giriş Yap",
         "usernamePlaceholder": "Kullanıcı Adı",
         "passwordPlaceholder": "Parola",
@@ -132,7 +132,7 @@
     },
 
     "profile": {
-        "title": "Profilim",
+        "title": "BP Journal - Profil",
         "heading": "Profil Bilgilerini Güncelle",
         "usernameTag": "Kullanıcı Adı",
         "nameHeading": "İsim Güncelle",
@@ -155,7 +155,7 @@
 
 
     "record": {
-        "title": "Ölçüm Ekle",
+        "title": "BP Journal - Ölçüm Kaydet",
         "heading": "Kan Basıncı Ölçümü Kaydet",
         "systolicPlaceholder": "Sistolik Değer",
         "diastolicPlaceholder": "Diyastolik Değer",
@@ -166,7 +166,7 @@
     },
 
     "register": {
-        "title": "Kayıt Ol",
+        "title": "BP Journal - Kayıt Ol",
         "heading": "Kayıt Ol",
         "usernamePlaceholder": "Kullanıcı Adı",
         "passwordPlaceholder": "Parola",
@@ -175,7 +175,7 @@
     },
 
     "resources": {
-        "title": "Kaynaklar",
+        "title": "BP Journal - Kaynaklar",
         "header": "Tansiyon Hakkında Her Şey",
         "sections": [
             {
