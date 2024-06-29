@@ -28,7 +28,7 @@
     },
 
     "edit":{
-        "title": "BP Journal - Kayıt Düzenle",
+        "title": "Kayıt Düzenle",
         "heading": "Kan Basıncı Kaydı Düzenle",
         "systolic": "Sistolik",
         "diastolic": "Diyastolik",
@@ -54,7 +54,7 @@
     },
 
     "history":{
-        "title": "BP Journal - Geçmiş",
+        "title": "Geçmiş",
         "heading": "Tansiyon Ölçüm Geçmişi",
         "systolic": "Sistolik",
         "diastolic": "Diyastolik",
@@ -71,7 +71,7 @@
     },
 
     "index":{
-        "title": "BP Journal - Anasayfa",
+        "title": "Anasayfa",
         "welcomeHeading": "Tansiyon Günlüğüne Hoş Geldin",
         "welcomePreHeading": "Sevgili",
         "empoweringTagline": "Sağlıklı Tansiyon İçin Yol Arkadaşınız",
@@ -119,7 +119,7 @@
     },
 
     "login": {
-        "title": "BP Journal - Giriş",
+        "title": "Giriş",
         "heading": "Giriş Yap",
         "usernamePlaceholder": "Kullanıcı Adı",
         "passwordPlaceholder": "Parola",
@@ -127,7 +127,7 @@
     },
 
     "profile": {
-        "title": "BP Journal - Profil",
+        "title": "Profil",
         "heading": "Profil Bilgilerini Güncelle",
         "usernameTag": "Kullanıcı Adı",
         "nameHeading": "İsim Güncelle",
@@ -150,7 +150,7 @@
 
 
     "record": {
-        "title": "BP Journal - Ölçüm Kaydet",
+        "title": "Ölçüm Kaydet",
         "heading": "Kan Basıncı Ölçümü Kaydet",
         "systolicPlaceholder": "Sistolik Değer",
         "diastolicPlaceholder": "Diyastolik Değer",
@@ -161,7 +161,7 @@
     },
 
     "register": {
-        "title": "BP Journal - Kayıt Ol",
+        "title": "Kayıt Ol",
         "heading": "Kayıt Ol",
         "usernamePlaceholder": "Kullanıcı Adı",
         "passwordPlaceholder": "Parola",
@@ -170,7 +170,7 @@
     },
 
     "resources": {
-        "title": "BP Journal - Kaynaklar",
+        "title": "Kaynaklar",
         "header": "Tansiyon Hakkında Her Şey",
         "sections": [
             {

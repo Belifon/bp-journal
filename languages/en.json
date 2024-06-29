@@ -8,7 +8,7 @@
     },
 
     "dashboard": {
-        "title": "BP Journal - Dashboard",
+        "title": "Dashboard",
         "heading": "Your Blood Pressure Dashboard",
         "description": "(average of your last five measurements)",
         "avgSystolic": "Average Systolic",
@@ -28,7 +28,7 @@
     },
 
     "edit":{
-        "title": "BP Journal - Edit Record",
+        "title": "Edit Record",
         "heading": "Edit BP Recording",
         "systolic": "Systolic",
         "diastolic": "Diastolic",
@@ -54,7 +54,7 @@
     },
 
     "history":{
-        "title": "BP Journal - History",
+        "title": "History",
         "heading": "Blood Pressure Recording History",
         "systolic": "Systolic",
         "diastolic": "Diastolic",
@@ -71,7 +71,7 @@
     },
 
     "index":{
-        "title": "BP Journal - Main Page",
+        "title": "Main Page",
         "welcomeHeading": "Welcome to Your Blood Pressure Journal",
         "welcomePreHeading": "Hi",
         "empoweringTagline": "Empowering You in Your Health Journey",
@@ -117,7 +117,7 @@
     },
 
     "login": {
-        "title": "BP Journal - Log in",
+        "title": "Log in",
         "heading": "Log in",
         "usernamePlaceholder": "Username",
         "passwordPlaceholder": "Password",
@@ -125,7 +125,7 @@
     },
 
     "profile": {
-        "title": "BP Journal - Profile",
+        "title": "Profile",
         "heading": "Update Profile",
         "usernameTag": "Username",
         "nameHeading": "Update Name",
@@ -148,7 +148,7 @@
 
 
     "record": {
-        "title": "BP Journal - Record BP Reading",
+        "title": "Record BP Reading",
         "heading": "Record Blood Pressure Reading",
         "systolicPlaceholder": "Systolic",
         "diastolicPlaceholder": "Diastolic",
@@ -159,7 +159,7 @@
     },
 
     "register": {
-        "title": "BP Journal - Register",
+        "title": "Register",
         "heading": "Register",
         "usernamePlaceholder": "Username",
         "passwordPlaceholder": "Password",
@@ -168,7 +168,7 @@
     },
 
     "resources": {
-        "title": "BP Journal - Resources",
+        "title": "Resources",
         "header": "Understanding Blood Pressure",
         "sections": [
             {
