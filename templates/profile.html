@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label for="name">{{ data.nameTag }}</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="{{ data.namePlaceholder }}" value="{{ user_data.name }}">
-                <button type="submit" name="update_name" class="btn btn-primary">{{ data.updateButton }}</button>
+                <button type="submit" name="update_name" class="btn btn-primary submit-button">{{ data.updateButton }}</button>
             </div>
         </form>
     </div>
@@ -24,12 +24,12 @@
         <form action="/profile" method="post">
             <div class="form-group">
                 <label for="timezone">{{ data.timezoneTag }}</label>
-                <select class="form-control" id="timezone" name="timezone">
+                <select class="form-control" id="timezone-select" name="timezone">
                     {% for tz in timezones %}
                     <option value="{{ tz }}" {% if user_data.timezone == tz %}selected{% endif %}>{{ tz }}</option>
                     {% endfor %}
                 </select>
-                <button type="submit" name="update_timezone" class="btn btn-primary">{{ data.updateButton }}</button>
+                <button type="submit" name="update_timezone" class="btn btn-primary submit-button">{{ data.updateButton }}</button>
             </div>
         </form>
     </div>
@@ -42,7 +42,7 @@
                 <input type="password" class="form-control" id="password" name="password">
                 <label for="confirmation">{{ data.newPasswordConfTag }}</label>
                 <input type="password" class="form-control" id="confirmation" name="confirmation">
-                <button type="submit" name="update_password" class="btn btn-primary">{{ data.updateButton }}</button>
+                <button type="submit" name="update_password" class="btn btn-primary submit-button">{{ data.updateButton }}</button>
             </div>
         </form>
     </div>

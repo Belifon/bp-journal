@@ -35,7 +35,11 @@ ul, ol {
     margin-left: 20px;
 }
 
-select:hover { background-color: #45a049; }
+#timezone-select:hover { 
+    background-color: #048b93; 
+    color: white;
+    transition: 0.3s;
+}
 
 /* Sections and Forms */
 .section {
@@ -152,7 +156,7 @@ nav .navbar-brand .blue {
     transition: color 0.3s;
 }
 .add-record-button:hover {
-    background:darkgray;
+    background: #06a8b7;
     color: #343a40; 
     transition: color 0.3s;
 }
@@ -187,13 +191,26 @@ button {
     font-size: 16px; 
     padding: 5px;
     margin: 0;
-    transition: color 0.3s;
+    transition: 0.3s;
 }
 .icon-btn:hover {
     background:darkgray;
     color: #343a40; 
-    transition: color 0.3s;
+    transition: 0.3s;
 }
+
 .icon-btn:focus {
-    outline: none; /* Remove focus outline for a cleaner look */
+    outline: none;
+}
+
+.submit-button {
+    background-color: #06a8b7;
+    border: none;
+}
+
+.submit-button:hover {
+    background: #048b93;
+    border-color: #048b93;
+    transition: color 0.3s;
+    text-decoration: underline;
 }
