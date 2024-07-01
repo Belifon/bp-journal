@@ -55,12 +55,12 @@
             {% endfor %}
         </tbody>
     </table>    
-    <p>{{ data.classificationLink.text }}, <a href="/resources">{{ data.classificationLink.textUrl }}</a>.</p>
     <p>{{ data.historyLink.text }}, <a href="/history">{{ data.historyLink.textUrl }}</a>.</p>
 </div>
 <div class="section", id="alerts-tips-section">
     <h2>{{ data.alertsHeading }}</h2>
     <p>{{ data.comment }}</p>
+    <p class="text-center">{{ data.classificationLink.text }}, <a href="/resources">{{ data.classificationLink.textUrl }}</a>.</p>
 </div>
 {% endblock %}
 
