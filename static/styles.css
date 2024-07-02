@@ -5,7 +5,7 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
+    padding: 1.5em;
 }
 
 /* Headings */
@@ -26,37 +26,35 @@ p, li, a {
 p, li {
     margin-bottom: 0.75em;
 }
-a { color: #0066cc; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { 
+    color: #0066cc; text-decoration: none; 
+}
+a:hover { 
+    text-decoration: underline; 
+}
 
 /* Lists */
 ul, ol {
     margin-bottom: 1em;
-    margin-left: 20px;
-}
-
-#timezone-select:hover { 
-    background-color: #048b93; 
-    color: white;
-    transition: 0.3s;
+    margin-left: 1.5em;
 }
 
 /* Sections and Forms */
 .section {
     background-color: #ffffff;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin: 20px auto;
+    padding: 1.5em;
+    margin: 1.5em auto;
     margin-left: auto;
     margin-right: auto;
     max-width: 800px;
 }
 .section.profile-page {
-    margin: 20px auto;
+    margin: 1.5em auto;
     max-width: 75%;
-    padding: 20px;
+    padding: 1.5em;
     width: 500px;
 }
 .section.profile-page h5,
@@ -80,27 +78,43 @@ ul, ol {
 .section.profile-page .form-group input {
     max-width: 85%;
     width: 75%;
+    padding: 0.5em;
+}
+#timezone-select:hover { 
+    background-color: #048b93; 
+    color: white;
+    transition: 0.3s;
+}
+.form-control {
+    padding: 0.5em;
 }
 
-input[type="text"], input[type="password"], select {
+input[type="text"], input[type="password"], input[type="datetime-local"], select {
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-top: 5px;
+    border-radius: 0.5em;
+    font-size: 1em;
+    margin-top: 0.5em;
     width: 100%;
-    padding: 10px;
+    padding: 0.5em;
+    display: block;
 }
 
 /* Table */
 #average-table {
     border-collapse: collapse;
-    border-radius: 10px;
+    border-radius: 0.5em;
     margin-left: auto;
     margin-right: auto;
     max-width:max-content;
     overflow: hidden;
     text-align: center;
 }    
+
+.table>:not(caption)>*>* {
+    border-bottom-width: 0px;
+    padding: .2rem .2rem;
+    vertical-align: middle;
+    }
 
 /* Footer */
 #recordFooter  {
@@ -124,7 +138,7 @@ nav .navbar-brand img {
 }
 nav .navbar-brand .blue { 
     color: #06a8b7;
-    margin-left: 8px;
+    margin-left: 0.5em;
 }
 .navbar-nav {
     display: flex;
@@ -143,16 +157,16 @@ nav .navbar-brand .blue {
 .add-record-button {
     background: #06a8b760;
     border: none;
-    border-left: 5px;
-    border-radius: 5px;
+    border-left: 0.5em;
+    border-radius: 0.5em;
     color: #343a40; 
     cursor: pointer;
     float: right;
-    font-size: 20px; 
+    font-size: 1.5em; 
     margin: 0;
-    margin-left: 8px;
-    margin-right: 8px;
-    padding: 5px;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    padding: 0.25em;
     transition: color 0.3s;
 }
 .add-record-button:hover {
@@ -170,13 +184,13 @@ nav .navbar-brand .blue {
 button {
     background-color: #4CAF50; /* Green */
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5em;
     color: white;
     cursor: pointer;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1em;
     margin: 4px 2px;
-    padding: 10px 20px;
+    padding: 0.5em 1em;
     text-align: center;
     text-decoration: none;
     transition-duration: 0.4s;
@@ -188,8 +202,8 @@ button {
     border: none;
     color: #6c757d; 
     cursor: pointer;
-    font-size: 16px; 
-    padding: 5px;
+    font-size: 1em; 
+    padding: 0.25em;
     margin: 0;
     transition: 0.3s;
 }
