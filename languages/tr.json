@@ -24,7 +24,7 @@
         "classificationLink": {"text": "Kan basıncı sınıflandırmaları hakkında daha fazla bilgi için", "textUrl":"tıklayınız"},
         "historyLink": {"text": "Ölçüm geçmişinin tamamını görüntülemek, düzenlemek ve yeni kayıt eklemek için", "textUrl":"tıklayınız"},
         "alertsHeading": "Bilgilendirmeler",
-        "comment": "Tansiyonunuzu düzenli olarak kaydetmek, sağlığınızı korumanın, olası sorunları erken tespit etmenin ve mevcut durumları daha başarılı bir şekilde yönetmenin en etkili yollarından biridir. Tansiyonunuzu takip etmek; dengeli beslenme, düzenli egzersiz yapma ve stresi yönetme gibi sağlıklı yaşam tarzını tercihlerini sürdürmek için sizi motive eder. Kendi sağlığınızı izleyerek, daha bilinçli ve sağlıklı bir yaşam sürdürmek mümkündür."
+        "comment": "Tansiyonunuzu düzenli olarak kaydetmek, sağlığınızı korumanın, olası sorunları erken tespit etmenin ve mevcut durumları daha başarılı bir şekilde yönetmenin en etkili yollarından biridir. Tansiyonunuzu takip etmek; dengeli beslenme, düzenli egzersiz yapma ve stresi yönetme gibi sağlıklı yaşam tarzı tercihlerini sürdürmek için sizi motive eder. Kendi sağlığınızı izleyerek, daha bilinçli ve sağlıklı bir yaşam sürdürmek mümkündür."
     },
 
     "edit":{
@@ -97,7 +97,7 @@
         ],
         "aboutMe": {
             "Heading": "Hakkımda", 
-            "Message": "Merhaba, ben Yelissa. Bilgisayar ve yazılıma ilgi duyan bir iş yeri hekimiyim. Bu web sitesi, Harvard Üniversitesi'nin CS50x kursu için hazırladığım final projem. Hem iş yeri sağlık uygulamaları hem de teknolojinin sağlığa katkıları konularına olan ilgimi bir araya getirerek, kullanıcıların sağlıklı bir yaşam sürmelerine yardımcı olmayı amaçlıyorum."
+            "Message": "Merhaba, ben Yelissa. Bilgisayar bilimlerine ve yazılıma ilgi duyan bir iş yeri hekimiyim. Bu web sitesi, Harvard Üniversitesi'nin CS50x kursu için hazırladığım final projem. Hem iş yeri sağlık uygulamaları hem de teknolojinin sağlığa katkıları konularına olan ilgimi bir araya getirerek, kullanıcıların sağlıklı bir yaşam sürmelerine yardımcı olmayı amaçlıyorum."
         }
     },
 
@@ -181,11 +181,11 @@
                 "list": [
                     {
                         "label": "Sistolik Kan Basıncı",
-                        "text": "Kalbin kasılması sırasında atardamar duvarında oluşan basınç değeridir."
+                        "text": "Kalbin kasılması sırasında atardamar duvarlarında oluşan basınç değeridir."
                     },
                     {
                         "label": "Diyastolik Kan Basıncı",
-                        "text": "Kalbin gevşemesi sırasında atardamar duvarında oluşan basınç değeridir."
+                        "text": "Kalbin gevşemesi sırasında atardamar duvarlarında oluşan basınç değeridir."
                     }
                 ],
                 "additionalLink": {
@@ -241,7 +241,7 @@
                     },
                     {
                         "label": "Alkol Tüketimi",
-                        "text": "Fazla alkol tüketimi ve kırmızı şarap dışındaki alkol grupları kalp sağlığını olumsuz etkiler. Alkol tüketimini azaltarak tansiyon değerinizi olumlu yönde etkileyin. "
+                        "text": "Fazla alkol tüketimi ve kırmızı şarap dışındaki alkol grupları kalp sağlığını olumsuz etkiler. Alkol tüketimini azaltarak tansiyon değerinizi olumlu yönde etkileyin."
                     },
                     {
                         "label": "Sigarayı Bırakma",
@@ -297,7 +297,7 @@
                     },
                     {
                         "label": "Soru 2: Tansiyonumu ne sıklıkla kontrol etmeliyim?",
-                        "text": "Hipertansiyonu olmayan kişilerde için birkaç ayda bir kontrol etmek yeterlidir. Herhangi bir şüphe varsa veya Kardiyoloji randevusu öncesinde 7 gün boyunca günde iki kere ölçülmesi tavsiye edilir. Hipertansiyonu olanların daha sık izlemeleri gerekmektedir."
+                        "text": "Hipertansiyonu olmayan kişiler için birkaç ayda bir kontrol etmek yeterlidir. Herhangi bir şüphe varsa veya Kardiyoloji randevusu öncesinde 7 gün boyunca günde iki kere ölçülmesi tavsiye edilir. Hipertansiyonu olanların daha sık izlemeleri gerekmektedir."
                     },
                     {
                         "label": "Soru 3: Yüksek tansiyonun belirtileri nelerdir?",
@@ -313,18 +313,18 @@
                     },
                     {
                         "label": "Soru 6: Tansiyonumu sadece bir kere ölçmem yeterli mi?",
-                        "text": "Bir dakika arayla iki ölçüm yapın. İki ölçüm de normalse ortalamayı not edin. Eğer normal değilse bir dakika sonra üçüncü bir ölçüm yapın ve son iki ölçümün ortalamasını not edin. Tansiyonu ilk kez ölçerken her iki koldan da ölçün, sonraki ölçümlerde ölçüm sonucu daha yüksek olan kolu kullanın. İki koldan yapılan ölçümler arasındaki fark 20 mmHg'dan fazlaysa doktorunuza danışın."
+                        "text": "Bir dakika arayla iki ölçüm yapıp iki ölçüm de normalse ortalamalarını not edin. Eğer normal değilse bir dakika sonra üçüncü bir ölçüm yapın ve son iki ölçümün ortalamasını not edin. Tansiyonu ilk kez ölçerken her iki koldan da ölçüm yapın, sonraki ölçümlerde ölçüm sonucu daha yüksek olan kolu kullanın. İki koldan yapılan ölçümler arasındaki fark 20 mm Hg'dan fazlaysa doktorunuza danışın."
                     },
                     {
                         "label": "Soru 7: Doktorum bana tansiyon ilacı yazdı ama benim bir şikayetim yok, ilaç kullanmazsam ne olur?",
-                        "text": "Hipertansiyon genellikle belirti göstermeden ilerler, bu yüzden ‘sessiz katil’ olarak bilinir. Tansiyon ilacı; kalp krizi, felç ve diğer ciddi sağlık sorunlarını önlemek için tansiyonu güvenli seviyelerde tutmayı amaçlar. Kendinizi iyi hissediyor olsanız bile ilaçları kullanmamak ciddi sağlık risklerine yol açabilir. İlaçlarınızı doktorunuzun önerdiği şekilde ve düzenli olarak kullanmak sağlığınız için kritik önem taşır. Yaşam tarzı değişiklikleri tansiyonu kontrol etmeye yardımcı olabilir, ancak etkilerini görmek zaman alır. Bu süreçte tansiyon ilacını kullanmaya devam etmek ve yaşam tarzı değişikliklerinden olumlu sonuçlar aldıktan sonra doktorunuzun kontrolüyle ilacı düzenlemek en güvenli yoldur."
+                        "text": "Hipertansiyon genellikle belirti göstermeden ilerler, bu yüzden ‘sessiz katil’ olarak bilinir. Tansiyon ilacı; kalp krizi, felç ve diğer ciddi sağlık sorunlarını önlemek için tansiyonu güvenli seviyelerde tutmayı amaçlar. Kendinizi iyi hissediyor olsanız bile ilaç kullanmamak ciddi sağlık risklerine yol açabilir. İlaçlarınızı doktorunuzun önerdiği şekilde ve düzenli olarak kullanmak sağlığınız için kritik önem taşır. Yaşam tarzı değişiklikleri tansiyonu kontrol etmeye yardımcı olabilir, ancak etkilerini görmek zaman alır. Bu süreçte tansiyon ilacını kullanmaya devam etmek ve yaşam tarzı değişikliklerinden olumlu sonuçlar aldıktan sonra doktorunuzun kontrolüyle ilacı düzenlemek en güvenli yoldur."
                     }
                 ]
             },
             {
                 "header": "Önemli Linkler ve Referanslar",
                 "id": "more-links-section",
-                "content": "Kan basıncını yönetmek ve anlamak hakkında daha fazla bilgi için bu temel kaynakları keşfedin:",
+                "content": "Kan basıncını yönetmek ve anlamak hakkındaki bu temel kaynakları keşfedin:",
                 "displayType": "ul",
                 "list": [
                     {

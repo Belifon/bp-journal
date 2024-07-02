@@ -108,7 +108,7 @@
         "profile": "Profile",
         "logOut": "Log Out",
         "register": "Register",
-        "logIn": "Log in",
+        "logIn": "Log In",
         "footerTextA": "Don't forget to record your blood pressure today!",
         "footerTextB": "Record BP",
         "footerTextC": "For comments, requests, and suggestions, ",
@@ -117,8 +117,8 @@
     },
 
     "login": {
-        "title": "Log in",
-        "heading": "Log in",
+        "title": "Log In",
+        "heading": "Log In",
         "usernamePlaceholder": "Username",
         "passwordPlaceholder": "Password",
         "loginButton": "Log In"       
@@ -179,11 +179,11 @@
                 "list": [
                     {
                         "label": "Systolic Blood Pressure",
-                        "text": "The pressure in the artery walls during the contraction of the heart."
+                        "text": "The pressure in the arterial walls during the contraction of the heart."
                     },
                     {
                         "label": "Diastolic Blood Pressure",
-                        "text": "The pressure in the artery walls during the relaxation of the heart."
+                        "text": "The pressure in the arterial walls during the relaxation of the heart."
                     }
                 ],
                 "additionalLink": {
@@ -238,11 +238,11 @@
                         "text": "Engage in regular exercise to maintain a healthy weight and reduce blood pressure."
                     },
                     {
-                        "label": "Moderating Alcohol Intake",
+                        "label": "Moderate Alcohol Intake",
                         "text": "Reduce alcohol consumption to positively influence blood pressure levels."
                     },
                     {
-                        "label": "Quitting Smoking",
+                        "label": "Quit Smoking",
                         "text": "Stop smoking to improve heart health and lower blood pressure."
                     }
                 ],
@@ -295,7 +295,7 @@
                     },
                     {
                         "label": "Q2: How often should I check my blood pressure?",
-                        "text": "For people without hypertension, checking it every few months is sufficient. If there is any doubt or before a cardiology appointment, it is advisable to measure it twice a day for 7 days. Those with hypertension need to monitor it more frequently."
+                        "text": "For people without hypertension, checking it every few months is sufficient. If there is any doubt or before a cardiology appointment, it is advisable to measure it twice a day for 7 days. Those with hypertension need to monitor more frequently."
                     },
                     {
                         "label": "Q3: What are the symptoms of high blood pressure?",
