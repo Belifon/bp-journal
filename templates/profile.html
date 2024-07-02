@@ -10,18 +10,23 @@
     
     <div class="section profile-page">
         <h5>{{ data.nameHeading }}</h5>
+        
         <form action="/profile" method="post">
+        
             <div class="form-group">
                 <label for="name">{{ data.nameTag }}</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="{{ data.namePlaceholder }}" value="{{ user_data.name }}">
                 <button type="submit" name="update_name" class="btn btn-primary submit-button">{{ data.updateButton }}</button>
             </div>
+        
         </form>
     </div>
 
     <div class="section profile-page">
         <h5>{{ data.tzHeading }}</h5>
+        
         <form action="/profile" method="post">
+            
             <div class="form-group">
                 <label for="timezone">{{ data.timezoneTag }}</label>
                 <select class="form-control" id="timezone-select" name="timezone">
@@ -31,19 +36,26 @@
                 </select>
                 <button type="submit" name="update_timezone" class="btn btn-primary submit-button">{{ data.updateButton }}</button>
             </div>
+        
         </form>
+    
     </div>
 
     <div class="section profile-page">
         <h5>{{ data.changePasswordTag }}</h5>
+        
         <form action="/profile" method="post">
+            
             <div class="form-group">
+            
                 <label for="password">{{ data.newPasswordOptTag }}</label>
                 <input type="password" class="form-control" id="password" name="password">
                 <label for="confirmation">{{ data.newPasswordConfTag }}</label>
                 <input type="password" class="form-control" id="confirmation" name="confirmation">
                 <button type="submit" name="update_password" class="btn btn-primary submit-button">{{ data.updateButton }}</button>
+            
             </div>
+        
         </form>
     </div>
 </div>

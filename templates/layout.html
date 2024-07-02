@@ -23,38 +23,54 @@
     <body>
 
         <nav class="bg-light border navbar navbar-expand-md navbar-light">
+            
             <div class="container-fluid">
+                
                 <a class="navbar-brand" href="/"><img src="/static/icon.png" height="40px" width="40px"  alt="App Icon"><span class="blue">{{ layout_data.navbarBrand }}</span></a>
+                
                 <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
                 <div class="collapse navbar-collapse" id="navbar">
+
                     {% if session["user_id"] %}
+                        
                         <ul class="navbar-nav me-auto">
+                                
                             <li class="nav-item"><a class="nav-link" href="/dashboard">{{ layout_data.dashboard }}</a></li>
                             <li class="nav-item"><a class="nav-link" href="/record">{{ layout_data.recordReading }}</a></li>
                             <li class="nav-item"><a class="nav-link" href="/history">{{ layout_data.history }}</a></li>
                             <li class="nav-item"><a class="nav-link" href="/resources">{{ layout_data.resources }}</a></li>
+                        
                         </ul>
+
                         <ul class="navbar-nav ms-auto" id="navProfileLogOutLinks">
+                        
                             <li class="nav-item">
                                 <a class="nav-link" href="/toggle_language" class="nav-link" title="{% if session.get('language', 'tr') == 'tr' %}English{% else %}Türkçe{% endif %}">
                                     <i class="fas fa-globe"></i>
                                 </a>
                             </li>
+                        
                             <li class="nav-item">
                                 <a class="nav-link" href="/profile" title="{{ username }}"> 
                                     <i class="fas fa-user"></i>
                                 </a>
                             </li>
+                        
                             <li class="nav-item">
                                 <a class="nav-link" href="/logout" title="{{ layout_data.logOut }}">
                                     <i class="fas fa-sign-out-alt"></i>
                                 </a>
                             </li>
+                        
                         </ul>
-                        {% else %}
+                        
+                    {% else %}
+                    
                         <ul class="navbar-nav ms-auto mt-2" id="navRegisterLogInLinks">
+                            
                             <li class="nav-item">
                                 <a class="nav-link" href="/toggle_language">
                                     {% if session.get('language', 'tr') == 'tr' %}
@@ -64,6 +80,7 @@
                                     {% endif %}
                                 </a>
                             </li>
+                            
                             <li class="nav-item">
                                 {% if request.path == '/login' %}
                                     <a class="nav-link" href="/register">
@@ -75,18 +92,29 @@
                                     </a>
                                 {% endif %}
                             </li>
+                        
                         </ul>
+
                     {% endif %}
+                
                 </div>
+            
             </div>
+
         </nav>
 
         {% if get_flashed_messages() %}
+
             <header>
+                
                 <div class="alert alert-primary mb-0 text-center" role="alert">
+                    
                     {{ get_flashed_messages() | join(" ") }}
+                
                 </div>
+
             </header>
+
         {% endif %}
 
         <main class="container-fluid py-5 text-center">

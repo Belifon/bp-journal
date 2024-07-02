@@ -7,13 +7,18 @@
 {% block main %}
     <h2>{{ data.heading }}</h2>
     <br>
+
     <form action="/login" method="post">
+        
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="{{ data.usernamePlaceholder }}" type="text">
         </div>
+        
         <div class="mb-3">
             <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="{{ data.passwordPlaceholder }}" type="password">
         </div>
+        
         <button class="btn btn-primary" id="login" type="submit">{{ data.loginButton }}</button>
+    
     </form>
 {% endblock %}

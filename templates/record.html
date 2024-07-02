@@ -5,24 +5,29 @@
 {% endblock %}
 
 {% block main %}
-    <h2>{{ data.heading }}</h2>
-    <br>
+    <h2>{{ data.heading }}</h2><br>
+
     <form action="/record" method="post">
+        
         <div class="mb-3">
             <input autofocus class="form-control mx-auto w-auto" id="systolic" name="systolic" placeholder="{{ data.systolicPlaceholder }}" type="number">
         </div>
+        
         <div class="mb-3">
             <input class="form-control mx-auto w-auto" id="diastolic" name="diastolic" placeholder="{{ data.diastolicPlaceholder }}" type="number">
         </div>
+        
         <div class="mb-3">
             <input class="form-control mx-auto w-auto" id="pulse" name="pulse" placeholder="{{ data.pulseRatePlaceholder }}" type="number">
         </div>
+        
         <div class="mb-3">
             <input class="form-control mx-auto w-auto" id="notes" name="notes" placeholder="{{ data.notesPlaceholder }}" type="text">
         </div>
+        
         <button class="btn btn-primary submit-button" id="record-button" type="submit">{{ data.recordButton }}</button>
-    </form>
-    <br>
+    
+    </form><br>
+    
     <p id="recordFooter">{{ data.FAQLink.text }} <a href="/resources#faq-section">{{ data.FAQLink.textUrl }}</a>.</p>
-
 {% endblock %}

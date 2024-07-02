@@ -12,6 +12,7 @@
     {% for section in data.sections %}
         <div class="section" id="{{ section.id }}">
             <h4>{{ section.header }}</h4>
+            
             <p>{{ section.content }}</p>
             
             {% if section.displayType == "ul" %}

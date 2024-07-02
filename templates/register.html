@@ -5,18 +5,23 @@
 {% endblock %}
 
 {% block main %}
-    <h2>{{ data.heading }}</h2>
-    <br>
+    <h2>{{ data.heading }}</h2><br>
+    
     <form action="/register" method="post">
+        
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="{{ data.usernamePlaceholder }}" type="text">
         </div>
+        
         <div class="mb-3">
             <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="{{ data.passwordPlaceholder }}" type="password">
         </div>
+        
         <div class="mb-3">
             <input class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="{{ data.passwordConfirmationPlaceholder }}" type="password">
         </div>
+        
         <button class="btn btn-primary submit-button" id="register" type="submit">{{ data.registerButton }}</button>
+    
     </form>
 {% endblock %}
