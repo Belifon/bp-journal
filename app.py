@@ -281,7 +281,12 @@ def history():
         user_tz = pytz.timezone(user_timezone)
 
         # Get all blood pressure recordings for the user
-        recording_rows = db.execute("SELECT * FROM blood_pressure_readings WHERE user_id = ? ORDER BY reading_date DESC;", user_id)
+        recording_rows = db.execute("""
+                                    SELECT * 
+                                    FROM blood_pressure_readings 
+                                    WHERE user_id = ? 
+                                    ORDER BY reading_date DESC
+        """, user_id)
 
         # Add classification to each recording and convert time to user's timezone
         for row in recording_rows:
