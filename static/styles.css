@@ -27,7 +27,8 @@ p, li {
     margin-bottom: 0.75em;
 }
 a { 
-    color: #0066cc; text-decoration: none; 
+    color: #0066cc; 
+    text-decoration: none; 
 }
 a:hover { 
     text-decoration: underline; 
@@ -43,7 +44,7 @@ ul, ol {
 .section {
     background-color: #ffffff;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 0.5em;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 1.5em;
     margin: 1.5em auto;
@@ -99,7 +100,7 @@ input[type="text"], input[type="password"], input[type="datetime-local"], select
     display: block;
 }
 
-/* Table */
+/* Average Table */
 #average-table {
     border-collapse: collapse;
     border-radius: 0.5em;
@@ -110,6 +111,7 @@ input[type="text"], input[type="password"], input[type="datetime-local"], select
     text-align: center;
 }    
 
+/* History & Dashboard Tables */
 .table>:not(caption)>*>* {
     border-bottom-width: 0px;
     padding: .2rem .2rem;
@@ -142,7 +144,7 @@ nav .navbar-brand .blue {
 }
 .navbar-nav {
     display: flex;
-    justify-content: space-between; /* Distribute items evenly */
+    justify-content: space-between;
     align-items: center;
 }
 .navbar-nav .nav-item {
@@ -167,39 +169,39 @@ nav .navbar-brand .blue {
     margin-left: 0.5em;
     margin-right: 0.5em;
     padding: 0.25em;
-    transition: color 0.3s;
+    transition-duration: 0.3s;
 }
 .add-record-button:hover {
     background: #06a8b7;
     color: #343a40; 
-    transition: color 0.3s;
+    transition-duration: 0.3s;
+    text-decoration: none;
 }
-
-/* Trends Section */
-#trends p {
-    text-align: center;
-}
-
-/* Buttons */
-button {
-    background-color: #4CAF50; /* Green */
+    
+/* Profile Buttons, Record, Log In and Register buttons*/    
+.submit-button {
+    transition-duration: 0.4s;
+    background-color: #2B5970;
     border: none;
     border-radius: 0.5em;
-    color: white;
-    cursor: pointer;
     display: inline-block;
-    font-size: 1em;
     margin: 4px 2px;
     padding: 0.5em 1em;
     text-align: center;
     text-decoration: none;
+    border: none;
+    color: white;
+}
+.submit-button:hover {
+    background: #184258;
     transition-duration: 0.4s;
 }
 
-/* Icon Button */
+/* Icon Buttons on History Table */
 .icon-btn {
     background: none;
     border: none;
+    border-radius: 0.25em;
     color: #6c757d; 
     cursor: pointer;
     font-size: 1em; 
@@ -212,19 +214,6 @@ button {
     color: #343a40; 
     transition: 0.3s;
 }
-
 .icon-btn:focus {
     outline: none;
-}
-
-.submit-button {
-    background-color: #06a8b7;
-    border: none;
-}
-
-.submit-button:hover {
-    background: #048b93;
-    border-color: #048b93;
-    transition: color 0.3s;
-    text-decoration: underline;
 }
