@@ -1,4 +1,4 @@
-import json, os, pytz
+import json, pytz
 
 from cs50 import SQL
 from datetime import datetime
@@ -62,7 +62,7 @@ def inject_layout_data():
 @app.context_processor
 def inject_user_details():
     
-    # Check if the user is logged in, if logged in query user info from database using ID
+    # Check if the user is logged in, if logged in, query user info from database using ID
     if 'user_id' in session: 
         user_id = session['user_id']
         user_info = db.execute("SELECT username FROM users WHERE id = ?", user_id) 
@@ -116,7 +116,13 @@ def dashboard():
     user_tz = pytz.timezone(user_timezone) 
 
     # Get the last 5 blood pressure readings
-    recording_rows = db.execute("SELECT * FROM blood_pressure_readings WHERE user_id = ? ORDER BY reading_date DESC LIMIT 5;", user_id)
+    recording_rows = db.execute("""
+                                SELECT * 
+                                FROM blood_pressure_readings 
+                                WHERE user_id = ? 
+                                ORDER BY reading_date 
+                                DESC LIMIT 5
+    """, user_id)
     
     # Add classification to each recording and convert time to user's timezone
     for row in recording_rows:
@@ -138,7 +144,9 @@ def dashboard():
 
     # Calculate the average of just the last 5 readings
     user_avg_recording = db.execute("""
-        SELECT AVG(systolic) AS avg_systolic, AVG(diastolic) AS avg_diastolic, AVG(pulse) AS avg_pulse
+        SELECT AVG(systolic) AS avg_systolic, 
+        AVG(diastolic) AS avg_diastolic, 
+        AVG(pulse) AS avg_pulse
         FROM (
             SELECT systolic, diastolic, pulse
             FROM blood_pressure_readings
@@ -170,33 +178,31 @@ def datetimeformat(value, format='%Y/%m/%d %H:%M'):
     if value is None:
         return ""
     try:
+
         # Try to parse the datetime
         value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
+    
     except ValueError:
         return value
+    
     return value.strftime(format)
-        #if isinstance(value, str):
-            # Try ISO 8601 format first
-            #value = datetime.strptime(value, '%Y-%m-%dT%H:%M')
-        #else:
-            #value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
-    #except ValueError:
-        
-        # Fallback to original format if the above fails
-        #value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
-    #return value.strftime(format)
+
 
 @app.route("/edit/<int:id>", methods=["GET", "POST"])
 @login_required
 def edit(id):
+
+    # Get record info, user id, user timezone from the database
     record = db.execute("SELECT * FROM blood_pressure_readings WHERE id = ?", id)[0]
     data=g.language_data['edit']
     user_id = session["user_id"]
     user_timezone = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]['timezone']
     user_tz = pytz.timezone(user_timezone)
 
+    # User reached route via POST
     if request.method == "POST":
-        print("POST request received in edit route")  # Debugging statement
+        
+        # Get edited record info via form
         try:
             systolic = request.form['systolic']
             diastolic = request.form['diastolic']
@@ -209,23 +215,32 @@ def edit(id):
             utc_time = user_tz.localize(local_time).astimezone(pytz.utc)
             utc_timestamp = utc_time.strftime('%Y-%m-%d %H:%M:%S')
 
-
-            # Ensure the timestamp is correctly formatted before storing it
-            #timestamp = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M').strftime('%Y-%m-%d %H:%M:%S')
-
-            db.execute("UPDATE blood_pressure_readings SET systolic = ?, diastolic = ?, pulse = ?, reading_date = ?, notes = ? WHERE id = ?", systolic, diastolic, pulse, utc_timestamp, notes, id)
+            # Edit the reading in the database and show success message
+            db.execute("""
+                    UPDATE blood_pressure_readings 
+                    SET systolic = ?, 
+                    diastolic = ?, 
+                    pulse = ?, 
+                    reading_date = ?, 
+                    notes = ? 
+                    WHERE id = ?
+            """, systolic, diastolic, pulse, utc_timestamp, notes, id)
             flash(data['editSuccess'], 'success')
             return redirect("/history")
+        
+        # If editing or updating fails, show error message to user
         except Exception as e:
             flash(f"{data['editFail']} {e}", 'danger')
             return redirect(url_for('edit', id=id))
         
+    # User reached route via GET get user data from database and render profile page
     else:
 
         # Convert the reading date to user's timezone for display
         utc_time = record["reading_date"]
         local_time = pytz.utc.localize(datetime.strptime(utc_time, '%Y-%m-%d %H:%M:%S')).astimezone(user_tz)
         record["reading_date"] = local_time.strftime('%Y-%m-%dT%H:%M')
+        
 
     # Render history with user data
     return render_template("edit.html", record=record, data=data)
@@ -235,6 +250,7 @@ def edit(id):
 @login_required
 def history():
 
+    # Load language data
     data=g.language_data['history']
 
     # User reached route via POST
@@ -245,7 +261,7 @@ def history():
             record_id = request.form.get("record_id")
             return redirect(url_for('edit', id=record_id))
         
-        # If the remove record button was clicked, remove data from database
+        # If the remove record button was clicked, remove that set of data from database
         elif "remove_record" in request.form:
             record_id = request.form.get("record_id")
             try:
@@ -258,6 +274,7 @@ def history():
         
     # User reached route via GET (as by clicking a link or via redirect)
     else:
+
         # Get user id and timezone information, convert to pytz timezone
         user_id = session["user_id"]
         user_timezone = db.execute("SELECT timezone FROM users WHERE id = ?", user_id)[0]['timezone']
@@ -357,10 +374,12 @@ def profile():
         
         # If the update name button was clicked, get new name from form, update name in database
         if "update_name" in request.form:  
-            name = request.form.get("name")
+            
             try:
+                name = request.form.get("name")
                 db.execute("UPDATE users SET name = ? WHERE id = ?", name, user_id)
                 flash(data['editNameSuccess'], 'success')
+            
             except Exception as e:
                 flash(f"{data['editFail']} {e}", 'danger')
                 return redirect("/profile")
@@ -368,16 +387,19 @@ def profile():
 
         # If the update timezone button was clicked, get new timezone from form, update timezone in database
         elif "update_timezone" in request.form:
+            
             try:
                 timezone = request.form.get("timezone")
                 db.execute("UPDATE users SET timezone = ? WHERE id = ?", timezone, user_id)
                 flash(data['editTimezoneSuccess'], 'success')
+            
             except Exception as e:
                 flash(f"{data['editFail']} {e}", 'danger')
                 return redirect("/profile")
 
         # If the update password button was clicked, get new password and password confirmation from form
         elif "update_password" in request.form: 
+            
             try:
                 password = request.form.get("password")
                 confirmation = request.form.get("confirmation")
@@ -392,6 +414,7 @@ def profile():
                 # Update password in database
                 db.execute("UPDATE users SET hash = ? WHERE id = ?", hashed_password, user_id)
                 flash(data['editPasswordSuccess'], 'success')
+            
             except Exception as e:
                 flash(f"{data['editFail']} {e}", 'danger')
                 return redirect("/profile")
@@ -403,7 +426,6 @@ def profile():
     else:
         user_data = db.execute("SELECT * FROM users WHERE id = ?", user_id)[0]
         return render_template("profile.html", user_data=user_data, data=g.language_data['profile'], timezones=timezones, user_time=user_time)
-
 
 
 @app.route("/record", methods=["GET", "POST"])
@@ -447,7 +469,11 @@ def record():
         user_time_gmt = user_time.astimezone(pytz.utc)
 
         # Insert reading into database
-        db.execute("INSERT INTO blood_pressure_readings (user_id, systolic, diastolic, pulse, notes, reading_date) VALUES (?, ?, ?, ?, ?, ?)", user_id, systolic, diastolic, pulse, notes, user_time_gmt);
+        db.execute("""
+                INSERT INTO blood_pressure_readings 
+                (user_id, systolic, diastolic, pulse, notes, reading_date) 
+                VALUES (?, ?, ?, ?, ?, ?)
+                """, user_id, systolic, diastolic, pulse, notes, user_time_gmt)
 
         # Redirect user to their dashboard
         return redirect("/dashboard")
@@ -457,10 +483,8 @@ def record():
         return render_template("record.html", data=g.language_data['record'])
 
 
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    """Register user"""
 
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
@@ -483,11 +507,18 @@ def register():
         if username_exists:
             return apology("username_not_available", 400)
 
-        # Register user info to database
+        # Hash password and Initialize name and zone info 
         hashed_password = generate_password_hash(password)
         name = ""
-        zone = "Turkey"
-        db.execute("INSERT INTO users (username, hash, name, timezone) VALUES (?, ?, ?, ?);", username, hashed_password, name, zone)
+        zone = "Turkey" # Initialize the location variable with the default value of Turkey
+        
+        # Register user info to database
+        db.execute("""
+                INSERT INTO users 
+                (username, hash, name, timezone) 
+                VALUES (?, ?, ?, ?)
+                """, username, hashed_password, name, zone)
+        
         user_rows = db.execute("SELECT * FROM users WHERE username = ?", username)
 
         # Remember which user has logged in
@@ -509,9 +540,16 @@ def resources():
     user_id = session["user_id"]
     return render_template("resources.html", user_id=user_id, data=g.language_data['resources'])
 
+
 @app.route("/toggle_language")
 def toggle_language():
-    current_lang = session.get('language', 'tr')  # Get current language from session, default to Turkish
-    new_lang = 'tr' if current_lang == 'en' else 'en'  # Toggle language between Turkish and English 
+
+    # Get current language from session, default to Turkish
+    current_lang = session.get('language', 'tr')  
+
+    # Toggle language between Turkish and English. Save new language to session
+    new_lang = 'tr' if current_lang == 'en' else 'en' 
     session['language'] = new_lang # Save new language to session
-    return redirect(request.referrer or '/') # Redirect back to the previous page
+    
+    # Redirect back to the previous page
+    return redirect(request.referrer or '/') 
