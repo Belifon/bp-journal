@@ -164,7 +164,7 @@ nav .navbar-brand .blue {
     color: #343a40; 
     cursor: pointer;
     float: right;
-    font-size: 1.5em; 
+    font-size: 1.25em; 
     margin: 0;
     margin-left: 0.5em;
     margin-right: 0.5em;
@@ -180,17 +180,16 @@ nav .navbar-brand .blue {
     
 /* Profile Buttons, Record, Log In and Register buttons*/    
 .submit-button {
-    transition-duration: 0.4s;
     background-color: #2B5970;
     border: none;
     border-radius: 0.5em;
+    color: white;
     display: inline-block;
     margin: 4px 2px;
     padding: 0.5em 1em;
     text-align: center;
     text-decoration: none;
-    border: none;
-    color: white;
+    transition-duration: 0.4s;
 }
 .submit-button:hover {
     background: #184258;
