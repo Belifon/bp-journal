@@ -4,15 +4,18 @@
 
 ### Description
 
-Blood Pressure Tracker is a web application designed to help users monitor and manage their blood pressure readings. Developed as the final project for Harvard's CS50x course, this application provides users with a simple interface to record, view, and analyze their blood pressure data over time.
+BP Tracker is a web application designed to help users track their blood pressure readings over time. Developed as the final project for Harvard's CS50x course, the platform allows users to log in, record their bp readings, view their history, and manage their profiles. The application supports multiple languages (Turkish and English) and handles time zone conversions for accurate logging of readings.
 
 ### Features
 
-- **Track Your Progress**: Record systolic and diastolic blood pressure, pulse rate, notes, and the time of recording.
-- **Insightful Analytics**: View categorized blood pressure readings (e.g., Normal, Elevated, High) for better understanding and management of blood pressure patterns.
-- **Educational Resources**: Access essential information on blood pressure management, including tips, articles, and guidelines.
-- **Internalization**: The application supports multiple languages, currently English and Turkish, to cater to a diverse user base.
-- **Timezone Localization**: Automatically converts and displays times based on the user's timezone for accurate and personalized tracking. 
+- User authentication and session management
+- Blood pressure recording and classification
+- Viewing and editing blood pressure history
+- User profile management, including name, timezone and password updates
+- Language support (Turkish and English)
+- Secure password hashing
+- Time zone handling for accurate timestamping
+- Tips, articles and guidelines on blood pressure management 
 
 ### Usage
 
@@ -20,37 +23,60 @@ Blood Pressure Tracker is a web application designed to help users monitor and m
 2. Record new blood pressure readings through the 'Record Readings' module in the navigation bar.
 3. View and analyze your blood pressure trends in the dashboard.
 4. Access educational resources for better blood pressure management.
+5. View and edit full history of blood pressure recordings.
+6. Update profile information like name, timezone and password
+
+### Prerequisites
+
+Before you can run this application, you need to have the following installed on your system:
+
+- Python 3.6+
+- Flask
+- SQLite
 
 ### Installation
 
 1. Clone the repository:
     ```bash
-    $ git clone https://github.com/Belifon/bp-tracker.git
+    git clone https://github.com/Belifon/bp-tracker.git
+    cd bp-tracker
     ```
-2. Install the necessary dependencies:
+2. Create and activate a virtual environment:
     ```bash
-    $ pip install -r requirements.txt
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+2. Install the required packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
+2. Set up the database:
+    ```bash
+    flask db init
+    flask db migrate -m "Initial migration."
+    flask db upgrade
     ```
 3. Run the application:
     ```bash
-    $ flask run
+    flask run
     ```
 
 ### Project Files
 
-- **app.py**: The main Python file that sets up the Flask application. Handles routes, user authentication, blood pressure recording, viewing history, session handling, database interactions and more.
-- **helpers.py**: Contains helper functions used throughout the application to manage common tasks and enhance code reusability.
+- **app.py**: The main Python file that sets up the Flask application. Handles routes, loading language data, user authentication, recording and editing blood pressure, viewing history, timezone conversion, updating user information, session handling, database interactions and more.
+- **helpers.py**: Contains helper functions used throughout the application to enhance code reusability and manage common tasks like displaying error messages, classifying blood pressure, etc.
 - **layout.html**: Defines the overall layout of the application using Bootstrap for styling.
 - **en.json** and **tr.json**: JSON files containing language strings for English and Turkish.
--- **templates/**: Directory containing HTML templates for different pages like index, dashboard, history, login, register, profile, record, and resources.
+-- **templates/**: Directory containing HTML templates for different pages like apology, dashboard, edit, history, index, login, profile, record, register, and resources.
 
 ### Key Routes
 
 - `/`: Home page with a welcome message and an overview of the application.
+- `/apology`: 
 - `/dashboard`: Displays the user's recent readings and average statistics.
+- `/edit`: 
 - `/history`: Shows the complete history of blood pressure readings.
 - `/login`: Handles user login.
-- `/logout`: Logs the user out and clears the session.
 - `/profile`: Allows users to update their profile information, including their name, timezone, and password.
 - `/record`: Enables users to record new blood pressure readings.
 - `/register`: Handles user registration.
