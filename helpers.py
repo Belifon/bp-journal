@@ -1,10 +1,4 @@
-import csv
-import datetime
-import pytz
-import requests
-import subprocess
 import urllib
-import uuid
 
 from flask import g, redirect, render_template, session
 from functools import wraps
@@ -14,7 +8,7 @@ def apology(message_key, code=400):
     
     def escape(s):
 
-        # Escape special characters. https://github.com/jacebrowning/memegen#special-characters
+        # Escape special characters for memegen https://github.com/jacebrowning/memegen#special-characters
         for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"), ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
             s = s.replace(old, new)
         return s
@@ -25,9 +19,7 @@ def apology(message_key, code=400):
     bottom_message = str(code)
     img_src = f"http://memegen.link/custom/{urllib.parse.quote(top_message)}/{urllib.parse.quote(bottom_message)}.jpeg?alt=https://i.imgur.com/Z6WSXng.jpeg&width=400"
     
-
     return render_template("apology.html", top=top_message, bottom=bottom_message, img_src=img_src), code
-    # return render_template("apology.html", top=code, bottom=escape(message)), code
 
 
 # Classify blood pressure based on systolic and diastolic values. Source: https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings
@@ -55,6 +47,7 @@ def classify_bp(systolic, diastolic):
 
 
 def login_required(f):
+
     # Decorate routes to require login. http://flask.pocoo.org/docs/0.12/patterns/viewdecorators/, imported from CS50x Finance
     @wraps(f)
     def decorated_function(*args, **kwargs):
