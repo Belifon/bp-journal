@@ -22,8 +22,8 @@ BP Tracker is a web application designed to help users track their blood pressur
 1. Register or log in to your account.
 2. Record new blood pressure readings through the 'Record Readings' module in the navigation bar.
 3. View and analyze your blood pressure trends in the dashboard.
-4. Access educational resources for better blood pressure management.
-5. View and edit full history of blood pressure recordings.
+4. View and edit full history of blood pressure recordings.
+5. Access educational resources for better blood pressure management.
 6. Update profile information like name, timezone and password
 
 ### Prerequisites
@@ -72,9 +72,7 @@ Before you can run this application, you need to have the following installed on
 ### Key Routes
 
 - `/`: Home page with a welcome message and an overview of the application.
-- `/apology`: 
 - `/dashboard`: Displays the user's recent readings and average statistics.
-- `/edit`: 
 - `/history`: Shows the complete history of blood pressure readings.
 - `/login`: Handles user login.
 - `/profile`: Allows users to update their profile information, including their name, timezone, and password.
@@ -86,9 +84,9 @@ Before you can run this application, you need to have the following installed on
 ### Design Choices
 
 
-- **Reuse of CS50x Finance Project Components**: Adapted and extended layout, CSS, login system, and database interaction from CS50x finance project.
+- **Reuse of CS50x Finance Project Components**: Adapted and extended layout, Bootstrap choices and login system from CS50x finance project.
 - **Database**: Utilizes SQLite for managing blood pressure data.
-**Internationalization**: Supports multiple languages through JSON files.
+- **Internationalization**: Supports multiple languages through JSON files.
 - **User Authentication**: Ensures security using Flask-Session for session management and Werkzeug for password hashing.
 - **Frontend Framework**: Uses Bootstrap for a responsive and visually appealing design.
 
