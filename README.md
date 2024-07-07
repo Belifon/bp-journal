@@ -14,7 +14,7 @@ BP Tracker is a web application designed to help users track their blood pressur
 - User profile management, including name, timezone and password updates
 - Language support (Turkish and English)
 - Secure password hashing
-- Time zone handling for accurate timestamping
+- Time zone handling for accurate time stamping
 - Tips, articles and guidelines on blood pressure management 
 
 ### Usage
