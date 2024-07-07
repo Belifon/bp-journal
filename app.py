@@ -4,7 +4,6 @@ from cs50 import SQL
 from datetime import datetime
 from flask import Flask, flash, g, redirect, render_template, request, session, url_for
 from flask_session import Session
-from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
 # Import custom helper functions from helpers.py
