@@ -24,7 +24,7 @@ p, li, a {
     text-align: justify;
 }
 p, li {
-    margin-bottom: 0.75em;
+    margin-bottom: .75em;
 }
 a { 
     color: #0066cc; 
@@ -44,7 +44,7 @@ ul, ol {
 .section {
     background-color: #ffffff;
     border: 1px solid #ccc;
-    border-radius: 0.5em;
+    border-radius: .5em;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 1.5em;
     margin: 1.5em auto;
@@ -72,44 +72,49 @@ ul, ol {
     margin-top: 1em;
 }
 .section.profile-page label {
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
+    margin-bottom: .5em;
+    margin-top: .5em;
 }
 .section.profile-page .form-group select,
 .section.profile-page .form-group input {
     max-width: 85%;
     width: 75%;
-    padding: 0.5em;
+    padding: .5em;
 }
 #timezone-select:hover { 
     background-color: #048b93; 
     color: white;
-    transition: 0.3s;
+    transition: .3s;
 }
 .form-control {
-    padding: 0.5em;
+    padding: .5em;
 }
 
 input[type="text"], input[type="password"], input[type="datetime-local"], select {
     border: 1px solid #ccc;
-    border-radius: 0.5em;
+    border-radius: .5em;
     font-size: 1em;
-    margin-top: 0.5em;
+    margin-top: .5em;
     width: 100%;
-    padding: 0.5em;
+    padding: .5em;
     display: block;
 }
 
 /* Average Table */
 #average-table {
     border-collapse: collapse;
-    border-radius: 0.5em;
+    border-radius: .5em;
     margin-left: auto;
     margin-right: auto;
     max-width:max-content;
     overflow: hidden;
     text-align: center;
 }    
+
+/* Trends table in Dashboard */
+#trends-table {
+    padding: .4em;
+}
 
 /* History & Dashboard Tables */
 .table>:not(caption)>*>* {
@@ -140,7 +145,7 @@ nav .navbar-brand img {
 }
 nav .navbar-brand .blue { 
     color: #06a8b7;
-    margin-left: 0.5em;
+    margin-left: .5em;
 }
 .navbar-nav {
     display: flex;
@@ -159,22 +164,22 @@ nav .navbar-brand .blue {
 .add-record-button {
     background: #06a8b760;
     border: none;
-    border-left: 0.5em;
-    border-radius: 0.5em;
+    border-left: .5em;
+    border-radius: .5em;
     color: #343a40; 
     cursor: pointer;
     float: right;
     font-size: 1.25em; 
     margin: 0;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    padding: 0.25em;
-    transition-duration: 0.3s;
+    margin-left: .5em;
+    margin-right: .5em;
+    padding: .25em;
+    transition-duration: .3s;
 }
 .add-record-button:hover {
     background: #06a8b7;
     color: #343a40; 
-    transition-duration: 0.3s;
+    transition-duration: .3s;
     text-decoration: none;
 }
     
@@ -182,36 +187,36 @@ nav .navbar-brand .blue {
 .submit-button {
     background-color: #2B5970;
     border: none;
-    border-radius: 0.5em;
+    border-radius: .5em;
     color: white;
     display: inline-block;
     margin: 4px 2px;
-    padding: 0.5em 1em;
+    padding: .5em 1em;
     text-align: center;
     text-decoration: none;
-    transition-duration: 0.4s;
+    transition-duration: .4s;
 }
 .submit-button:hover {
     background: #184258;
-    transition-duration: 0.4s;
+    transition-duration: .4s;
 }
 
 /* Icon Buttons on History Table */
 .icon-btn {
     background: none;
     border: none;
-    border-radius: 0.25em;
+    border-radius: .25em;
     color: #6c757d; 
     cursor: pointer;
     font-size: 1em; 
-    padding: 0.25em;
+    padding: .25em;
     margin: 0;
-    transition: 0.3s;
+    transition: .3s;
 }
 .icon-btn:hover {
     background:darkgray;
     color: #343a40; 
-    transition: 0.3s;
+    transition: .3s;
 }
 .icon-btn:focus {
     outline: none;
