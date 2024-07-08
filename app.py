@@ -27,9 +27,9 @@ timezones = pytz.all_timezones
 @app.before_request
 def load_language_data():
 
-    # Default language to Turkish if not set
+    # Default language to English if not set
     if 'language' not in session:
-        session['language'] = 'tr'
+        session['language'] = 'en'
 
     # Load language data before each request, open and read the appropriate language file
     user_lang = session['language']
@@ -313,7 +313,7 @@ def history():
 def login():
 
     # Preserve language preference before clearing session
-    current_lang = session.get('language', 'tr')
+    current_lang = session.get('language', 'en')
 
     # Forget any session (user_id) info but keep the language preference
     session.clear()
@@ -352,7 +352,7 @@ def login():
 def logout():
     
     # Preserve language preference before clearing session
-    current_lang = session.get('language', 'tr')
+    current_lang = session.get('language', 'en')
 
     # Forget any session (user_id) info but keep the language preference
     session.clear()
